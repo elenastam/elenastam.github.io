@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Elena Stamatopoulou — Senior Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ══════════════════════════════════════════
+   RESET & DESIGN TOKENS
+══════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --g50:#f9f9f9;
+  --g100:#f5f5f5;
+  --g200:#efefef;
+  --g300:#e3e3e3;
+  --g400:#c8c8c8;
+  --g500:#ababab;
+  --g600:#848484;
+  --g700:#717171;
+  --g800:#525252;
+  --g900:#2e2e2e;
+  --accent:#4f5fef;
+  --accent-light:#eef0fd;
+  --accent-border:#c7ccfa;
+  --green:#22c55e;
+  --r-sm:6px;--r-md:8px;--r-lg:12px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--g50);color:var(--g900);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;}
+
+/* ══════════════════════════════════════════
+   TYPOGRAPHY
+══════════════════════════════════════════ */
+.overline{font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g500);}
+h1{font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700;letter-spacing:-.04em;line-height:1.1;color:var(--g900);}
+h2{font-size:clamp(1.375rem,3vw,2rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;}
+h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
+.body1{font-size:1rem;line-height:1.7;color:var(--g700);}
+.body2{font-size:.875rem;line-height:1.7;color:var(--g600);}
+.caption{font-size:.6875rem;letter-spacing:.08em;text-transform:uppercase;color:var(--g500);font-weight:600;}
+.prose{max-width:68ch;}
+
+/* ══════════════════════════════════════════
+   LAYOUT
+══════════════════════════════════════════ */
+.container{width:100%;max-width:1080px;margin:0 auto;padding:0 32px;}
+.container-cs{width:100%;max-width:850px;margin:0 auto;padding:0 32px;}
+.section{padding:64px 0;}
+.section-alt{padding:64px 0;background:var(--g50);}
+.section-white{padding:64px 0;background:#fff;}
+.mb-2{margin-bottom:8px;}.mb-3{margin-bottom:12px;}.mb-4{margin-bottom:16px;}
+.mb-6{margin-bottom:24px;}.mb-8{margin-bottom:32px;}.mb-10{margin-bottom:40px;}
+.mb-12{margin-bottom:48px;}.mb-16{margin-bottom:64px;}
+
+/* ══════════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════════ */
+.navbar{position:sticky;top:0;z-index:100;background:rgba(249,249,249,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--g200);}
+.navbar-inner{height:64px;display:flex;align-items:center;justify-content:space-between;}
+.navbar-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-mark{width:30px;height:30px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;}
+.logo-mark span{color:#fff;font-weight:700;font-size:.7rem;}
+.logo-name{font-weight:600;font-size:.9375rem;letter-spacing:-.02em;color:var(--g900);}
+.navbar-links{display:flex;align-items:center;gap:4px;}
+.nav-divider{width:1px;height:16px;background:var(--g300);margin:0 6px;}
+.btn-nav{font-family:inherit;font-size:.875rem;font-weight:400;color:var(--g600);background:none;border:1px solid transparent;border-radius:var(--r-md);padding:6px 12px;cursor:pointer;text-decoration:none;transition:background .15s,color .15s;display:inline-flex;align-items:center;gap:6px;min-height:44px;}
+.btn-nav:hover{background:var(--g100);color:var(--g900);}
+.btn-nav.active{color:var(--g900);font-weight:600;}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:inherit;font-size:.875rem;font-weight:500;border-radius:var(--r-md);padding:8px 18px;cursor:pointer;text-decoration:none;transition:all .15s ease;white-space:nowrap;min-height:44px;}
+.btn-contained{background:var(--accent);color:#fff;border:1px solid var(--accent);}
+.btn-contained:hover{background:#3344cc;border-color:#3344cc;}
+.btn-outlined{background:transparent;color:var(--g900);border:1px solid var(--g300);}
+.btn-outlined:hover{border-color:var(--g500);background:var(--g100);}
+.btn-lg{padding:14px 28px;font-size:.9375rem;min-height:48px;}
+
+/* ══════════════════════════════════════════
+   CHIPS & TAGS
+══════════════════════════════════════════ */
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{font-size:.6875rem;font-weight:500;color:var(--g700);border:1px solid var(--g300);border-radius:var(--r-sm);padding:4px 10px;display:inline-block;}
+.label-chip{display:inline-flex;align-items:center;font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:20px;padding:3px 12px;}
+
+/* ══════════════════════════════════════════
+   SECTION HEADER
+══════════════════════════════════════════ */
+.section-header{margin-bottom:24px;}
+.section-header-line{display:flex;align-items:center;gap:16px;margin-bottom:0;}
+.section-header-line::after{content:'';flex:1;height:1px;background:var(--g200);}
+
+/* ══════════════════════════════════════════
+   SCROLL PROGRESS BAR
+══════════════════════════════════════════ */
+#scroll-progress-track{position:fixed;top:0;left:0;right:0;height:3px;background:var(--g200);z-index:9999;pointer-events:none;}
+#scroll-progress-fill{height:100%;width:0%;background:var(--accent);transition:width .05s linear;}
+
+/* ══════════════════════════════════════════
+   GLOBAL FOOTER
+══════════════════════════════════════════ */
+footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;margin-top:auto;}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-logo{display:flex;align-items:center;gap:8px;text-decoration:none;}
+.footer-mark{width:22px;height:22px;border-radius:6px;background:var(--accent);display:flex;align-items:center;justify-content:center;}
+.footer-mark span{color:#fff;font-weight:700;font-size:.6rem;}
+.footer-name{font-weight:600;font-size:.875rem;color:var(--g900);}
+.footer-links{display:flex;align-items:center;gap:4px;}
+.footer-sep{width:1px;height:14px;background:var(--g300);margin:0 4px;}
+/* Footer icon sizing */
+.footer-icon{width:14px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0;}
+
+/* ══════════════════════════════════════════
+   HOME PAGE — HERO
+   Single vertical axis: avatar, h1, sub, CTAs
+   all share the same left edge via flex-column
+   + align-items:flex-start on the left column.
+══════════════════════════════════════════ */
+.hero{border-bottom:1px solid var(--g200);padding:56px 0 64px;background:#fff;}
+
+/* Left column: single vertical axis — all children flush left */
+.hero-left{display:flex;flex-direction:column;align-items:flex-start;}
+
+/* Circular headshot — real photo */
+.hero-headshot{
+  width:96px;height:96px;
+  border-radius:50%;
+  background:var(--g100);
+  border:2px solid var(--g200);
+  overflow:hidden;
+  flex-shrink:0;
+  margin-bottom:20px;
+  /* No margin-left so it is flush with h1 and paragraph */
+  margin-left:0;
+}
+.hero-headshot img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;}
+
+.hero-left h1{margin-bottom:16px;max-width:20ch;}
+.hero-sub{color:var(--g600);font-size:1rem;line-height:1.75;max-width:52ch;margin-bottom:12px;}
+/* CTA row: side-by-side, equal width, perfectly symmetric */
+.hero-ctas{display:flex;gap:12px;flex-wrap:nowrap;align-items:center;margin-top:28px;}
+.hero-ctas .btn{width:180px;justify-content:center;}
+@media(max-width:539px){.hero-ctas{flex-direction:column;align-items:flex-start;}.hero-ctas .btn{width:100%;}}
+
+/* ── HERO GRID — 1-col mobile, 2-col at ≥900px ── */
+.hero-grid{display:grid;grid-template-columns:1fr;gap:32px;align-items:start;}
+@media(min-width:900px){.hero-grid{grid-template-columns:1fr 1fr;gap:48px;align-items:center;}}
+
+/* ══════════════════════════════════════════
+   HERO VALUE DASHBOARD — stable 2×2 grid
+   Numbers are top-aligned so the blue figures
+   always sit on a consistent horizontal baseline.
+══════════════════════════════════════════ */
+.hero-value-dashboard{
+  display:grid;
+  /* Single col on small phones */
+  grid-template-columns:1fr;
+  gap:12px;
+  width:100%;
+}
+/* Lock to 2-col from 480px onward — never wider than 2 cols */
+@media(min-width:480px){
+  .hero-value-dashboard{grid-template-columns:repeat(2,1fr);}
+}
+/* Each card: flex-column, top-aligned so numbers baseline-align row by row */
+.hero-value-dashboard .vd-card{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:flex-start; /* top-align — numbers share same Y start */
+  text-align:left;
+  background:var(--g50);
+  border:1px solid var(--g200);
+  border-radius:var(--r-lg);
+  padding:20px 16px;
+  gap:0; /* use explicit margin-top on each child instead */
+}
+.vd-num{
+  font-size:1.625rem;
+  font-weight:700;
+  letter-spacing:-.04em;
+  color:var(--accent);
+  line-height:1;
+  /* No margin-top — this is always the topmost element in the card */
+}
+.vd-label{
+  font-size:.6875rem;
+  font-weight:700;
+  letter-spacing:.04em;
+  color:var(--g900);
+  margin-top:4px;
+}
+.vd-sub{
+  font-size:.625rem;
+  font-weight:600;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--g500);
+  margin-top:2px;
+  white-space:nowrap;
+}
+.vd-desc{
+  font-size:.6875rem;
+  color:var(--g600);
+  line-height:1.4;
+  margin-top:8px;
+}
+
+/* ══════════════════════════════════════════
+   PULL QUOTE STRIP
+══════════════════════════════════════════ */
+.home-quote-strip{background:var(--g50);border-top:1px solid var(--g200);border-bottom:1px solid var(--g200);padding:32px 0;}
+.home-quote-inner{display:flex;align-items:flex-start;gap:20px;max-width:680px;}
+.home-quote-mark{font-size:2.5rem;line-height:.8;color:var(--accent);font-weight:700;flex-shrink:0;margin-top:4px;}
+.home-quote-text{font-size:1rem;font-weight:500;line-height:1.65;color:var(--g800);letter-spacing:-.01em;}
+.home-quote-attr{font-size:.6875rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--g500);margin-top:8px;}
+
+/* ══════════════════════════════════════════
+   WORK SECTION
+══════════════════════════════════════════ */
+.work-section{padding:64px 0;}
+.section-hdr{margin-bottom:32px;}
+.section-hdr .overline{margin-bottom:6px;}
+
+/* Ecosystem group */
+.ecosystem-group{margin-bottom:40px;}
+.ecosystem-group-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding:14px 18px;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:var(--r-lg);}
+.ecosystem-group-label{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);}
+.ecosystem-group-title{font-size:.9375rem;font-weight:600;color:var(--g900);letter-spacing:-.01em;}
+
+/* Ecosystem connector 2-col grid with → arrow between cards */
+.ecosystem-connector{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:640px){.ecosystem-connector{grid-template-columns:1fr;}}
+.ecosystem-connector-item{position:relative;display:flex;flex-direction:column;}
+.ecosystem-connector-item .cs-card{flex:1;}
+.eco-step-label{display:inline-flex;align-items:center;gap:6px;font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:var(--r-sm);padding:2px 8px;margin-bottom:8px;}
+@media(min-width:641px){
+  .ecosystem-connector{position:relative;}
+  .ecosystem-connector::after{content:'→';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:.875rem;color:var(--accent);background:#fff;border:1px solid var(--accent-border);border-radius:50%;width:28px;height:28px;text-align:center;line-height:28px;z-index:2;}
+}
+
+/* Case study cards */
+.case-grid{display:grid;grid-template-columns:1fr;gap:16px;}
+@media(min-width:640px){.case-grid{grid-template-columns:1fr 1fr;}}
+.cs-card{border:1px solid var(--g200);border-radius:var(--r-lg);background:#fff;overflow:hidden;cursor:pointer;transition:border-color .2s ease,transform .2s ease;text-decoration:none;display:flex;flex-direction:column;color:inherit;}
+.cs-card:hover{border-color:var(--g400);transform:translateY(-2px);}
+.cs-card-band{height:4px;flex-shrink:0;background:var(--accent);}
+.cs-card-body{padding:22px;flex:1;display:flex;flex-direction:column;}
+.cs-card-eyebrow{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.cs-card-title{font-size:1rem;font-weight:600;letter-spacing:-.01em;color:var(--g900);margin-bottom:4px;}
+.cs-card-subtitle{font-size:.8125rem;font-weight:500;color:var(--g700);line-height:1.45;margin-bottom:10px;}
+.cs-card-desc{font-size:.8125rem;color:var(--g600);line-height:1.65;margin-bottom:14px;flex:1;}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px;}
+.tag{font-size:.6875rem;font-weight:500;color:var(--g700);border:1px solid var(--g300);border-radius:var(--r-sm);padding:2px 8px;}
+.cs-card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--g200);margin-top:auto;}
+.cs-card-cta{font-size:.8125rem;font-weight:600;color:var(--accent);}
+.cs-card-metric{font-size:.6875rem;font-weight:700;letter-spacing:.04em;color:var(--g700);background:var(--g100);border:1px solid var(--g300);border-radius:var(--r-sm);padding:2px 8px;}
+
+/* Coming Soon card placeholder image area */
+.cs-card-thumb{
+  width:100%;
+  height:120px;
+  overflow:hidden;
+  background:var(--g100);
+  border-bottom:1px solid var(--g200);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+.cs-card-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.cs-card-thumb-placeholder{font-size:.75rem;font-weight:500;color:var(--g400);letter-spacing:.04em;}
+
+/* ══════════════════════════════════════════
+   MOBILE RESPONSIVENESS
+══════════════════════════════════════════ */
+@media(max-width:480px){
+  .logo-name{display:none;}
+  .navbar-links{gap:2px;}
+  .nav-divider{display:none;}
+  .btn-nav{padding:8px 10px;font-size:.8rem;}
+  .container,.container-cs{padding:0 16px;}
+}
+@media(max-width:640px){
+  .case-grid{grid-template-columns:1fr!important;}
+  .ecosystem-connector{grid-template-columns:1fr!important;}
+  .ecosystem-connector::after{display:none!important;}
+  .section,.section-alt,.section-white,.work-section{padding:32px 0;}
+}
+@media(max-width:560px){
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:12px;}
+  .footer-links{flex-wrap:wrap;}
+}
+</style>
+  <script src="content.js"></script>
+</head>
+<body>
+
+<!-- Scroll progress bar — active on every page -->
+<div id="scroll-progress-track"><div id="scroll-progress-fill"></div></div>
+
+<!-- ══════════════════════════════════════
+     NAVBAR — Active: Work
+══════════════════════════════════════ -->
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-inner">
+      <a class="navbar-logo" href="index.html">
+        <div class="logo-mark"><span>ES</span></div>
+        <span class="logo-name">Elena Stamatopoulou</span>
+      </a>
+      <div class="navbar-links">
+        <a class="btn-nav active" href="#home-work">Work</a>
+        <a class="btn-nav" href="about.html">About</a>
+        <div class="nav-divider"></div>
+        <a class="btn-nav" href="mailto:elenast.ux@gmail.com">Email</a>
+        <a class="btn btn-outlined" style="padding:6px 14px;font-size:.8125rem;" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ══════════════════════════════════════
+       HERO SECTION
+       Single vertical axis: avatar → h1 → sub → CTAs
+       all share the same left margin via .hero-left
+  ══════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container-cs">
+      <div class="hero-grid">
+
+        <!-- ── Left column: single vertical axis ── -->
+        <div class="hero-left">
+          <!-- Avatar: real headshot photo, same left edge as h1 -->
+          <div class="hero-headshot">
+            <img
+              src="images/common/avatar-headshot.svg"
+              alt="Elena Stamatopoulou"
+              width="192"
+              height="192"
+              style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"
+            />
+          </div>
+
+          <h1 id="home-headline">I design B2B products that make business sense.</h1>
+
+          <p id="home-sub" class="hero-sub">After 7 years at Dialectica—starting in operations and moving into product design—I bring a commercial lens to every design decision.</p>
+
+          <div class="hero-ctas">
+            <a class="btn btn-contained btn-lg" href="#home-work">Explore My Work</a>
+            <a class="btn btn-outlined btn-lg" href="about.html">My Strategic Story</a>
+          </div>
+        </div>
+
+        <!-- ── Right column: 2×2 Metric Dashboard ── -->
+        <!--
+          2×2 grid locks at repeat(2,1fr) from 480px.
+          Each .vd-card uses flex-column + align-items:flex-start +
+          justify-content:flex-start so ALL blue numbers sit on the
+          same horizontal top-baseline within their row.
+        -->
+        <div class="hero-value-dashboard">
+
+          <!-- Row 1, Col 1: 7+ Years -->
+          <div class="vd-card">
+            <div id="home-stat-0-num" class="vd-num">7+</div>
+            <div id="home-stat-0-label" class="vd-label">Years</div>
+            <div class="vd-sub">At Dialectica (Ops + UX)</div>
+            <div class="vd-desc">Deep domain expertise in enterprise research workflows.</div>
+          </div>
+
+          <!-- Row 1, Col 2: 3 Promotions -->
+          <div class="vd-card">
+            <div id="home-stat-1-num" class="vd-num">+40%</div>
+            <div id="home-stat-1-label" class="vd-label">Conversion</div>
+            <div class="vd-sub">SearchAgent redesign</div>
+            <div class="vd-desc">Improved expert conversion rates.</div>
+          </div>
+
+          <!-- Row 2, Col 1: 15 People -->
+          <div class="vd-card">
+            <div id="home-stat-2-num" class="vd-num">2</div>
+            <div id="home-stat-2-label" class="vd-label">Promotions</div>
+            <div class="vd-sub">In 3.5 Years</div>
+            <div class="vd-desc">Recognized for impact across product design initiatives.</div>
+          </div>
+
+          <!-- Row 2, Col 2: 2.5× Growth -->
+          <div class="vd-card">
+            <div id="home-stat-3-num" class="vd-num">2.5×</div>
+            <div id="home-stat-3-label" class="vd-label">AI Adoption</div>
+            <div class="vd-sub">Through product design</div>
+            <div class="vd-desc">Proven track record of driving high-impact product outcomes.</div>
+          </div>
+
+        </div><!-- /hero-value-dashboard -->
+
+      </div><!-- /hero-grid -->
+    </div>
+  </section>
+
+  <!-- ── PULL QUOTE STRIP ── -->
+  <div class="home-quote-strip">
+    <div class="container">
+      <div class="home-quote-inner">
+        <div class="home-quote-mark">"</div>
+        <div>
+          <p id="home-quote-text" class="home-quote-text">Elena's thinking often influences the direction of the product proposition — helping the team align and understand where we're going.</p>
+          <p id="home-quote-attr" class="home-quote-attr">Director, UX</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       CASE STUDIES SECTION
+  ══════════════════════════════════════ -->
+  <section class="work-section" id="home-work">
+    <div class="container">
+
+      <div class="section-hdr">
+        <p class="overline">Selected Work</p>
+        <h2>Case Studies</h2>
+      </div>
+
+      <!-- ── Ecosystem Group: Dialectica AI Suite ── -->
+      <div class="ecosystem-group">
+
+        <!-- Header with Sparkles icon -->
+        <div class="ecosystem-group-header">
+          <!-- Sparkles SVG (Lucide style) — signals AI/magic -->
+          <svg
+            width="18" height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#4f5fef"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            style="flex-shrink:0;opacity:.9;"
+          >
+            <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+            <path d="M20 3v4"/>
+            <path d="M22 5h-4"/>
+            <path d="M4 17v2"/>
+            <path d="M5 18H3"/>
+          </svg>
+          <div>
+            <div id="home-eco-label" class="ecosystem-group-label">The Dialectica AI Suite</div>
+            <div id="home-eco-title" class="ecosystem-group-title">The Workflow Automation Ecosystem</div>
+          </div>
+        </div>
+
+        <!-- Two connected case study cards with → arrow -->
+        <div class="ecosystem-connector">
+
+          <!-- Card 01: Project Builder → project-builder.html -->
+          <div class="ecosystem-connector-item">
+            <div class="eco-step-label">01 · Seeding</div>
+            <a class="cs-card" href="project-builder.html">
+              <div class="cs-card-band"></div>
+              <div class="cs-card-body">
+                <div class="cs-card-eyebrow">
+                  <span class="label-chip">Project Builder</span>
+                </div>
+                <div id="cs-pb-title" class="cs-card-title" style="margin-top:10px;">AI Project Builder</div>
+                <div id="cs-pb-subtitle" class="cs-card-subtitle">Faster Brief Setup with AI</div>
+                <p class="cs-card-desc">Redesigned the project setup so AI can automatically fill in brief data — seeding SearchAgent with high-quality input from the start.</p>
+                <div class="tags">
+                  <span class="tag">Workflow Design</span>
+                  <span class="tag">AI Automation</span>
+                  <span class="tag">B2B SaaS</span>
+                </div>
+                <div class="cs-card-footer">
+                  <span class="cs-card-cta">View Case Study →</span>
+                  <span id="cs-pb-metric" class="cs-card-metric">↓ 20% Setup Time</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Card 02: SearchAgent → search-agent.html -->
+          <div class="ecosystem-connector-item">
+            <div class="eco-step-label">02 · Discovery</div>
+            <a class="cs-card" href="search-agent.html">
+              <div class="cs-card-band"></div>
+              <div class="cs-card-body">
+                <div class="cs-card-eyebrow">
+                  <span class="label-chip">SearchAgent</span>
+                </div>
+                <div id="cs-sa-title" class="cs-card-title" style="margin-top:10px;">AI SearchAgent</div>
+                <div id="cs-sa-subtitle" class="cs-card-subtitle">Brief-Aware Expert Discovery Engine</div>
+                <p class="cs-card-desc">Redesigned the expert search experience so the AI prioritises brief-aligned experts — turning a manual search into a more intelligent workflow.</p>
+                <div class="tags">
+                  <span class="tag">AI / ML</span>
+                  <span class="tag">Enterprise SaaS</span>
+                  <span class="tag">Research Workflows</span>
+                </div>
+                <div class="cs-card-footer">
+                  <span class="cs-card-cta">View Case Study →</span>
+                  <span id="cs-sa-metric" class="cs-card-metric">+40% Adoption</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+        </div><!-- /ecosystem-connector -->
+      </div><!-- /ecosystem-group -->
+
+    </div>
+  </section>
+
+</main>

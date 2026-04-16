@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Project Builder — Elena Stamatopoulou</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ══════════════════════════════════════════
+   RESET & DESIGN TOKENS
+══════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --g50:#f9f9f9;
+  --g100:#f5f5f5;
+  --g200:#efefef;
+  --g300:#e3e3e3;
+  --g400:#c8c8c8;
+  --g500:#ababab;
+  --g600:#848484;
+  --g700:#717171;
+  --g800:#525252;
+  --g900:#2e2e2e;
+  --accent:#4f5fef;
+  --accent-light:#eef0fd;
+  --accent-border:#c7ccfa;
+  --green:#22c55e;
+  --r-sm:6px;--r-md:8px;--r-lg:12px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--g50);color:var(--g900);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;}
+
+/* ══════════════════════════════════════════
+   TYPOGRAPHY
+══════════════════════════════════════════ */
+.overline{font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g700);}
+h1{font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700;letter-spacing:-.04em;line-height:1.1;color:var(--g900);}
+h2{font-size:clamp(1.375rem,3vw,2rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;}
+h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
+.body1{font-size:1rem;line-height:1.7;color:var(--g700);}
+.body2{font-size:.875rem;line-height:1.7;color:var(--g600);}
+.caption{font-size:.6875rem;letter-spacing:.08em;text-transform:uppercase;color:var(--g500);font-weight:600;}
+.prose{max-width:68ch;}
+
+/* ── PULL QUOTE ── */
+.pull-quote{border-left:3px solid var(--accent);padding:2px 0 2px 20px;margin:0;}
+.pull-quote p{font-size:1.125rem;font-weight:500;line-height:1.6;color:var(--g900);letter-spacing:-.015em;}
+
+/* ══════════════════════════════════════════
+   LAYOUT
+══════════════════════════════════════════ */
+.container{width:100%;max-width:1080px;margin:0 auto;padding:0 32px;}
+.container-cs{width:100%;max-width:850px;margin:0 auto;padding:0 32px;}
+.section-alt{padding:64px 0;background:var(--g50);}
+.section-white{padding:64px 0;background:#fff;}
+.mb-4{margin-bottom:16px;}.mb-6{margin-bottom:24px;}.mb-8{margin-bottom:32px;}
+.mb-10{margin-bottom:40px;}.mb-12{margin-bottom:48px;}
+
+/* ══════════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════════ */
+.navbar{position:sticky;top:0;z-index:100;background:rgba(249,249,249,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--g200);}
+.navbar-inner{height:64px;display:flex;align-items:center;justify-content:space-between;}
+.navbar-logo{display:flex;align-items:center;gap:10px;cursor:pointer;text-decoration:none;}
+.logo-mark{width:30px;height:30px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;}
+.logo-mark span{color:#fff;font-weight:700;font-size:.7rem;}
+.logo-name{font-weight:600;font-size:.9375rem;letter-spacing:-.02em;color:var(--g900);}
+.navbar-links{display:flex;align-items:center;gap:4px;}
+.nav-divider{width:1px;height:16px;background:var(--g300);margin:0 6px;}
+.btn-nav{font-family:inherit;font-size:.875rem;font-weight:400;color:var(--g600);background:none;border:1px solid transparent;border-radius:var(--r-md);padding:6px 12px;cursor:pointer;text-decoration:none;transition:background .15s,color .15s;display:inline-flex;align-items:center;gap:6px;min-height:44px;}
+.btn-nav:hover{background:var(--g100);color:var(--g900);}
+.btn-nav.active{color:var(--g900);font-weight:600;}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:inherit;font-size:.875rem;font-weight:500;border-radius:var(--r-md);padding:8px 18px;cursor:pointer;text-decoration:none;transition:all .15s ease;white-space:nowrap;min-height:44px;}
+.btn-outlined{background:transparent;color:var(--g900);border:1px solid var(--g300);}
+.btn-outlined:hover{border-color:var(--g500);background:var(--g100);}
+.btn-lg{padding:14px 28px;font-size:.9375rem;min-height:48px;}
+
+/* ══════════════════════════════════════════
+   CHIPS & TAGS
+══════════════════════════════════════════ */
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{font-size:.6875rem;font-weight:500;color:var(--g700);border:1px solid var(--g300);border-radius:var(--r-sm);padding:4px 10px;display:inline-block;}
+.chip-accent{background:var(--accent-light);border-color:var(--accent-border);color:var(--accent);}
+.label-chip{display:inline-flex;align-items:center;font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:20px;padding:3px 12px;}
+.phase-label{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g500);}
+
+/* ══════════════════════════════════════════
+   SECTION HEADER
+══════════════════════════════════════════ */
+.section-header{margin-bottom:24px;}
+.section-header-line{display:flex;align-items:center;gap:16px;margin-bottom:0;}
+.section-header-line::after{content:'';flex:1;height:1px;background:var(--g200);}
+
+/* ══════════════════════════════════════════
+   METRIC DASHBOARD
+══════════════════════════════════════════ */
+.metric-dashboard{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.metric-paper{background:var(--g50);border-radius:var(--r-lg);padding:28px 24px;display:flex;flex-direction:column;gap:6px;}
+.metric-paper .metric-num{font-size:clamp(1.5rem,2.8vw,2.125rem);font-weight:700;letter-spacing:-.04em;color:var(--g900);line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.metric-paper .metric-num .hi{color:var(--accent);font-weight:700;font-size:inherit;}
+.metric-paper .metric-cap{font-size:.625rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--g700);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.metric-paper .metric-sub{font-size:.8125rem;color:var(--g600);line-height:1.5;margin-top:2px;}
+@media(max-width:640px){.metric-dashboard{grid-template-columns:1fr 1fr!important;}}
+@media(max-width:400px){.metric-dashboard{grid-template-columns:1fr!important;}}
+
+/* ══════════════════════════════════════════
+   SIDE-BY-SIDE GRIDS
+══════════════════════════════════════════ */
+.side-by-side{display:grid;gap:16px;}
+.sbs-2{grid-template-columns:1fr;}
+.sbs-3{grid-template-columns:1fr;}
+@media(min-width:640px){.sbs-2{grid-template-columns:1fr 1fr;}}
+@media(min-width:768px){.sbs-3{grid-template-columns:repeat(3,1fr);}}
+
+/* ══════════════════════════════════════════
+   CARDS
+══════════════════════════════════════════ */
+.card{border:1px solid var(--g200);border-radius:var(--r-lg);background:#fff;padding:24px;}
+.card-soft{border:1px solid var(--g200);border-radius:var(--r-lg);background:var(--g50);padding:24px;}
+.card-accent{border:1px solid var(--accent-border);border-radius:var(--r-lg);background:var(--accent-light);padding:24px;}
+.card-label{font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g700);margin-bottom:12px;}
+.card-label-accent{font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.card ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;}
+.card ul li,.card-soft ul li,.card-accent ul li{font-size:.875rem;line-height:1.7;color:var(--g700);padding-left:16px;position:relative;}
+.card ul li::before,.card-soft ul li::before,.card-accent ul li::before{content:'—';position:absolute;left:0;color:var(--g400);font-size:.75rem;top:3px;}
+.card-accent ul li{color:var(--g800);}
+
+/* ══════════════════════════════════════════
+   CALLOUTS
+══════════════════════════════════════════ */
+.callout{border-radius:var(--r-lg);padding:20px 24px;display:flex;gap:16px;align-items:flex-start;}
+.callout-constraint{background:#fefce8;border:1px solid #fde68a;}
+.callout-insight{background:var(--accent-light);border:1px solid var(--accent-border);}
+.callout-icon{font-size:1rem;flex-shrink:0;margin-top:1px;}
+.callout-label{font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.callout-constraint .callout-label{color:#92400e;}
+.callout-insight .callout-label{color:var(--accent);}
+.callout-text{font-size:.875rem;line-height:1.7;}
+.callout-constraint .callout-text{color:#78350f;}
+.callout-insight .callout-text{color:var(--g800);}
+.callout-warning{background:#fffbeb;border:1.5px solid #f59e0b;border-radius:var(--r-lg);padding:20px 24px;display:flex;gap:16px;align-items:flex-start;}
+.callout-warning .callout-label{color:#b45309;font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.callout-warning .callout-text{font-size:.875rem;line-height:1.7;color:#78350f;}
+.warning-icon{font-size:1.125rem;flex-shrink:0;margin-top:1px;}
+.warning-badge{display:inline-flex;align-items:center;gap:5px;font-size:.6875rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#92400e;background:#fef3c7;border:1px solid #fcd34d;border-radius:4px;padding:2px 8px;margin-bottom:10px;}
+
+/* ══════════════════════════════════════════
+   ACCORDION
+══════════════════════════════════════════ */
+.accordion{border:1px solid var(--g200);border-radius:var(--r-lg);overflow:hidden;background:#fff;}
+.accordion+.accordion{margin-top:8px;}
+.acc-header{width:100%;background:none;border:none;padding:18px 20px;display:flex;align-items:flex-start;justify-content:space-between;cursor:pointer;text-align:left;font-family:inherit;gap:16px;transition:background .15s;}
+.acc-header:hover{background:var(--g50);}
+.acc-header-text{display:flex;flex-direction:column;gap:4px;}
+.acc-title{font-size:.9375rem;font-weight:600;color:var(--g900);letter-spacing:-.01em;}
+.acc-preview{font-size:.8125rem;color:var(--g600);line-height:1.5;}
+.acc-icon{width:20px;height:20px;border-radius:50%;border:1px solid var(--g300);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--g500);font-size:.75rem;margin-top:2px;transition:transform .2s,background .15s;}
+.acc-header[aria-expanded="true"] .acc-icon{transform:rotate(45deg);background:var(--g100);}
+.acc-body{display:none;padding:0 20px 20px;border-top:1px solid var(--g200);}
+.acc-body.open{display:block;}
+.acc-body-inner{padding-top:16px;display:flex;flex-direction:column;gap:12px;}
+.acc-insight-label{font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g500);margin-bottom:4px;}
+.acc-insight{font-size:.875rem;color:var(--g700);line-height:1.7;}
+.decision-row{display:flex;align-items:flex-start;gap:8px;padding:10px 14px;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:var(--r-sm);}
+.decision-row-icon{font-size:.75rem;color:var(--accent);margin-top:2px;flex-shrink:0;}
+.decision-row p{font-size:.8125rem;color:var(--g900);line-height:1.6;}
+
+/* ══════════════════════════════════════════
+   IMAGE PLACEHOLDERS
+══════════════════════════════════════════ */
+.img-block{border:1px solid var(--g200);border-radius:12px;background:var(--g100);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:24px;text-align:center;aspect-ratio:16/9;height:auto;}
+.img-block-icon{font-size:1.25rem;color:var(--g400);}
+.img-block-label{font-size:.8125rem;font-weight:500;color:var(--g500);}
+.hero-visual{width:100%;border-radius:12px;border:1px solid var(--g200);background:var(--g100);aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:32px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.05);}
+.hero-visual-icon{font-size:2rem;color:var(--g400);}
+.hero-visual-label{font-size:.875rem;font-weight:500;color:var(--g500);max-width:52ch;line-height:1.5;}
+
+/* ══════════════════════════════════════════
+   CASE STUDY HERO
+══════════════════════════════════════════ */
+.cs-hero{padding:48px 0 64px;background:#fff;border-bottom:1px solid var(--g200);}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:.8125rem;font-weight:500;color:var(--g500);text-decoration:none;margin-bottom:24px;transition:color .15s;letter-spacing:.01em;min-height:44px;}
+.back-link:hover{color:var(--g900);}
+.back-link svg{width:14px;height:14px;}
+
+/* ══════════════════════════════════════════
+   PHASE DEEP-DIVE BLOCKS
+══════════════════════════════════════════ */
+.phase-heading{display:flex;align-items:center;gap:10px;margin-bottom:24px;}
+
+/* ══════════════════════════════════════════
+   ITERATION / VERTICAL TIMELINE
+══════════════════════════════════════════ */
+.iteration-block{position:relative;padding-left:32px;}
+.iteration-block::before{content:'';position:absolute;left:9px;top:28px;bottom:-96px;width:1px;background:var(--g200);}
+.iteration-block:last-child::before{display:none;}
+.iteration-dot{position:absolute;left:0;top:4px;width:20px;height:20px;border-radius:50%;background:#fff;border:1.5px solid var(--g300);display:flex;align-items:center;justify-content:center;}
+.iteration-dot-inner{width:7px;height:7px;border-radius:50%;background:var(--g400);}
+.iteration-dot.active .iteration-dot-inner{background:var(--accent);}
+.iteration-dot.active{border-color:var(--accent-border);}
+
+/* ══════════════════════════════════════════
+   SPLIT-SCREEN (Final Solution)
+══════════════════════════════════════════ */
+.split-screen{display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--g200);border-radius:var(--r-lg);overflow:hidden;}
+@media(min-width:700px){.split-screen{grid-template-columns:40% 60%;}}
+.split-brief{background:var(--g50);border-bottom:1px solid var(--g200);padding:28px 24px;}
+@media(min-width:700px){.split-brief{border-bottom:none;border-right:1px solid var(--g200);}}
+.split-brief-label{font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g500);margin-bottom:12px;}
+.split-brief-content{font-size:.8125rem;line-height:1.7;color:var(--g600);}
+.split-brief-tag{display:inline-flex;align-items:center;gap:4px;font-size:.6875rem;font-weight:600;color:var(--green);background:#f0fdf4;border:1px solid #bbf7d0;border-radius:4px;padding:2px 8px;margin-bottom:12px;}
+.split-form{background:#fff;padding:28px 24px;}
+.split-form-label{font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g500);margin-bottom:16px;}
+.form-row{margin-bottom:14px;}
+.form-field-label{font-size:.6875rem;font-weight:500;color:var(--g600);margin-bottom:4px;}
+.form-field{background:var(--g50);border:1px solid var(--g200);border-radius:6px;padding:8px 12px;font-size:.8125rem;color:var(--g900);display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.form-field-ai{background:var(--accent-light);border-color:var(--accent-border);}
+.form-field-ai .form-field-val{color:var(--accent);font-weight:500;}
+.form-field-val{font-size:.8125rem;color:var(--g700);}
+.ai-badge{font-size:.5625rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:#fff;border:1px solid var(--accent-border);border-radius:3px;padding:1px 5px;flex-shrink:0;}
+.form-field-locked{background:var(--g100);border-style:dashed;opacity:.6;}
+.form-section-divider{font-size:.6875rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--g400);margin:18px 0 10px;padding-top:14px;border-top:1px solid var(--g200);}
+@media(max-width:700px){
+  .split-screen{display:flex;flex-direction:column;}
+  .split-brief{order:1;border-bottom:1px solid var(--g200);border-right:none;background:var(--accent-light);border-left:3px solid var(--accent-border);}
+  .split-form{order:2;}
+}
+
+/* ══════════════════════════════════════════
+   ORDERED DECISIONS LIST
+══════════════════════════════════════════ */
+.decisions-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:0;}
+.decisions-list li{display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid var(--g200);}
+.decisions-list li:last-child{border-bottom:none;}
+.decision-num{font-size:.75rem;font-weight:700;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.decision-title{font-size:.9375rem;font-weight:600;color:var(--g900);letter-spacing:-.01em;margin-bottom:4px;}
+.decision-desc{font-size:.875rem;color:var(--g600);line-height:1.7;}
+
+/* ══════════════════════════════════════════
+   AI LIFECYCLE GRID — Iteration 02 storyboard
+   3 images on top row, 2 centred on bottom row
+   Background: #F9FAFB matches design spec
+══════════════════════════════════════════ */
+.lifecycle-grid-wrap{
+  background:#F9FAFB;
+  border:1px solid var(--g200);
+  border-radius:var(--r-lg);
+  padding:20px;
+}
+.lifecycle-grid-top{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-bottom:10px;
+}
+.lifecycle-grid-bottom{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  max-width:66.66%;
+  margin:0 auto;
+}
+@media(max-width:640px){
+  .lifecycle-grid-top{grid-template-columns:1fr 1fr;}
+  .lifecycle-grid-bottom{grid-template-columns:1fr 1fr;max-width:100%;}
+}
+@media(max-width:400px){
+  .lifecycle-grid-top,.lifecycle-grid-bottom{grid-template-columns:1fr;max-width:100%;}
+}
+.lifecycle-img{
+  border-radius:var(--r-md);
+  overflow:hidden;
+  border:1px solid var(--g200);
+  background:var(--g100);
+  aspect-ratio:16/10;
+  display:flex;align-items:center;justify-content:center;
+}
+.lifecycle-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.lifecycle-step-label{
+  font-size:.5625rem;
+  font-weight:700;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  color:var(--g500);
+  margin-bottom:5px;
+  text-align:center;
+}
+.lifecycle-caption{
+  font-size:.75rem;
+  color:var(--g600);
+  line-height:1.55;
+  text-align:center;
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid var(--g200);
+  font-style:italic;
+}
+
+/* ══════════════════════════════════════════
+   ALIGNED CARD GRIDS
+══════════════════════════════════════════ */
+.cards-aligned{display:grid;gap:16px;}
+.cards-aligned.cols-2{grid-template-columns:1fr;}
+.cards-aligned.cols-3{grid-template-columns:1fr;}
+@media(min-width:640px){.cards-aligned.cols-2{grid-template-columns:1fr 1fr;}}
+@media(min-width:768px){.cards-aligned.cols-3{grid-template-columns:repeat(3,1fr);}}
+.cards-aligned .card,
+.cards-aligned .card-soft,
+.cards-aligned .card-accent{height:100%;display:flex;flex-direction:column;}
+.cards-aligned .card p.body2,
+.cards-aligned .card-soft p.body2{flex:1;}
+
+/* ══════════════════════════════════════════
+   NEXT CASE STUDY FOOTER CARD
+══════════════════════════════════════════ */
+.next-cs{background:#fff;border-top:1px solid var(--g200);padding:64px 0;}
+.next-cs-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
+.next-cs-label{font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g500);margin-bottom:8px;}
+.next-cs-title{font-size:1.0625rem;font-weight:600;color:var(--g900);letter-spacing:-.01em;}
+.next-cs-subtitle{font-size:.875rem;color:var(--g600);margin-top:4px;}
+.next-cs-btn{display:inline-flex;align-items:center;gap:8px;font-size:.875rem;font-weight:500;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:var(--r-md);padding:10px 20px;text-decoration:none;white-space:nowrap;transition:background .15s,border-color .15s;min-height:44px;}
+.next-cs-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+
+/* ══════════════════════════════════════════
+   SCROLL PROGRESS BAR
+══════════════════════════════════════════ */
+#scroll-progress-track{position:fixed;top:0;left:0;right:0;height:3px;background:var(--g200);z-index:9999;pointer-events:none;}
+#scroll-progress-fill{height:100%;width:0%;background:var(--accent);transition:width .05s linear;}
+
+/* ══════════════════════════════════════════
+   GLOBAL FOOTER
+══════════════════════════════════════════ */
+footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;margin-top:auto;}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-logo{display:flex;align-items:center;gap:8px;text-decoration:none;}
+.footer-mark{width:22px;height:22px;border-radius:6px;background:var(--accent);display:flex;align-items:center;justify-content:center;}
+.footer-mark span{color:#fff;font-weight:700;font-size:.6rem;}
+.footer-name{font-weight:600;font-size:.875rem;color:var(--g900);}
+.footer-links{display:flex;align-items:center;gap:4px;}
+.footer-sep{width:1px;height:14px;background:var(--g300);margin:0 4px;}
+
+/* ══════════════════════════════════════════
+   MOBILE
+══════════════════════════════════════════ */
+@media(max-width:480px){
+  .logo-name{display:none;}
+  .navbar-links{gap:2px;}
+  .nav-divider{display:none;}
+  .btn-nav{padding:8px 10px;font-size:.8rem;}
+  .container,.container-cs{padding:0 16px;}
+}
+@media(max-width:640px){
+  .section-alt,.section-white{padding:32px 0;}
+}
+@media(max-width:900px){
+  .sbs-2{grid-template-columns:1fr!important;}
+  .cards-aligned.cols-2{grid-template-columns:1fr!important;}
+}
+@media(max-width:560px){
+  .next-cs-inner{flex-direction:column;gap:20px;}
+  .next-cs-btn{width:100%;justify-content:center;}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:12px;}
+  .footer-links{flex-wrap:wrap;}
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll progress bar -->
+<div id="scroll-progress-track"><div id="scroll-progress-fill"></div></div>
+
+<!-- ══════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════ -->
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-inner">
+      <a class="navbar-logo" href="index.html">
+        <div class="logo-mark"><span>ES</span></div>
+        <span class="logo-name">Elena Stamatopoulou</span>
+      </a>
+      <div class="navbar-links">
+        <a class="btn-nav active" href="index.html#home-work">Work</a>
+        <a class="btn-nav" href="about.html">About</a>
+        <div class="nav-divider"></div>
+        <a class="btn-nav" href="mailto:elenast.ux@gmail.com">Email</a>
+        <a class="btn btn-outlined" style="padding:6px 14px;font-size:.8125rem;" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ── HERO ── -->
+  <div class="cs-hero">
+    <div class="container-cs">
+
+      <div style="display:flex;flex-direction:column;align-items:flex-start;margin-bottom:24px;">
+        <a class="back-link" href="index.html" style="margin-bottom:8px;">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 12L6 8l4-4"/></svg>
+          Back to Work
+        </a>
+        <p style="margin:0;display:inline-block;font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g700);background:var(--g100);border:1px solid var(--g300);border-radius:4px;padding:3px 10px;">Case Study 01</p>
+      </div>
+      <h1 style="margin-bottom:16px;max-width:30ch;">Reducing Setup Time by 20% with AI-Assisted Project Setup</h1>
+
+      <p class="body1 prose" style="margin-bottom:28px;font-size:1.0625rem;color:var(--g600);">The Project Builder is used by ~700+ Client Service team members to kick off every client engagement at Dialectica—powering expert matching, project planning, and downstream automation. When I inherited it, it was a manual form averaging <strong>7m 35s</strong> per submission, creating delays across the entire workflow. I redesigned it into an AI-assisted system, transforming it from a bottleneck into the foundation for automation.</p>
+
+      <div class="chip-row mb-8">
+        <span class="chip chip-accent">AI / ML</span>
+        <span class="chip chip-accent">B2B SaaS</span>
+        <span class="chip chip-accent">Workflow Design</span>
+        <span class="chip">Design Systems</span>
+        <span class="chip">E2E Design</span>
+      </div>
+
+
+      <!-- METRIC DASHBOARD — 2 metrics -->
+      <div class="metric-dashboard" style="grid-template-columns:repeat(2,1fr);">
+        <div class="metric-paper">
+          <div class="metric-num"><span class="hi">20%</span></div>
+          <div class="metric-cap">Faster Setup</div>
+        </div>
+        <div class="metric-paper">
+          <div class="metric-num"><span class="hi">700<span style="font-size:.65em;font-weight:600;">+</span></span></div>
+          <div class="metric-cap">Daily Users</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── CONTEXT ── -->
+  <section class="section-alt">
+    <div class="container-cs">
+      <div class="section-header">
+        <div class="section-header-line"><span class="label-chip">Context</span></div>
+      </div>
+      <h2 style="margin-bottom:16px;">How Project Builder Fits the Workflow</h2>
+      <p class="body1 prose">Dialectica is a B2B information services firm connecting consulting and private equity clients with industry experts worldwide. The Client Service team (~700+ members) runs projects end to end: project creation → expert identification → outreach → screening → client presentation → final interaction. The Project Builder sits at Step 1 — meaning any friction here delays everything downstream.</p>
+    </div>
+  </section>
+
+  <!-- ── OVERVIEW ── -->
+  <section class="section-white">
+    <div class="container-cs">
+      <div class="section-header">
+        <div class="section-header-line"><span class="label-chip">Overview</span></div>
+      </div>
+
+      <div class="side-by-side sbs-2 mb-6">
+        <div class="card-soft">
+          <div class="card-label">My Role</div>
+          <ul>
+            <li>Owned the redesign from <strong>problem framing through shipping</strong> — defined the <strong>information architecture</strong>, AI interaction patterns, and <strong>validation logic</strong></li>
+            <li>Led senior stakeholder reviews, including a <strong>Managing Director sign-off</strong>, to secure the information architecture and AI-first direction</li>
+            <li>Designed new <strong>AI-specific components</strong> (prefill states, locked fields, loading patterns) <strong>adopted into the design system</strong> for use across Dialectica products</li>
+          </ul>
+        </div>
+        <div class="card-soft">
+          <div class="card-label">The Team</div>
+          <ul>
+            <li>1 Product Manager</li>
+            <li>1 Front-End Engineer</li>
+            <li>1 Back-End Engineer</li>
+            <li>1 Software Engineer in Test</li>
+            <li>1 Data Scientist</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="side-by-side sbs-2">
+        <div class="card-soft">
+          <div class="card-label">Project Goals</div>
+          <ul>
+            <li><strong>Efficiency:</strong> Minimise time-to-submission and accelerate project kickoffs</li>
+            <li><strong>Accuracy:</strong> Use AI to enhance scoping precision and input quality</li>
+            <li><strong>Velocity:</strong> Optimise the end-to-end workflow to reduce total delivery lead time</li>
+          </ul>
+        </div>
+        <div class="card-soft">
+          <div class="card-label">Impact</div>
+          <ul>
+            <li><strong>Efficiency:</strong> 20% reduction in form completion time within the first 30 days</li>
+            <li><strong>Velocity:</strong> Faster project kickoffs aiming at shorter client delivery times, boosting competitiveness</li>
+            <li><strong>Data Quality:</strong> Improved data accuracy, enabling AI-driven expert matching</li>
+            <li><strong>Strategic Growth:</strong> Transitioned to structured data — a key milestone in the AI roadmap</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 1: THE PROBLEM ── -->
+  <section class="section-alt">
+    <div class="container-cs">
+      <div class="section-header">
+        <div class="section-header-line"><span class="label-chip">The Problem</span></div>
+      </div>
+
+      <p class="body1 prose mb-6">When starting a new project, team members had to manually complete every field — client details, project info, DNC (Do Not Contact companies) list, perspectives — while cross-referencing the client brief in Gmail. The average submission took 7m 35s. Inputs were inconsistent, and the unstructured data format blocked the company's ability to build AI-driven expert matching downstream.</p>
+      <div class="card mb-6">
+        <ul>
+          <li>Admin-heavy — too many manual inputs with no pre-population</li>
+          <li>Error-prone — lack of structured, entity-aware data led to high inconsistency across submissions</li>
+          <li>Automation-blocking — the form output couldn't feed downstream AI systems</li>
+        </ul>
+      </div>
+      <p class="body1 prose mb-8" style="font-style:italic;color:var(--g600);">I benchmarked completion times across 50 submissions and shadowed 5 Project Managers during project setup to map the core friction points.</p>
+
+      <!-- Before / After comparison slider -->
+      <div style="position:relative;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--g200);box-shadow:0 2px 12px rgba(0,0,0,0.06);user-select:none;" id="ba-slider">
+        <!-- After image (full width, sits behind) -->
+        <img
+          src="images/project-builder/hero-split-screen.png"
+          alt="After — Redesigned Project Builder"
+          style="width:100%;height:auto;display:block;"
+          id="ba-after-img"
+        />
+        <!-- Before image (clipped left half, sits on top) -->
+        <div id="ba-before-wrap" style="position:absolute;top:0;left:0;width:50%;height:100%;overflow:hidden;pointer-events:none;">
+          <img
+            src="images/project-builder/problem-legacy-form.png"
+            alt="Before — Original Project Builder form"
+            style="width:100vw;max-width:786px;height:100%;object-fit:cover;object-position:left top;"
+            id="ba-before-img"
+          />
+        </div>
+        <!-- Divider handle -->
+        <div id="ba-handle" style="position:absolute;top:0;left:50%;width:3px;height:100%;background:var(--accent);cursor:ew-resize;transform:translateX(-50%);">
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:32px;height:32px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+            <span style="color:#fff;font-size:.75rem;font-weight:700;letter-spacing:-.02em;">⟺</span>
+          </div>
+        </div>
+        <!-- Labels -->
+        <div style="position:absolute;top:12px;left:12px;font-size:.625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,0.55);border-radius:4px;padding:3px 8px;">Before</div>
+        <div style="position:absolute;top:12px;right:12px;font-size:.625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(79,95,239,0.85);border-radius:4px;padding:3px 8px;">After</div>
+      </div>
+      <p class="caption" style="margin-top:10px;display:block;text-align:center;">Drag to compare — old manual form vs. automation-enabled redesign</p>
+
+    </div>
+  </section>
+
+  <!-- ── SECTION 2: CONSTRAINTS ── -->
+  <section class="section-white">
+    <div class="container-cs">
+      <div class="section-header">
+        <div class="section-header-line"><span class="label-chip">Constraints</span></div>
+      </div>
+
+      <div class="mb-8">
+        <div class="callout callout-constraint">
+          <div class="callout-icon">⚠</div>
+          <div class="callout-body">
+            <div class="callout-label">Single-Commit Constraint</div>
+            <p class="callout-text">Once AI analysis is triggered, users can no longer edit or reprocess the brief — forcing early trust in the system without the ability to correct mistakes.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom:16px;">Technical &amp; Product Constraints</h3>
+      <div class="card">
+        <ul>
+          <li>Mixed completion modes — some fields AI-populated, others manual; timing of AI output was initially uncertain</li>
+          <li>Search Agent latency — this section needed to be prioritised in the form (as users must trigger the search) to allow more back-end processing time and ensure expert results are ready upon project creation</li>
+          <li>Additive-only competitor suggestions — AI suggests competitor companies (starting with competitors, later expanding to customers). Users can add more but cannot remove them</li>
+          <li>No existing AI components — new design system patterns had to be built in parallel with the product work</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 3: ITERATIONS ── -->
+  <section class="section-alt">
+    <div class="container-cs">
+      <div class="section-header">
+        <div class="section-header-line"><span class="label-chip">Iterations</span></div>
+      </div>
+
+      <!-- Iteration 1 -->
+      <div class="iteration-block">
+        <div class="iteration-dot active"><div class="iteration-dot-inner"></div></div>
+        <div>
+          <h3 style="margin-bottom:6px;">Iteration 1 — Sequential Five-Step Wizard</h3>
+          <p class="body2" style="color:var(--g600);margin-bottom:16px;font-style:italic;">Milestone: Review with Product Manager, UX &amp; the Managing Director</p>
+          <p class="body1 prose mb-6">AI-prefilled steps revealed progressively using a wizard pattern.</p>
+          <!-- Sequential steps grid: 4 screenshots -->
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;background:#F9FAFB;border:1px solid var(--g200);border-radius:var(--r-lg);padding:16px;margin-bottom:20px;">
+            <div>
+              <div class="lifecycle-step-label">Step 1 — Initial input state</div>
+              <div class="lifecycle-img" style="height:auto;aspect-ratio:unset;">
+                <img src="images/project-builder/seq-step-1.png" alt="Sequential form step 1" style="width:100%;height:auto;object-fit:contain;display:block;"/>
+              </div>
+            </div>
+            <div>
+              <div class="lifecycle-step-label">Step 2 — AI processing brief</div>
+              <div class="lifecycle-img" style="height:auto;aspect-ratio:unset;">
+                <img src="images/project-builder/seq-step-2.png" alt="Sequential form step 2" style="width:100%;height:auto;object-fit:contain;display:block;"/>
+              </div>
+            </div>
+            <div>
+              <div class="lifecycle-step-label">Step 3 — SearchAgent suggestions generated</div>
+              <div class="lifecycle-img" style="height:auto;aspect-ratio:unset;">
+                <img src="images/project-builder/seq-step-3.png" alt="Sequential form step 3" style="width:100%;height:auto;object-fit:contain;display:block;"/>
+              </div>
+            </div>
+            <div>
+              <div class="lifecycle-step-label">Step 4 — Form ready for confirmation</div>
+              <div class="lifecycle-img" style="height:auto;aspect-ratio:unset;">
+                <img src="images/project-builder/seq-step-4.png" alt="Sequential form step 4" style="width:100%;height:auto;object-fit:contain;display:block;"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout callout-insight">
+            <div class="callout-icon">✦</div>
+            <div class="callout-body">
+              <div class="callout-label">Feedback &amp; Insight</div>
+              <p class="callout-text">The sequential flow hid AI activity, reducing trust. Progressive disclosure added clicks without enough payoff — users lacked visibility into what the AI was doing and needed to stay productive while it ran.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Iteration 2 — Three-Step Flow with Persistent Brief (NEW) -->
+      <div class="iteration-block" style="margin-top:56px;">
+        <div class="iteration-dot active"><div class="iteration-dot-inner"></div></div>
+        <div>
+          <h3 style="margin-bottom:6px;">Iteration 2 — Three-Step Flow with Persistent Brief</h3>
+          <p class="body2" style="color:var(--g600);margin-bottom:16px;font-style:italic;">Milestone: Review with Product Manager, UX &amp; the Managing Director</p>
+          <p class="body1 prose mb-6">I streamlined the flow to three steps and introduced a persistent brief button for on-demand context. Stakeholder feedback validated that keeping the brief visible alongside the form better supports quick referencing during input.</p>
+          <!-- 3-screenshot gallery: AI Prefill, Review & Edit, Step 3 — Refine structured project details -->
+          <div class="lifecycle-grid-wrap" style="margin-bottom:20px;">
+            <div class="lifecycle-grid-top">
+              <div>
+                <div class="lifecycle-step-label">Step 1 — Default state</div>
+                <div class="lifecycle-img" style="aspect-ratio:unset;height:auto;">
+                  <img src="images/project-builder/persistent-v3.png" alt="AI Lifecycle — Active Prefill" style="width:100%;height:auto;object-fit:contain;display:block;"/>
+                </div>
+              </div>
+              <div>
+                <div class="lifecycle-step-label">Step 2 — Review AI-generated suggestions</div>
+                <div class="lifecycle-img" style="aspect-ratio:unset;height:auto;">
+                  <img src="images/project-builder/persistent-v4.png" alt="AI Lifecycle — Review and Edit" style="width:100%;height:auto;object-fit:contain;display:block;"/>
+                </div>
+              </div>
+              <div>
+                <div class="lifecycle-step-label">Step 3 — Refine structured project details</div>
+                <div class="lifecycle-img" style="aspect-ratio:unset;height:auto;">
+                  <img src="images/project-builder/persistent-v5.png" alt="AI Lifecycle — Step 3 — Refine structured project details" style="width:100%;height:auto;object-fit:contain;display:block;"/>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout callout-constraint" style="margin-top:12px;">
+            <div class="callout-icon">⏱</div>
+            <div class="callout-body">
+              <div class="callout-label">Engineering Discovery</div>
+              <p class="callout-text">At this point we confirmed the AI takes ~15 seconds to complete — and that all fields would populate at once, not progressively as initially assumed. This shaped the final interaction model: users needed to stay productive during that window.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- ── SECTION 4: FINAL SOLUTION ── -->
+  <section class="section-white">
+    <div class="container-cs">
+      <div class="section-header">
+        <div class="section-header-line"><span class="label-chip">Final Solution</span></div>
+      </div>
+
+      <p class="body1 prose mb-8">Following the Managing Director review, we converged on a split-screen layout: the client brief stays locked on the left as permanent context. On the right, the form is organized into Project details &amp; client info → Project DNC list → Project perspectives → SearchAgent. When the user clicks 'Analyse Brief,' the first two sections unlock for manual input immediately. Once AI processing completes (~15s), the remaining sections populate with AI suggestions marked by a blue/purple tint and 'AI' badge. Users review, edit, and submit — triggering downstream automation for tasks, expert search, and sourcing.</p>
+
+      <div class="callout callout-insight" style="margin-bottom:32px;">
+        <div class="callout-icon">✦</div>
+        <div class="callout-body">
+          <div class="callout-label">Structural Decision</div>
+          <p class="callout-text">We moved the SearchAgent section down in the form after deciding to remove the user-triggered action. The backend request now runs automatically once AI analysis is complete (as users cannot remove AI-generated companies). This enabled a more logical information flow: Project details &amp; client info → Project DNC list → Project perspectives → SearchAgent.</p>
+        </div>
+      </div>
+
+      <!-- Final Solution screenshots: Default, Loading (50/50 top row), hero-split-screen (full-width bottom) -->
+      <div class="lifecycle-grid-wrap" style="margin-bottom:32px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+          <div>
+            <div class="lifecycle-step-label">Step 1 — Default state</div>
+            <div class="lifecycle-img" style="aspect-ratio:unset;height:auto;">
+              <img src="images/project-builder/Default.png" alt="Step 1 — Default state" style="width:100%;height:auto;object-fit:contain;display:block;"/>
+            </div>
+          </div>
+          <div>
+            <div class="lifecycle-step-label">Step 2 — AI analysis in progress</div>
+            <div class="lifecycle-img" style="aspect-ratio:unset;height:auto;">
+              <img src="images/project-builder/Loading.png" alt="Step 2 — AI analysis in progress" style="width:100%;height:auto;object-fit:contain;display:block;"/>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="lifecycle-step-label">Step 3 — Project form filled</div>
+          <div class="lifecycle-img" style="aspect-ratio:unset;height:auto;">
+            <img src="images/project-builder/hero-split-screen.png" alt="Step 3 — Project form filled" style="width:100%;height:auto;object-fit:contain;display:block;"/>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Key design decisions -->
+      <h3 style="margin-bottom:24px;">Key Design Decisions</h3>
+      <ol class="decisions-list">
+        <li>
+          <div class="decision-num">1</div>
+          <div class="decision-content">
+            <div class="decision-title">Persistent brief panel <span style="font-size:.625rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:4px;padding:2px 8px;margin-left:6px;vertical-align:middle;">Core Innovation</span></div>
+            <p class="decision-desc">The client brief stays visible as a fixed left panel so Project Managers always have full context while reviewing AI outputs. I chose a persistent panel over a collapsible brief (tested in Iteration 2) because users referenced the brief 3–4 times during form completion. Given that this form is used only on desktop, responsive design for smaller viewports was not a requirement.</p>
+          </div>
+        </li>
+        <li>
+          <div class="decision-num">2</div>
+          <div class="decision-content">
+            <div class="decision-title">Pattern Consistency</div>
+            <p class="decision-desc">Standardised the display, editing, and confirmation logic for all AI suggestions to ensure a predictable user experience. AI-filled fields use a blue/purple tint and badge to clearly distinguish system-generated content. This pattern — along with locked fields — was standardized in Dialectica's Design System for AI-assisted inputs. We considered making AI fields visually identical to manual fields to reduce visual noise, but usability sessions showed users wanted to know exactly what the system generated versus what they'd entered themselves.</p>
+          </div>
+        </li>
+        <li>
+          <div class="decision-num">3</div>
+          <div class="decision-content">
+            <div class="decision-title">Compliance gate <span style="font-size:.625rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#92400e;background:#fefce8;border:1px solid #fde68a;border-radius:4px;padding:2px 8px;margin-left:6px;vertical-align:middle;">Quality Control</span></div>
+            <p class="decision-desc">Compliance requirements surface as a conditional gate when the project type requires legal review — requiring explicit user validation of DNC lists before the project can be saved. This stops automation from running on regulated projects without human sign-off.</p>
+          </div>
+        </li>
+      </ol>
+
+      <!-- Ecosystem cross-link -->
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:18px 24px;border:1px solid var(--accent-border);border-radius:var(--r-lg);background:var(--accent-light);margin-top:32px;">
+        <div>
+          <div style="font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;">Ecosystem Connection</div>
+          <p style="font-size:.875rem;color:var(--g800);line-height:1.5;">See how this project data connects to the SearchAgent search tool</p>
+        </div>
+        <a class="next-cs-btn" href="search-agent.html" style="flex-shrink:0;">
+          View SearchAgent Case Study
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SECTION 6: IMPACT ── -->
+  <section class="section-alt">
+    <div class="container-cs">
+      <div class="section-header">
+        <div class="section-header-line"><span class="label-chip">Impact</span></div>
+      </div>
+
+      <p class="body1 prose mb-8">The Project Builder shifted from a bottleneck to the trigger for automation across the workflow.</p>
+
+      <p style="font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--g700);margin-bottom:12px;">Results at a Glance</p>
+      <div class="cards-aligned cols-2 mb-8">
+        <div class="card-soft">
+          <div class="card-label">Efficiency</div>
+          <p class="body2"><strong>20% reduction</strong> in average completion time within 30 days of launch (from <strong>7m 35s to ~6m 04s</strong> across 700+ daily users). This <strong>91-second saving</strong> per submission translates to ~350–500 hours saved per month — accelerating the entire workflow from expert identification to client delivery.</p>
+        </div>
+        <div class="card-soft">
+          <div class="card-label">Velocity</div>
+          <p class="body2">Eliminated the setup bottleneck delaying expert identification — accelerating time to first expert list</p>
+        </div>
+        <div class="card-soft">
+          <div class="card-label">Data Quality</div>
+          <p class="body2">Structured, entity-aware data replaced free-text inputs, unblocking AI-driven expert matching</p>
+        </div>
+        <div class="card-soft">
+          <div class="card-label">Strategic Impact</div>
+          <p class="body2">First AI-assisted workflow shipped at Dialectica — interaction patterns became the org-wide standard</p>
+        </div>
+      </div>
+
+      <div class="pull-quote prose mb-8">
+        <p>"The new flow feels like having an assistant pre-read the brief for me."</p>
+        <span style="display:block;font-size:.8125rem;color:var(--g600);font-weight:500;margin-top:8px;font-style:normal;">— Project Manager Feedback, post-launch feedback</span>
+      </div>
+
+      <div class="cards-aligned cols-2">
+        <div class="card">
+          <div class="card-label">Qualitative Signal</div>
+          <ul>
+            <li>Reduced training time</li>
+            <li>Increased adoption</li>
+            <li>Improved internal satisfaction</li>
+          </ul>
+        </div>
+        <div class="card-accent">
+          <div class="card-label-accent">What Changed for the Business</div>
+          <ul>
+            <li>Project setup became a trigger for automation, not a bottleneck</li>
+            <li>The redesign unlocked AI roadmap items that were blocked</li>
+            <li>The AI prefill pattern, locked-field states, and blue-tint badge system I designed were adopted into Dialectica's design system and are now used across multiple product workflows</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── REFLECTIONS ── -->
+  <section class="section-white" style="border-top:1px solid var(--g200);">
+    <div class="container-cs">
+      <div class="section-header">
+        <div class="section-header-line"><span class="label-chip">Reflections</span></div>
+      </div>
+
+      <p class="body1 prose mb-6">The single-commit constraint initially felt like a limitation, but it forced a layout decision — persistent brief context — that became the foundation of user trust in the AI output. Constraints didn't just shape the architecture; they produced a better product than an unconstrained design would have.</p>
+      <p class="body1 prose">Users didn't need explanations of how the AI worked. They needed to see their own brief next to the AI's suggestions and judge for themselves. This changed how I think about AI trust patterns — show the source, not the process.</p>
+    </div>
+  </section>
+
+  <!-- ── NEXT CASE STUDY CARD ── -->
+  <div class="next-cs">
+    <div class="container-cs">
+      <div class="next-cs-inner">
+        <div>
+          <div class="next-cs-label">Next Case Study</div>
+          <div class="next-cs-title">SearchAgent: Optimizing Commercial Due Diligence with Brief-Aware AI</div>
+          <div class="next-cs-subtitle">AI / ML · Enterprise SaaS · Research Workflows</div>
+        </div>
+        <a class="next-cs-btn" href="search-agent.html">
+          View Next Case Study
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ══════════════════════════════════════
+     GLOBAL FOOTER
+══════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a class="footer-logo" href="index.html">
+        <div class="footer-mark"><span>ES</span></div>
+        <span class="footer-name">Elena Stamatopoulou</span>
+      </a>
+      <div class="footer-links">
+        <a class="btn-nav" href="mailto:elenast.ux@gmail.com" style="font-size:.8125rem;gap:7px;">
+          <img style="width:14px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0;" src="images/common/icon-email.svg" alt="" aria-hidden="true" onerror="this.outerHTML='✉'"/>
+          elenast.ux@gmail.com
+        </a>
+        <div class="footer-sep"></div>
+        <a class="btn-nav" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener" style="font-size:.8125rem;gap:7px;">
+          <img style="width:14px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0;" src="images/common/icon-linkedin.svg" alt="" aria-hidden="true" onerror="this.outerHTML='↗'"/>
+          LinkedIn
+        </a>
+        <div class="footer-sep"></div>
+        <button class="btn-nav" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="font-size:.8125rem;" aria-label="Back to top">↑ Top</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll progress bar
+(function(){
+  const fill=document.getElementById('scroll-progress-fill');
+  window.addEventListener('scroll',function(){
+    const scrollTop=window.scrollY||document.documentElement.scrollTop;
+    const docH=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    const pct=docH>0?Math.min(100,Math.round((scrollTop/docH)*100)):0;
+    fill.style.width=pct+'%';
+  },{passive:true});
+})();
+// Accordion toggle
+function toggleAcc(btn){
+  const body=btn.nextElementSibling;
+  const isOpen=btn.getAttribute('aria-expanded')==='true';
+  btn.setAttribute('aria-expanded',String(!isOpen));
+  body.classList.toggle('open',!isOpen);
+  btn.querySelector('.acc-icon').textContent=isOpen?'+':'×';
+}
+</script>
+
+<script>
+// Before/After drag slider
+(function(){
+  var slider = document.getElementById('ba-slider');
+  if(!slider) return;
+  var handle  = document.getElementById('ba-handle');
+  var wrap    = document.getElementById('ba-before-wrap');
+  var dragging = false;
+  function setPos(x){
+    var rect = slider.getBoundingClientRect();
+    var pct  = Math.max(0, Math.min(100, ((x - rect.left) / rect.width) * 100));
+    wrap.style.width   = pct + '%';
+    handle.style.left  = pct + '%';
+  }
+  handle.addEventListener('mousedown', function(e){ dragging=true; e.preventDefault(); });
+  window.addEventListener('mousemove', function(e){ if(dragging) setPos(e.clientX); });
+  window.addEventListener('mouseup',   function(){ dragging=false; });
+  handle.addEventListener('touchstart', function(e){ dragging=true; e.preventDefault(); },{passive:false});
+  window.addEventListener('touchmove',  function(e){ if(dragging) setPos(e.touches[0].clientX); },{passive:true});
+  window.addEventListener('touchend',   function(){ dragging=false; });
+})();
+</script>
+
+</body>
+</html>

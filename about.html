@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — Elena Stamatopoulou</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ══════════════════════════════════════════
+   RESET & DESIGN TOKENS
+══════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --g50:#f9f9f9;
+  --g100:#f5f5f5;
+  --g200:#efefef;
+  --g300:#e3e3e3;
+  --g400:#c8c8c8;
+  --g500:#ababab;
+  --g600:#848484;
+  --g700:#717171;
+  --g800:#525252;
+  --g900:#2e2e2e;
+  --accent:#4f5fef;
+  --accent-light:#eef0fd;
+  --accent-border:#c7ccfa;
+  --green:#22c55e;
+  --r-sm:6px;--r-md:8px;--r-lg:12px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--g50);color:var(--g900);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;}
+
+/* ══════════════════════════════════════════
+   TYPOGRAPHY
+══════════════════════════════════════════ */
+.overline{font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g500);}
+h1{font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700;letter-spacing:-.04em;line-height:1.1;color:var(--g900);}
+h2{font-size:clamp(1.375rem,3vw,2rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;}
+h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
+.body1{font-size:1rem;line-height:1.7;color:var(--g700);}
+.body2{font-size:.875rem;line-height:1.7;color:var(--g600);}
+.prose{max-width:68ch;}
+
+/* ══════════════════════════════════════════
+   LAYOUT
+══════════════════════════════════════════ */
+.container{width:100%;max-width:1080px;margin:0 auto;padding:0 32px;}
+.container-cs{width:100%;max-width:850px;margin:0 auto;padding:0 32px;}
+.section-alt{padding:64px 0;background:var(--g50);}
+.section-white{padding:64px 0;background:#fff;}
+.mb-4{margin-bottom:16px;}.mb-6{margin-bottom:24px;}.mb-8{margin-bottom:32px;}
+
+/* ══════════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════════ */
+.navbar{position:sticky;top:0;z-index:100;background:rgba(249,249,249,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--g200);}
+.navbar-inner{height:64px;display:flex;align-items:center;justify-content:space-between;}
+.navbar-logo{display:flex;align-items:center;gap:10px;cursor:pointer;text-decoration:none;}
+.logo-mark{width:30px;height:30px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;}
+.logo-mark span{color:#fff;font-weight:700;font-size:.7rem;}
+.logo-name{font-weight:600;font-size:.9375rem;letter-spacing:-.02em;color:var(--g900);}
+.navbar-links{display:flex;align-items:center;gap:4px;}
+.nav-divider{width:1px;height:16px;background:var(--g300);margin:0 6px;}
+.btn-nav{font-family:inherit;font-size:.875rem;font-weight:400;color:var(--g600);background:none;border:1px solid transparent;border-radius:var(--r-md);padding:6px 12px;cursor:pointer;text-decoration:none;transition:background .15s,color .15s;display:inline-flex;align-items:center;gap:6px;min-height:44px;}
+.btn-nav:hover{background:var(--g100);color:var(--g900);}
+.btn-nav.active{color:var(--g900);font-weight:600;}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:inherit;font-size:.875rem;font-weight:500;border-radius:var(--r-md);padding:8px 18px;cursor:pointer;text-decoration:none;transition:all .15s ease;white-space:nowrap;min-height:44px;}
+.btn-contained{background:var(--accent);color:#fff;border:1px solid var(--accent);}
+.btn-contained:hover{background:#3344cc;border-color:#3344cc;}
+.btn-outlined{background:transparent;color:var(--g900);border:1px solid var(--g300);}
+.btn-outlined:hover{border-color:var(--g500);background:var(--g100);}
+.btn-lg{padding:14px 28px;font-size:.9375rem;min-height:48px;}
+
+/* ══════════════════════════════════════════
+   CHIPS & TAGS
+══════════════════════════════════════════ */
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{font-size:.6875rem;font-weight:500;color:var(--g700);border:1px solid var(--g300);border-radius:var(--r-sm);padding:4px 10px;display:inline-block;}
+.chip-accent{background:var(--accent-light);border-color:var(--accent-border);color:var(--accent);}
+.label-chip{display:inline-flex;align-items:center;font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:20px;padding:3px 12px;}
+
+/* ══════════════════════════════════════════
+   SECTION HEADER
+══════════════════════════════════════════ */
+.section-header{margin-bottom:24px;}
+.section-header-line{display:flex;align-items:center;gap:16px;margin-bottom:0;}
+.section-header-line::after{content:'';flex:1;height:1px;background:var(--g200);}
+
+/* ══════════════════════════════════════════
+   CARDS
+══════════════════════════════════════════ */
+.card-label{font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g500);margin-bottom:12px;}
+.side-by-side{display:grid;gap:16px;}
+.sbs-2{grid-template-columns:1fr;}
+@media(min-width:640px){.sbs-2{grid-template-columns:1fr 1fr;}}
+
+/* ══════════════════════════════════════════
+   SCROLL PROGRESS BAR
+══════════════════════════════════════════ */
+#scroll-progress-track{position:fixed;top:0;left:0;right:0;height:3px;background:var(--g200);z-index:9999;pointer-events:none;}
+#scroll-progress-fill{height:100%;width:0%;background:var(--accent);transition:width .05s linear;}
+
+/* ══════════════════════════════════════════
+   GLOBAL FOOTER
+══════════════════════════════════════════ */
+footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;margin-top:auto;}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-logo{display:flex;align-items:center;gap:8px;text-decoration:none;}
+.footer-mark{width:22px;height:22px;border-radius:6px;background:var(--accent);display:flex;align-items:center;justify-content:center;}
+.footer-mark span{color:#fff;font-weight:700;font-size:.6rem;}
+.footer-name{font-weight:600;font-size:.875rem;color:var(--g900);}
+.footer-links{display:flex;align-items:center;gap:4px;}
+.footer-sep{width:1px;height:14px;background:var(--g300);margin:0 4px;}
+
+/* ══════════════════════════════════════════
+   CASE STUDY HERO (back link + hero bg)
+══════════════════════════════════════════ */
+.cs-hero{padding:72px 0 80px;background:#fff;border-bottom:1px solid var(--g200);}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:.8125rem;font-weight:500;color:var(--g500);text-decoration:none;margin-bottom:40px;transition:color .15s;letter-spacing:.01em;min-height:44px;}
+.back-link:hover{color:var(--g900);}
+.back-link svg{width:14px;height:14px;}
+
+/* ══════════════════════════════════════════
+   ABOUT PAGE
+══════════════════════════════════════════ */
+.about-hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:start;}
+@media(min-width:700px){.about-hero-grid{grid-template-columns:2fr 3fr;gap:48px;}}
+.about-photo-wrap{display:flex;flex-direction:column;}
+.about-photo{aspect-ratio:3/4;border:1px solid var(--g200);border-radius:12px;background:var(--g100);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;max-width:280px;width:100%;}
+.about-photo-icon{font-size:2.5rem;}
+.about-photo-label{font-size:.75rem;color:var(--g500);font-weight:500;}
+.about-contact-pill{display:inline-flex;align-items:center;gap:8px;font-size:.8125rem;font-weight:500;color:var(--g700);text-decoration:none;padding:8px 14px;border:1px solid var(--g200);border-radius:var(--r-md);background:#fff;transition:border-color .15s,color .15s;min-height:44px;}
+.about-contact-pill:hover{border-color:var(--g400);color:var(--g900);}
+.about-contact-icon{font-size:.875rem;}
+.about-stats{display:flex;align-items:center;flex-wrap:wrap;gap:0;border:1px solid var(--g200);border-radius:var(--r-lg);background:#fff;overflow:hidden;margin-top:4px;}
+.about-stat{padding:16px 20px;flex:1;min-width:80px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+.about-stat-val{font-size:1.375rem;font-weight:700;letter-spacing:-.03em;color:var(--accent);line-height:1;}
+.about-stat-label{font-size:.625rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--g500);margin-top:4px;line-height:1.3;text-align:center;}
+.about-stat-div{width:1px;background:var(--g200);align-self:stretch;}
+.about-narrative{max-width:68ch;}
+.about-narrative .body1{margin-bottom:20px;}
+.about-narrative .body1:last-child{margin-bottom:0;}
+
+/* Testimonials — flex-grow on quote forces footer to pin to bottom */
+.about-testimonials{display:grid;grid-template-columns:1fr;gap:16px;align-items:stretch;}
+@media(min-width:768px){.about-testimonials{grid-template-columns:repeat(3,1fr);}}
+.testimonial-card{
+  background:var(--g50);border:1px solid var(--g200);border-radius:var(--r-lg);
+  padding:28px 24px;
+  display:flex;flex-direction:column;
+  align-items:center;
+  height:100%;
+  gap:0;
+}
+/* flex-grow:1 on the quote div makes all cards push divider+name to the same Y */
+.testimonial-quote-wrap{flex-grow:1;display:flex;align-items:flex-start;margin-bottom:16px;}
+.testimonial-quote{font-size:.9375rem;line-height:1.7;color:var(--g800);font-style:italic;text-align:center;}
+.testimonial-quote::before{content:'\201C';font-size:1.5rem;line-height:0;vertical-align:-.35em;color:var(--accent);margin-right:3px;font-style:normal;}
+.testimonial-attr{border-top:1px solid var(--g200);padding-top:12px;width:100%;text-align:center;}
+.testimonial-name{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--g500);text-align:center;}
+
+/* Experience timeline */
+.exp-timeline{display:flex;flex-direction:column;gap:0;}
+.exp-item{display:grid;grid-template-columns:1fr;gap:12px;padding:28px 0;border-bottom:1px solid var(--g200);}
+@media(min-width:640px){.exp-item{grid-template-columns:120px 1fr;gap:24px;}}
+.exp-item:last-child{border-bottom:none;}
+.exp-meta{padding-top:3px;}
+.exp-year{font-size:.75rem;font-weight:600;letter-spacing:.04em;color:var(--g500);white-space:nowrap;}
+.exp-title{font-size:1rem;font-weight:600;color:var(--g900);letter-spacing:-.01em;margin-bottom:3px;}
+.exp-company{font-size:.875rem;font-weight:500;color:var(--g600);margin-bottom:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.exp-badge{font-size:.5625rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:4px;padding:2px 7px;}
+.exp-desc{font-size:.875rem;line-height:1.65;color:var(--g600);margin-bottom:12px;}
+.exp-bullets{display:flex;flex-direction:column;gap:6px;}
+.exp-bullet{font-size:.8125rem;line-height:1.6;color:var(--g700);padding-left:16px;position:relative;}
+.exp-bullet::before{content:'—';position:absolute;left:0;color:var(--g400);font-size:.75rem;top:3px;}
+
+/* Education */
+.edu-degree{font-size:.9375rem;font-weight:600;color:var(--g900);letter-spacing:-.01em;}
+.edu-school{font-size:.875rem;color:var(--g600);margin-top:2px;}
+.edu-year{font-size:.75rem;font-weight:600;letter-spacing:.04em;color:var(--g500);margin-top:4px;}
+
+/* ══════════════════════════════════════════
+   MOBILE
+══════════════════════════════════════════ */
+@media(max-width:480px){
+  .logo-name{display:none;}
+  .navbar-links{gap:2px;}
+  .nav-divider{display:none;}
+  .btn-nav{padding:8px 10px;font-size:.8rem;}
+  .container,.container-cs{padding:0 16px;}
+}
+@media(max-width:560px){
+  .about-stats{flex-direction:column;}
+  .about-stat-div{width:100%;height:1px;}
+  .about-stat{padding:12px 16px;width:100%;border-bottom:1px solid var(--g200);}
+  .about-stat:last-child{border-bottom:none;}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:12px;}
+  .footer-links{flex-wrap:wrap;}
+}
+@media(max-width:640px){
+  .section-alt,.section-white{padding:32px 0;}
+}
+@media(max-width:900px){
+  .sbs-2{grid-template-columns:1fr!important;}
+}
+</style>
+  <script src="content.js"></script>
+</head>
+<body>
+
+<!-- Scroll progress bar -->
+<div id="scroll-progress-track"><div id="scroll-progress-fill"></div></div>
+
+<!-- ══════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════ -->
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-inner">
+      <a class="navbar-logo" href="index.html">
+        <div class="logo-mark"><span>ES</span></div>
+        <span class="logo-name">Elena Stamatopoulou</span>
+      </a>
+      <div class="navbar-links">
+        <a class="btn-nav" href="index.html#home-work">Work</a>
+        <a class="btn-nav active" href="about.html">About</a>
+        <div class="nav-divider"></div>
+        <a class="btn-nav" href="mailto:elenast.ux@gmail.com">Email</a>
+        <a class="btn btn-outlined" style="padding:6px 14px;font-size:.8125rem;" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ── ABOUT HERO: 40/60 split ── -->
+  <div class="cs-hero">
+    <div class="container-cs">
+
+      <a class="back-link" href="index.html">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 12L6 8l4-4"/></svg>
+        Back to Work
+      </a>
+
+      <div class="about-hero-grid">
+        <!-- Left 40%: headshot photo -->
+        <div class="about-photo-wrap">
+          <div class="about-photo" style="padding:0;overflow:hidden;">
+            <img
+              src="images/common/avatar-headshot.svg"
+              alt="Elena Stamatopoulou"
+              width="192"
+              height="192"
+              style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;border-radius:12px;"
+            />
+          </div>
+          <!-- Quick contact pills below photo -->
+          <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px;">
+            <a href="mailto:elenast.ux@gmail.com" class="about-contact-pill">
+              <img src="images/common/icon-email.svg" alt="" aria-hidden="true" style="width:14px;height:14px;flex-shrink:0;" onerror="this.outerHTML='✉'"/>
+              elenast.ux@gmail.com
+            </a>
+            <a href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener" class="about-contact-pill">
+              <img src="images/common/icon-linkedin.svg" alt="" aria-hidden="true" style="width:14px;height:14px;flex-shrink:0;" onerror="this.outerHTML='↗'"/>
+              LinkedIn Profile
+            </a>
+          </div>
+        </div>
+
+        <!-- Right 60%: hero statement -->
+        <div class="about-hero-text">
+          <div class="mb-4"><span class="label-chip">About</span></div>
+          <h1 id="about-name" style="margin-bottom:20px;max-width:22ch;font-size:clamp(1.75rem,3.5vw,2.75rem);">Elena Stamatopoulou</h1>
+          <p id="about-bio" class="body1" style="font-size:1.0625rem;line-height:1.75;color:var(--g700);margin-bottom:28px;max-width:52ch;">7+ years at Dialectica—from operations in EMEA to leading design for AI-powered tools. I focus on building enterprise products that balance user needs, business goals, and technology.</p>
+
+          <!-- Stat strip -->
+          <div class="about-stats">
+            <div class="about-stat">
+              <div id="about-stat-0-val" class="about-stat-val">7+</div>
+              <div id="about-stat-0-label" class="about-stat-label">Years at Dialectica</div>
+            </div>
+            <div class="about-stat-div"></div>
+            <div class="about-stat">
+              <div id="about-stat-1-val" class="about-stat-val">2.5×</div>
+              <div id="about-stat-1-label" class="about-stat-label">Faster AI Adoption</div>
+            </div>
+            <div class="about-stat-div"></div>
+            <div class="about-stat">
+              <div id="about-stat-2-val" class="about-stat-val">+40%</div>
+              <div id="about-stat-2-label" class="about-stat-label">Conversion Rates</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── THE BUSINESS OF DESIGN ── -->
+  <section class="section-alt">
+    <div class="container-cs">
+      <div class="section-header">
+        <div class="section-header-line"><span class="label-chip">The Journey</span></div>
+      </div>
+
+      <h2 style="margin-bottom:32px;max-width:28ch;">The Business of Design</h2>
+
+      <div id="about-narrative" class="about-narrative prose">
+        <p class="body1 mb-6">My path into design started on the business side. For 3.5 years, I managed EMEA operations for top-tier strategy consulting clients at Dialectica — leading a 15-person team, owning multi-market accounts, and driving 30% year-over-year revenue growth.</p>
+        <p class="body1 mb-6">That experience gave me something I carry into every design decision: I don’t just think about how users interact with a product—I think about why it exists, what outcomes matter, and where the real friction is.</p>
+        <p class="body1 mb-6">When I transitioned into design, I brought that perspective with me. Today, I design AI-powered tools for the same workflows I once managed.</p>
+        <p class="body1">The result is design grounded in operational reality and measured by real impact.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section class="section-white">
+    <div class="container-cs">
+      <div class="section-header">
+        <div class="section-header-line"><span class="label-chip">Testimonials</span></div>
+      </div>
+
+      <div class="about-testimonials">
+        <div class="testimonial-card">
+          <div class="testimonial-quote-wrap">
+            <div id="about-t0-quote" class="testimonial-quote">"Elena's thinking and designs help the team align and understand product direction. Her work often influences the direction of the product in terms of proposition or development planning."</div>
+          </div>
+          <div class="testimonial-attr">
+            <div id="about-t0-name" class="testimonial-name">Director, UX</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote-wrap">
+            <div id="about-t1-quote" class="testimonial-quote">"She balances what business and clients need with how long it'll take to build. It's great working with her knowing she's going to balance the tradeoffs."</div>
+          </div>
+          <div class="testimonial-attr">
+            <div id="about-t1-name" class="testimonial-name">Senior Front-End Engineer</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote-wrap">
+            <div id="about-t2-quote" class="testimonial-quote">"She's been instrumental in delivering quality UX in both SearchAgent and AI Project Builder initiatives. She thinks hard for good user workflow over just doing aesthetics."</div>
+          </div>
+          <div class="testimonial-attr">
+            <div id="about-t2-name" class="testimonial-name">Product Director</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCE TIMELINE ── -->
+  <section class="section-alt">
+    <div class="container-cs">
+      <div class="section-header">
+        <div class="section-header-line"><span class="label-chip">Experience</span></div>
+      </div>
+
+      <!-- 7-Year arc callout -->
+      <div style="display:flex;align-items:flex-start;gap:16px;padding:18px 20px;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:var(--r-lg);margin-bottom:28px;">
+        <div style="font-size:1.125rem;flex-shrink:0;margin-top:1px;">↗</div>
+        <div>
+          <div style="font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:5px;">7 Years of Internal Growth at Dialectica</div>
+          <p style="font-size:.875rem;line-height:1.65;color:var(--g800);">2 promotions in 3.5 years within Operations — then a pivot to leading Product Design for AI initiatives.<br><strong>One company, two careers.</strong></p>
+        </div>
+      </div>
+
+      <div class="exp-timeline">
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-year">Mar 2026 – Present</div>
+          </div>
+          <div class="exp-body">
+            <div class="exp-title">Senior Product Designer</div>
+            <div class="exp-company">Dialectica — AI Enterprise Tools &amp; Workflow Automation</div>
+            <p class="exp-desc">UX lead for Agentic AI solutions serving 700+ employees. Own end-to-end design for Dialectica's core internal platform. Partner with Director of Automation across two engineering teams.</p>
+            <div class="exp-bullets">
+              <div class="exp-bullet">SearchAgent v2 achieved <strong>2.5× faster adoption</strong> and <strong>40% higher expert conversion</strong></div>
+              <div class="exp-bullet">Project Builder redesign reduced setup time by 20% (from ~7m 35s to ~6m 04s)</div>
+              <div class="exp-bullet">Defined AI interaction patterns for the global design system</div>
+              <div class="exp-bullet">Secured buy-in from Founder/MD-level stakeholders for major AI initiatives</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-year">Sep 2022 – Feb 2026</div>
+          </div>
+          <div class="exp-body">
+            <div class="exp-title">Product Designer</div>
+            <div class="exp-company">Dialectica — Client-Facing B2B Platforms</div>
+            <p class="exp-desc">Owned UI/UX for Dialectica's client-facing platforms — Surveys and Expert Calls — serving consulting, private equity, and corporate strategy teams.</p>
+            <div class="exp-bullets">
+              <div class="exp-bullet">Redesigned Expert Calls platform end-to-end for 200+ client users</div>
+              <div class="exp-bullet">Built a new in-platform commenting system, reducing response turnaround by ~50%</div>
+              <div class="exp-bullet">Created service blueprints mapping all Dialectica actors, identifying 12+ friction points</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-year">Feb 2019 – Sep 2022</div>
+          </div>
+          <div class="exp-body">
+            <div style="display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap;margin-bottom:3px;">
+              <div class="exp-title" style="margin-bottom:0;">Associate → Associate Manager → Manager</div>
+              <span class="exp-badge" style="margin-top:2px;">2 promotions in 3.5 years</span>
+            </div>
+            <div class="exp-company" style="margin-bottom:10px;">Dialectica — EMEA Strategic Accounts</div>
+            <p class="exp-desc">Led EMEA operations for top-tier strategy consulting clients. This is the operational foundation that now directly informs every design decision I make.</p>
+            <div class="exp-bullets">
+              <div class="exp-bullet">Led a team of <strong>15 professionals</strong> including 3 direct-report managers</div>
+              <div class="exp-bullet">Scaled team from 3 to 10 associates across EMEA</div>
+              <div class="exp-bullet"><strong>30% YoY revenue growth</strong> across key markets</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EDUCATION & SKILLS ── -->
+  <section class="section-white">
+    <div class="container-cs">
+      <div class="section-header">
+        <div class="section-header-line"><span class="label-chip">Education &amp; Skills</span></div>
+      </div>
+
+      <div class="side-by-side sbs-2 mb-8">
+        <div>
+          <h3 style="margin-bottom:20px;">Education</h3>
+          <div>
+            <div class="edu-degree">MSc E-Business</div>
+            <div class="edu-school">Newcastle University Business School</div>
+            <div class="edu-year">2017 – 2018</div>
+          </div>
+          <div style="margin-top:20px;">
+            <div class="edu-degree">BSc Management &amp; Business Administration</div>
+            <div class="edu-school">Athens University of Economics &amp; Business</div>
+            <div class="edu-year">2012 – 2016</div>
+          </div>
+          <div style="margin-top:24px;">
+            <div class="card-label" style="margin-bottom:12px;">Certifications</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <span class="body2">Google UX Design Certificate</span>
+              <span class="body2">UX/UI Bootcamp — Memorisely</span>
+              <span class="body2">UX &amp; Visual Design — Nielsen Norman Group</span>
+              <span class="body2">User Research &amp; Design Thinking — IxDF</span>
+              <span class="body2">Design Patterns For AI Products In 2026 — Maven</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin-bottom:20px;">Core Skills</h3>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div>
+              <div class="card-label" style="margin-bottom:8px;">Design</div>
+              <div class="chip-row">
+                <span class="chip">Product Design</span><span class="chip">UX Strategy</span><span class="chip">Interaction Design</span><span class="chip">AI/ML Design</span><span class="chip">Design Systems</span><span class="chip">Service Design</span>
+              </div>
+            </div>
+            <div>
+              <div class="card-label" style="margin-bottom:8px;">Research</div>
+              <div class="chip-row">
+                <span class="chip">Usability Testing</span><span class="chip">User Interviews</span><span class="chip">Journey Mapping</span>
+              </div>
+            </div>
+            <div>
+              <div class="card-label" style="margin-bottom:8px;">Tools</div>
+              <div class="chip-row">
+                <span class="chip">Figma</span><span class="chip">Miro</span><span class="chip">Dovetail</span><span class="chip">Cursor</span>
+              </div>
+            </div>
+            <div>
+              <div class="card-label" style="margin-bottom:8px;">Domains</div>
+              <div class="chip-row">
+                <span class="chip">B2B SaaS</span><span class="chip">Agentic AI</span><span class="chip">Workflow Automation</span><span class="chip">Workflow Design</span><span class="chip">AI Interaction Design</span>
+              </div>
+            </div>
+            <div>
+              <div class="card-label" style="margin-bottom:8px;">Languages</div>
+              <div class="chip-row">
+                <span class="chip">Greek — Native</span><span class="chip">English — Full Professional</span><span class="chip">French — Limited working proficiency</span><span class="chip">Spanish — Limited working proficiency</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA row -->
+      <div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;padding-top:32px;border-top:1px solid var(--g200);">
+        <a class="btn btn-contained btn-lg" href="Elena_Stamatopoulou_CV.pdf" download="Elena_Stamatopoulou_CV.pdf">
+          ↓ Download CV
+        </a>
+        <a class="btn btn-outlined btn-lg" href="mailto:elenast.ux@gmail.com">
+          ✉ Email Me
+        </a>
+        <a class="btn btn-outlined btn-lg" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener">
+          LinkedIn ↗
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════════════════════════════
+     GLOBAL FOOTER
+══════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a class="footer-logo" href="index.html">
+        <div class="footer-mark"><span>ES</span></div>
+        <span class="footer-name">Elena Stamatopoulou</span>
+      </a>
+      <div class="footer-links">
+        <a class="btn-nav" href="mailto:elenast.ux@gmail.com" style="font-size:.8125rem;gap:7px;">
+          <img style="width:14px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0;" src="images/common/icon-email.svg" alt="" aria-hidden="true" onerror="this.outerHTML='✉'"/>
+          elenast.ux@gmail.com
+        </a>
+        <div class="footer-sep"></div>
+        <a class="btn-nav" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener" style="font-size:.8125rem;gap:7px;">
+          <img style="width:14px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0;" src="images/common/icon-linkedin.svg" alt="" aria-hidden="true" onerror="this.outerHTML='↗'"/>
+          LinkedIn
+        </a>
+        <div class="footer-sep"></div>
+        <button class="btn-nav" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="font-size:.8125rem;" aria-label="Back to top">↑ Top</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll progress bar
+(function(){
+  const fill=document.getElementById('scroll-progress-fill');
+  window.addEventListener('scroll',function(){
+    const scrollTop=window.scrollY||document.documentElement.scrollTop;
+    const docH=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    const pct=docH>0?Math.min(100,Math.round((scrollTop/docH)*100)):0;
+    fill.style.width=pct+'%';
+  },{passive:true});
+})();
+</script>
+
+<script>
+/* ── about.html content injection ────────────────────────────────
+   Maps PORTFOLIO_CONTENT.about keys to IDs on this page.
+   Zero layout/CSS side-effects.
+──────────────────────────────────────────────────────────────── */
+(function () {
+  if (typeof PORTFOLIO_CONTENT === 'undefined') return;
+  var a = PORTFOLIO_CONTENT.about;
+
+  function set(id, html, useInner) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    if (useInner) { el.innerHTML = html; } else { el.textContent = html; }
+  }
+
+  /* Hero */
+  set('about-name', a.hero.name);
+  set('about-bio',  a.hero.bio);
+
+  /* Stat strip */
+  a.stats.forEach(function (s, i) {
+    set('about-stat-' + i + '-val',   s.val);
+    set('about-stat-' + i + '-label', s.label);
+  });
+
+  /* Narrative — rebuild paragraphs */
+  var narr = document.getElementById('about-narrative');
+  if (narr) {
+    narr.innerHTML = a.narrative.map(function (p) {
+      return '<p class="body1 mb-6">' + p + '</p>';
+    }).join('');
+  }
+
+  /* Testimonials */
+  a.testimonials.forEach(function (t, i) {
+    set('about-t' + i + '-quote', t.quote);
+    set('about-t' + i + '-name',  t.name);
+  });
+
+})();
+</script>
+</body>
+</html>
