@@ -119,7 +119,7 @@ h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 .card{border:1px solid var(--g200);border-radius:var(--r-lg);background:#fff;padding:24px;}
 .card-soft{border:1px solid var(--g200);border-radius:var(--r-lg);background:var(--g50);padding:24px;}
 .card-accent{border:1px solid var(--accent-border);border-radius:var(--r-lg);background:var(--accent-light);padding:24px;}
-.card-label{font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g500);margin-bottom:12px;}
+.card-label{font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g700);margin-bottom:12px;}
 .card-label-accent{font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
 .card ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;}
 .card ul li,.card-soft ul li,.card-accent ul li{font-size:.875rem;line-height:1.7;color:var(--g700);padding-left:16px;position:relative;}
@@ -150,19 +150,19 @@ h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 .acc-header-text{display:flex;flex-direction:column;gap:4px;}
 .acc-title{font-size:.9375rem;font-weight:600;color:var(--g900);letter-spacing:-.01em;}
 .acc-preview{font-size:.8125rem;color:var(--g600);line-height:1.5;}
-.acc-icon{width:20px;height:20px;border-radius:50%;border:1px solid var(--g300);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--g500);font-size:.75rem;margin-top:2px;transition:transform .2s,background .15s;}
-.acc-header[aria-expanded="true"] .acc-icon{transform:rotate(45deg);background:var(--g100);}
+.acc-icon{width:20px;height:20px;border-radius:50%;border:1px solid var(--g300);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--g500);margin-top:2px;transition:transform .2s,background .15s;}
+.acc-header[aria-expanded="true"] .acc-icon{transform:rotate(180deg);background:var(--g100);}
 .acc-body{display:none;padding:0 20px 20px;border-top:1px solid var(--g200);}
 .acc-body.open{display:block;}
 .acc-body-inner{padding-top:16px;display:flex;flex-direction:column;gap:12px;}
-.acc-insight-label{font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g500);margin-bottom:4px;}
+.acc-insight-label{font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g700);margin-bottom:4px;}
 .acc-insight{font-size:.875rem;color:var(--g700);line-height:1.7;}
 
 /* ══════════════════════════════════════════
    COMPARISON TABLE
 ══════════════════════════════════════════ */
 .compare-table{width:100%;border-collapse:collapse;font-size:.875rem;}
-.compare-table th{font-size:.6875rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g500);padding:10px 16px;text-align:left;border-bottom:1px solid var(--g200);background:var(--g50);}
+.compare-table th{font-size:.6875rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g700);padding:10px 16px;text-align:left;border-bottom:1px solid var(--g200);background:var(--g50);}
 .compare-table th:first-child{color:var(--g400);}
 .compare-table th.col-v2{color:var(--accent);}
 .compare-table td{padding:12px 16px;border-bottom:1px solid var(--g200);color:var(--g700);line-height:1.6;vertical-align:top;}
@@ -190,13 +190,6 @@ h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 .decision-num{font-size:.75rem;font-weight:700;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
 .decision-title{font-size:.9375rem;font-weight:600;color:var(--g900);letter-spacing:-.01em;margin-bottom:4px;}
 .decision-desc{font-size:.875rem;color:var(--g600);line-height:1.7;}
-
-/* ══════════════════════════════════════════
-   IMAGE PLACEHOLDERS
-══════════════════════════════════════════ */
-.img-block{border:1px solid var(--g200);border-radius:12px;background:var(--g100);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:24px;text-align:center;aspect-ratio:16/9;height:auto;}
-.img-block-icon{font-size:1.25rem;color:var(--g400);}
-.img-block-label{font-size:.8125rem;font-weight:500;color:var(--g500);}
 
 /* ══════════════════════════════════════════
    ALIGNED CARD GRIDS
@@ -283,25 +276,27 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 <!-- ══════════════════════════════════════
      NAVBAR
 ══════════════════════════════════════ -->
-<nav class="navbar">
+<nav class="navbar" aria-label="Main navigation">
   <div class="container">
     <div class="navbar-inner">
-      <a class="navbar-logo" href="index.html">
-        <div class="logo-mark"><span>ES</span></div>
+      <a class="navbar-logo" href="index.html" aria-label="Elena Stamatopoulou — home">
+        <div class="logo-mark" aria-hidden="true"><span>ES</span></div>
         <span class="logo-name">Elena Stamatopoulou</span>
       </a>
       <div class="navbar-links">
-        <a class="btn-nav active" href="index.html#home-work">Work</a>
+        <a class="btn-nav active" href="index.html#home-work" aria-current="page">Work</a>
         <a class="btn-nav" href="about.html">About</a>
-        <div class="nav-divider"></div>
+        <div class="nav-divider" role="separator"></div>
         <a class="btn-nav" href="mailto:elenast.ux@gmail.com">Email</a>
-        <a class="btn btn-outlined" style="padding:6px 14px;font-size:.8125rem;" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn btn-outlined" style="padding:6px 14px;font-size:.8125rem;" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only">(opens in new tab)</span></a>
       </div>
     </div>
   </div>
 </nav>
 
-<main>
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}</style>
+
+<main id="main-content">
 
   <!-- ── HERO ── -->
   <div class="cs-hero">
@@ -309,16 +304,16 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 
       <div style="display:flex;flex-direction:column;align-items:flex-start;margin-bottom:24px;">
         <a class="back-link" href="index.html" style="margin-bottom:8px;">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 12L6 8l4-4"/></svg>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 12L6 8l4-4"/></svg>
           Back to Work
         </a>
         <p style="margin:0;display:inline-block;font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g700);background:var(--g100);border:1px solid var(--g300);border-radius:4px;padding:3px 10px;">Case Study 02</p>
       </div>
-      <h1 style="margin-bottom:16px;max-width:28ch;">SearchAgent: Optimizing Commercial Due Diligence through Brief-Aware AI</h1>
+      <h1 style="margin-bottom:16px;max-width:32ch;">SearchAgent: Optimizing Commercial Due Diligence through Brief-Aware AI</h1>
 
-      <p class="body1 prose" style="margin-bottom:8px;font-size:1.0625rem;color:var(--g600);">I led the evolution of SearchAgent from a functional MVP into a brief-aware discovery engine — shifting expert search from manual database filtering to AI-driven semantic ranking.</p>
-      <p class="body1 prose" style="margin-bottom:28px;font-size:1.0625rem;color:var(--g600);">V1 established the infrastructure. V2 made it intelligent.</p>
+      <p class="body1 prose" style="margin-bottom:28px;font-size:1.0625rem;color:var(--g600);">700+ associates were spending hours scrolling raw search results to find the right experts for every commercial due diligence project. I redesigned SearchAgent — the internal tool that powers expert discovery — evolving it from a manual database filter into a brief-aware, AI-ranked discovery engine.</p>
 
+      <p class="body2" style="margin-bottom:20px;color:var(--g700);font-weight:500;">V1 established the infrastructure. V2 made it intelligent.</p>
       <div class="chip-row mb-8">
         <span class="chip chip-accent">AI / ML</span>
         <span class="chip chip-accent">B2B SaaS</span>
@@ -327,10 +322,10 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
         <span class="chip">E2E Design</span>
       </div>
 
-      <!-- METRIC DASHBOARD — 1 metric -->
+      <!-- METRIC DASHBOARD — 2 metrics -->
       <div class="metric-dashboard" style="grid-template-columns:repeat(2,1fr);">
         <div class="metric-paper">
-          <div class="metric-num"><span class="hi">+40%</span></div>
+          <div class="metric-num"><span class="hi">2% → 18%</span></div>
           <div class="metric-cap">Adoption Growth</div>
         </div>
         <div class="metric-paper">
@@ -343,48 +338,51 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   </div>
 
   <!-- ── CONTEXT ── -->
-  <section class="section-alt">
+  <section class="section-alt" aria-labelledby="context-heading">
     <div class="container-cs">
       <div class="section-header">
         <div class="section-header-line"><span class="label-chip">Context</span></div>
       </div>
-      <h2 style="margin-bottom:16px;">The Race to the "First List"</h2>
-      <p class="body1 prose mb-8">In Commercial Due Diligence (CDD), speed is the competitive advantage. Private Equity clients measure Dialectica by <strong>Time-to-First-List</strong> — how fast the team identifies and presents relevant experts after a project launches. Winning PE accounts depends on delivering the fastest first list. SearchAgent is the internal tool that powers expert discovery for ~700+ Client Service associates worldwide.</p>
+      <h2 id="context-heading" style="margin-bottom:16px;">The Race to the "First List"</h2>
+      <p class="body1 prose mb-6">In Commercial Due Diligence (CDD), Private Equity clients measure Dialectica by one thing: how fast the team delivers a relevant expert list after a project launches.</p>
+      <div class="callout callout-insight mb-8">
+        <div class="callout-icon" aria-hidden="true">✦</div>
+        <div class="callout-body">
+          <div class="callout-label">Trust Problem</div>
+          <p class="callout-text">Associates had built deep trust in manual LinkedIn workflows — any AI replacement would need to earn that trust through transparency, not just accuracy.</p>
+        </div>
+      </div>
 
       <!-- Before / After comparison slider -->
-      <div style="position:relative;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--g200);box-shadow:0 2px 12px rgba(0,0,0,0.06);user-select:none;" id="ba-slider">
-        <!-- After image (full width, sits behind) -->
+      <div style="position:relative;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--g200);box-shadow:0 2px 12px rgba(0,0,0,0.06);user-select:none;" id="ba-slider" aria-label="Before and after comparison: V1 vs V2 SearchAgent interface. Drag the handle to reveal each version.">
         <img
           src="images/search-agent/search-agent-hero.png"
-          alt="After — SearchAgent V2 AI-Ranked Interface"
+          alt="After: SearchAgent V2 AI-ranked expert discovery interface"
           style="width:100%;height:auto;display:block;"
           id="ba-after-img"
         />
-        <!-- Before image (clipped left half, sits on top) -->
         <div id="ba-before-wrap" style="position:absolute;top:0;left:0;width:50%;height:100%;overflow:hidden;pointer-events:none;">
           <img
             src="images/search-agent/problem-legacy.png"
-            alt="Before — Legacy SearchAgent V1"
+            alt="Before: SearchAgent V1 manual search interface"
             style="width:100vw;max-width:786px;height:100%;object-fit:cover;object-position:left top;"
             id="ba-before-img"
           />
         </div>
-        <!-- Divider handle -->
-        <div id="ba-handle" style="position:absolute;top:0;left:50%;width:3px;height:100%;background:var(--accent);cursor:ew-resize;transform:translateX(-50%);">
+        <div id="ba-handle" style="position:absolute;top:0;left:50%;width:3px;height:100%;background:var(--accent);cursor:ew-resize;transform:translateX(-50%);" aria-hidden="true">
           <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:32px;height:32px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
-            <span style="color:#fff;font-size:.75rem;font-weight:700;letter-spacing:-.02em;">⟺</span>
+            <span style="color:#fff;font-size:.75rem;font-weight:700;letter-spacing:-.02em;" aria-hidden="true">⟺</span>
           </div>
         </div>
-        <!-- Labels -->
-        <div style="position:absolute;top:12px;left:12px;font-size:.625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,0.55);border-radius:4px;padding:3px 8px;">Before — V1</div>
-        <div style="position:absolute;top:12px;right:12px;font-size:.625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(79,95,239,0.85);border-radius:4px;padding:3px 8px;">After — V2</div>
+        <div style="position:absolute;top:12px;left:12px;font-size:.625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,0.55);border-radius:4px;padding:3px 8px;" aria-hidden="true">Before — V1</div>
+        <div style="position:absolute;top:12px;right:12px;font-size:.625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(79,95,239,0.85);border-radius:4px;padding:3px 8px;" aria-hidden="true">After — V2</div>
       </div>
       <p class="caption" style="margin-top:10px;display:block;text-align:center;">Drag to compare — V1 search tool vs. AI-ranked V2 discovery engine</p>
     </div>
   </section>
 
   <!-- ── OVERVIEW ── -->
-  <section class="section-white">
+  <section class="section-white" aria-labelledby="overview-heading">
     <div class="container-cs">
       <div class="section-header">
         <div class="section-header-line"><span class="label-chip">Overview</span></div>
@@ -393,12 +391,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
       <div class="side-by-side sbs-2 mb-6">
         <div class="card-soft">
           <div class="card-label">My Role</div>
-          <ul>
-            <li>Lead UX Designer for the AI &amp; Automation stream — end-to-end ownership across V1 maintenance and V2 design</li>
-            <li>Facilitated roadmap and feasibility workshops with Engineering and Product</li>
-            <li>Led global research across MBB accounts</li>
-            <li>Trained 200+ Associates in Bogotá; gathered real-time feedback to shape the V2 roadmap</li>
-          </ul>
+          <p class="body2" style="margin-bottom:0;">Sole designer on SearchAgent — responsible for research, UX strategy, interaction design, and delivery across V1 improvements and the full V2 redesign.</p>
         </div>
         <div class="card-soft">
           <div class="card-label">Team</div>
@@ -417,14 +410,14 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
           <div class="card-label">Project Goals</div>
           <ul>
             <li><strong>Efficiency:</strong> Automate the manual context-building phase to accelerate project kickoffs</li>
-            <li><strong>Accuracy:</strong> Shift from keyword-matching to semantic ranking for higher expert relevance</li>
+            <li><strong>Accuracy:</strong> Shift from keyword-matching to brief-aware ranking for higher expert relevance</li>
             <li><strong>Adoption:</strong> Bridge the trust gap in AI suggestions to replace manual LinkedIn searches with internal discovery</li>
           </ul>
         </div>
         <div class="card-soft">
           <div class="card-label">Impact</div>
           <ul>
-            <li><strong>Adoption:</strong> <strong>2% → 18%</strong> in four months post-launch</li>
+            <li><strong>Adoption:</strong> <strong>2% → 18%</strong> of the client service team, measured via product analytics</li>
             <li><strong>Capacity:</strong> ~315 hours/month reclaimed from manual search workflows</li>
             <li><strong>Speed:</strong> <strong>10%</strong> decrease in Time-to-First-List — the primary client KPI</li>
             <li><strong>Trust:</strong> Ranking-related support tickets dropped from 10% to 2%</li>
@@ -434,24 +427,33 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
     </div>
   </section>
 
-  <!-- ── V1 vs V2 STRATEGIC FRAMING ── -->
-  <section class="section-alt">
+  <!-- ── STRATEGIC CHALLENGE ── -->
+  <section class="section-alt" aria-labelledby="challenge-heading">
     <div class="container-cs">
       <div class="section-header">
         <div class="section-header-line"><span class="label-chip">Strategic Challenge</span></div>
       </div>
 
-      <h2 style="margin-bottom:16px;">From Data Filterer to Project Strategist</h2>
+      <h2 id="challenge-heading" style="margin-bottom:16px;">From Data Filterer to Project Strategist</h2>
       <p class="body1 prose mb-8">SearchAgent V2 was a planned evolution, not a failure-driven redesign. V1 centralised fragmented discovery into a single database — but it remained a high-effort search tool requiring associates to manually scan hundreds of raw results. V2 introduced a semantic layer that interprets the project brief, moving users from manual retrieval to predictive discovery.</p>
 
+      <div class="callout callout-constraint mb-8">
+        <div class="callout-icon" aria-hidden="true">⚠</div>
+        <div class="callout-body">
+          <div class="callout-label">The Core Problem</div>
+          <p class="callout-text">The bottleneck wasn't scope — it was signal. Associates were drowning in unranked results.</p>
+        </div>
+      </div>
+
       <!-- V1 vs V2 comparison table -->
-      <div style="border:1px solid var(--g200);border-radius:var(--r-lg);overflow:hidden;margin-bottom:32px;">
+      <div style="border:1px solid var(--g200);border-radius:var(--r-lg);overflow:hidden;">
         <table class="compare-table">
+          <caption class="sr-only">SearchAgent V1 vs V2 comparison across Goal, Ranking, Scope, Workflow, and Adoption dimensions</caption>
           <thead>
             <tr>
-              <th>Dimension</th>
-              <th>V1 — Foundation (MVP)</th>
-              <th class="col-v2">V2 — Intelligence (Current)</th>
+              <th scope="col">Dimension</th>
+              <th scope="col">V1 — Foundation (MVP)</th>
+              <th scope="col" class="col-v2">V2 — Intelligence (Current)</th>
             </tr>
           </thead>
           <tbody>
@@ -477,64 +479,48 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
             </tr>
             <tr>
               <td>Adoption</td>
-              <td>2% — infrastructure established</td>
-              <td class="col-v2">18% — 10% Time-to-First-List decrease</td>
+              <td>Low — infrastructure established</td>
+              <td class="col-v2">Primary discovery workflow — adopted across the team</td>
             </tr>
           </tbody>
         </table>
-      </div>
-
-      <div class="side-by-side sbs-2">
-        <div class="card-soft">
-          <div class="card-label">V1 — Validating the MVP</div>
-          <ul>
-            <li>Moved expert discovery from LinkedIn into an internal ecosystem</li>
-            <li>Established a functional database of competitor companies and former employees</li>
-            <li>Key learning: not ranking by project relevance created cognitive load — associates spent hours manually vetting for relevance. Incentive was very helpful.</li>
-          </ul>
-        </div>
-        <div class="card-soft">
-          <div class="card-label">V2 — Introducing Brief-Awareness</div>
-          <ul>
-            <li>Added a Brief-Aware Ranking algorithm on top of the existing expert pool</li>
-            <li>Keep "Formers" ranked by seniority, tenure, and recency of departure, as well as incentive; "Currents" ranked by seniority and tenure; and add a new "Suggested" list ranking experts by project relevance — initially including all experts from both "Currents" and "Formers", with the plan of evolving this into a curated shortlist</li>
-            <li>Value shift: instead of scrolling 300+ profiles, users start from the "Suggested" list with the most valuable experts in the first 1–2 pages, with the plan of replacing this with a curated shortlist in V3</li>
-          </ul>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- ── PROCESS ── -->
-  <section class="section-white">
+  <section class="section-white" aria-labelledby="process-heading">
     <div class="container-cs">
       <div class="section-header">
         <div class="section-header-line"><span class="label-chip">The Process</span></div>
       </div>
 
-      <!-- Phase 1 (merged) -->
+      <p class="body1 prose mb-10" style="color:var(--g700);">V2 didn't start with a blank page. I ran V1 stabilisation and V2 exploration in parallel.</p>
+
+      <!-- Phase 1 -->
       <div class="iteration-block">
         <div class="iteration-dot active"><div class="iteration-dot-inner"></div></div>
         <div>
           <h3 style="margin-bottom:6px;">Phase 1 — Stabilise &amp; Explore</h3>
           <p class="body2" style="color:var(--g600);margin-bottom:16px;font-style:italic;">Months 1–6: Stabilise V1 while defining SearchAgent's future</p>
-          <p class="body1 prose mb-6">When I became UX lead for the Automation stream, V1 was the operational baseline. I shipped <strong>quick-win improvements</strong> — a heuristic audit, new filters for list customisation, and an exploration to bring Customer Lists into V1 — while building the evidence base for V2. In parallel, I partnered with Product, Data Science, and Engineering to define SearchAgent's <strong>strategic direction</strong>. We prototyped multi-perspective ideas and bulk-action workflows, converging on the two highest-impact perspective types: <strong>Competitors and Customers</strong>.</p>
+          <p class="body1 prose mb-6">When I became UX lead for the Automation stream, V1 was already in active use. I focused on stabilizing it through quick wins — heuristic improvements, better filtering, and early customer exploration — while building the case for a more fundamental V2 redesign. It was a deliberate bridging strategy: <strong>keep V1 usable and trustworthy while building the evidence base</strong> to justify a V2 investment.</p>
+          <p class="body1 prose mb-6">In parallel, I worked with Product, Data Science, and Engineering to define the future direction. We explored multi-perspective views and bulk workflows, ultimately focusing on <strong>Competitors and Customers</strong> to cover the highest-impact use cases while keeping V2 feasible to deliver.</p>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;background:#F9FAFB;border:1px solid var(--g200);border-radius:var(--r-lg);padding:16px;margin-bottom:16px;align-items:stretch;">
             <div style="display:flex;flex-direction:column;">
               <div style="border-radius:var(--r-md);overflow:hidden;border:1px solid var(--g200);flex:1;min-height:0;">
-                <img src="images/search-agent/quick-wins.png" alt="SearchAgent V1 quick-wins shipped during Phase 1" style="width:100%;height:auto;display:block;"/>
+                <img src="images/search-agent/quick-wins.png" alt="SearchAgent V1 with quick-win improvements shipped during Phase 1 stabilisation" style="width:100%;height:auto;display:block;"/>
               </div>
               <p class="caption" style="margin-top:8px;display:block;text-align:center;">V1 quick-wins shipped while V2 was being explored in parallel</p>
             </div>
             <div style="display:flex;flex-direction:column;">
               <div style="border-radius:var(--r-md);overflow:hidden;border:1px solid var(--g200);flex:1;min-height:0;">
-                <img src="images/search-agent/Exploration1.png" alt="Early V2 exploration — multi-perspective views and per-company actions" style="width:100%;height:auto;display:block;"/>
+                <img src="images/search-agent/Exploration1.png" alt="Early V2 exploration showing multi-perspective views and per-company actions" style="width:100%;height:auto;display:block;"/>
               </div>
               <p class="caption" style="margin-top:8px;display:block;text-align:center;">Early exploration: multi-perspective views and per-company actions</p>
             </div>
           </div>
           <div class="callout callout-insight">
-            <div class="callout-icon">✦</div>
+            <div class="callout-icon" aria-hidden="true">✦</div>
             <div class="callout-body">
               <div class="callout-label">Insight</div>
               <p class="callout-text">Early exploration revealed that ranking — not scope — was the core friction. Associates didn't need more data; they needed better signal.</p>
@@ -549,7 +535,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
         <div>
           <h3 style="margin-bottom:6px;">Phase 2 — Evidence-Led Convergence</h3>
           <p class="body2" style="color:var(--g600);margin-bottom:16px;font-style:italic;">Research study with 15 global users — MBB account holders and project managers</p>
-          <p class="body1 prose mb-6">To validate V2 concepts, I led a global research study. Through technical negotiation with Engineering, we identified that Confirmed Customer Lists would delay launch by months — and research confirmed it wasn't a top user need. I steered the design toward a consolidated Suggested list for fast cross-project vetting, while keeping confirmed customers within competitors as approached in V1.</p>
+          <p class="body1 prose mb-6">To validate V2 direction, I led a global research study across MBB accounts. Through technical negotiation with Engineering, we identified that Confirmed Customer Lists would delay launch by months — and research confirmed it wasn't a top user need. I steered the design toward a <strong>Suggested list</strong> within each competitor company — an AI-ranked view of the most relevant experts per brief — while keeping confirmed customers visible within each competitor view as in V1. The same pattern later extended to Customer companies.</p>
 
           <div class="pull-quote prose mb-8">
             <p>70% of MBB account holders said a "ready-to-use shortlist" would be a game-changer for speed.</p>
@@ -557,14 +543,16 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 
           <!-- Research patterns as accordions -->
           <div class="accordion">
-            <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
+            <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false" aria-controls="acc-body-1">
               <div class="acc-header-text">
                 <span class="acc-title">Pattern 1 — Trust is Built on Recency + Screening in Customer Expert Profiles</span>
                 <span class="acc-preview">Trust is built on recency, screening, and customer familiarity with the product/service</span>
               </div>
-              <div class="acc-icon">+</div>
+              <div class="acc-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+              </div>
             </button>
-            <div class="acc-body">
+            <div class="acc-body" id="acc-body-1" role="region">
               <div class="acc-body-inner">
                 <div>
                   <div class="acc-insight-label">Finding</div>
@@ -573,21 +561,23 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
                 </div>
                 <div>
                   <div class="acc-insight-label">Design Decision</div>
-                  <p class="acc-insight">Ranking logic surfaces highest-incentive and most-consulted experts first. For customer expert profiles specifically, ranking prioritises product/service familiarity — current users ranked first — and quote recency.</p>
+                  <p class="acc-insight"><strong>Ranking logic surfaces highest-incentive and most-consulted experts first.</strong> For customer expert profiles specifically, ranking prioritises product/service familiarity — current users ranked first — and quote recency.</p>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="accordion">
-            <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
+            <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false" aria-controls="acc-body-2">
               <div class="acc-header-text">
                 <span class="acc-title">Pattern 2 — "Agnostic" vs. "Specific" Customer Search</span>
                 <span class="acc-preview">80% need any customer of a competitor; 20% need targeted entity research</span>
               </div>
-              <div class="acc-icon">+</div>
+              <div class="acc-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+              </div>
             </button>
-            <div class="acc-body">
+            <div class="acc-body" id="acc-body-2" role="region">
               <div class="acc-body-inner">
                 <div>
                   <div class="acc-insight-label">Finding</div>
@@ -596,21 +586,23 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
                 </div>
                 <div>
                   <div class="acc-insight-label">Design Decision</div>
-                  <p class="acc-insight">Maintained a consolidated Customer View under each competitor while enabling drill-downs for targeted recruitment.</p>
+                  <p class="acc-insight"><strong>Maintained a consolidated Customer View under each competitor</strong> while enabling drill-downs for targeted recruitment.</p>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="accordion">
-            <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
+            <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false" aria-controls="acc-body-3">
               <div class="acc-header-text">
                 <span class="acc-title">Pattern 3 — The "First List" Speed Bottleneck</span>
                 <span class="acc-preview">PMs need a consolidated list; associates need company-specific lists for delegation</span>
               </div>
-              <div class="acc-icon">+</div>
+              <div class="acc-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+              </div>
             </button>
-            <div class="acc-body">
+            <div class="acc-body" id="acc-body-3" role="region">
               <div class="acc-body-inner">
                 <div>
                   <div class="acc-insight-label">Finding</div>
@@ -619,21 +611,23 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
                 </div>
                 <div>
                   <div class="acc-insight-label">Design Decision</div>
-                  <p class="acc-insight">The Suggested tab re-ranks the expert pool by brief match, providing a curated starting point. The full ready-to-send shortlist is planned for V3.</p>
+                  <p class="acc-insight"><strong>The Suggested tab re-ranks the expert pool by brief match</strong>, providing a curated starting point. The full ready-to-send shortlist is planned for V3.</p>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="accordion">
-            <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
+            <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false" aria-controls="acc-body-4">
               <div class="acc-header-text">
                 <span class="acc-title">Pattern 4 — Expansion Friction</span>
                 <span class="acc-preview">Associates leave the platform for Gemini or Google — creating workflow fragmentation</span>
               </div>
-              <div class="acc-icon">+</div>
+              <div class="acc-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+              </div>
             </button>
-            <div class="acc-body">
+            <div class="acc-body" id="acc-body-4" role="region">
               <div class="acc-body-inner">
                 <div>
                   <div class="acc-insight-label">Finding</div>
@@ -642,29 +636,30 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
                 </div>
                 <div>
                   <div class="acc-insight-label">Design Decision</div>
-                  <p class="acc-insight">Integrated "Expand your research" to transition SearchAgent from a search tool into a strategic context layer — keeping users in a single system.</p>
+                  <p class="acc-insight"><strong>Descoped 'Expand your research' from V2 and flagged it for dedicated research</strong> — rather than shipping an untested feature, a deliberate decision to treat scoping discipline as a design outcome.</p>
                 </div>
               </div>
             </div>
           </div>
-          <!-- Exploration2 and Exploration2.2 — IA test with 15 users -->
+
+          <!-- IA concept tested with 15 users -->
           <div style="margin-top:24px;">
-            <p class="body2 prose mb-6" style="color:var(--g600);">To test the information architecture with the 15 users, I built two concepts. Option A keeps competitor company lists intact, with a "View confirmed customer experts" button next to each company name that reveals experts for that competitor. Option B presents a consolidated confirmed customer view for all competitors, filterable by a specific competitor — arriving pre-filtered when accessed from a competitor's button, but adjustable to show all.</p>
+            <p class="body2 prose mb-6" style="color:var(--g600);">To validate the information architecture, I tested a single validated concept with the 15 users: a consolidated "Confirmed Customer Experts" view, accessible from each competitor's list and filterable by competitor. Users accessed it pre-filtered from a competitor's entry point, but could adjust the dropdown to see all confirmed customers across the project.</p>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;background:#F9FAFB;border:1px solid var(--g200);border-radius:var(--r-lg);padding:16px;">
               <div>
-                <div style="font-size:.5625rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g500);margin-bottom:5px;text-align:center;">Option A — Competitor view with customer expert access</div>
+                <div style="font-size:.5625rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g700);margin-bottom:5px;text-align:center;">Entry point: competitor view</div>
                 <div style="border-radius:var(--r-md);overflow:hidden;border:1px solid var(--g200);">
-                  <img src="images/search-agent/Exploration2.png" alt="IA Option A — competitor company lists with View confirmed customer experts button" style="width:100%;height:auto;display:block;"/>
+                  <img src="images/search-agent/Exploration2.png" alt="Competitor company list view with View confirmed customer experts button next to each company" style="width:100%;height:auto;display:block;"/>
                 </div>
               </div>
               <div>
-                <div style="font-size:.5625rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g500);margin-bottom:5px;text-align:center;">Option B — Consolidated confirmed customer experts</div>
+                <div style="font-size:.5625rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g700);margin-bottom:5px;text-align:center;">Consolidated customer view</div>
                 <div style="border-radius:var(--r-md);overflow:hidden;border:1px solid var(--g200);">
-                  <img src="images/search-agent/Exploration2.2.png" alt="IA Option B — consolidated confirmed customer experts filterable by competitor" style="width:100%;height:auto;display:block;"/>
+                  <img src="images/search-agent/Exploration2.2.png" alt="Consolidated confirmed customer experts view filterable by specific competitor" style="width:100%;height:auto;display:block;"/>
                 </div>
               </div>
             </div>
-            <p class="caption" style="margin-top:10px;display:block;text-align:center;">IA test: competitor-anchored customer access (A) vs. consolidated customer view filterable by competitor (B) — tested with 15 users</p>
+            <p class="caption" style="margin-top:10px;display:block;text-align:center;">Validated concept: competitor-anchored entry point (left) leading to consolidated customer view filterable by competitor (right) — tested with 15 users</p>
           </div>
         </div>
       </div>
@@ -674,15 +669,13 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
         <div class="iteration-dot active"><div class="iteration-dot-inner"></div></div>
         <div>
           <h3 style="margin-bottom:6px;">Phase 3 — Operational Migration &amp; V2 Launch</h3>
-          <p class="body2" style="color:var(--g600);margin-bottom:16px;font-style:italic;">Zero-downtime transition for 700+ associates</p>
-          <p class="body1 prose mb-6">Designing the UI was half the battle. The other half: ensuring a zero-downtime transition for all active users. I led technical feasibility workshops to align design with backend constraints, avoided feature creep by anchoring to technical reality early, and met the Q1 release deadline with a 100% stable build.</p>
-          <div class="callout callout-insight">
-            <div class="callout-icon">✦</div>
-            <div class="callout-body">
-              <div class="callout-label">Key Decision</div>
-              <p class="callout-text">Descoped Confirmed Customer Lists after engineering flagged months of delay. Research confirmed it wasn't a top user need — delivering the Suggested tab first was the right call. Also descoped the “Expand your research” feature: we decided to run dedicated research to understand the best approach, and the added engineering effort wasn't justified at that stage.</p>
-            </div>
-          </div>
+          <p class="body2" style="color:var(--g600);margin-bottom:24px;font-style:italic;">Zero-downtime transition for 700+ associates across four progressive releases</p>
+
+          <p class="body1 prose mb-6">Shipping V2 as a single release would have disrupted 700+ active users. I designed a <strong>phased rollout</strong> — structural changes first, then AI features, then scope expansion to Customers. Each release was independently stable, giving associates time to build trust in new patterns before the next layer arrived, and creating feedback loops to catch issues early.</p>
+
+          <p class="body1 prose mb-6">To protect the timeline, we scoped strategically: <strong>kept the existing modal-based filters</strong> instead of migrating to a new drawer pattern, and <strong>launched Customer Companies with non-network experts only</strong> — covering ~80% of use cases — deferring full integration to V3.</p>
+
+          <p class="body1 prose" style="color:var(--g700);font-style:italic;border-left:3px solid var(--accent-border);padding-left:16px;">This phased structure also laid the architectural foundation for V3 — evolving SearchAgent from a discovery tool into a project strategist.</p>
         </div>
       </div>
 
@@ -690,57 +683,82 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   </section>
 
   <!-- ── FINAL SOLUTION ── -->
-  <section class="section-white" style="border-top:1px solid var(--g200);">
+  <section class="section-white" style="border-top:1px solid var(--g200);" aria-labelledby="solution-heading">
     <div class="container-cs">
       <div class="section-header">
         <div class="section-header-line"><span class="label-chip">Final Solution</span></div>
       </div>
 
-      <p class="body1 prose mb-8">I redesigned SearchAgent's core architecture to eliminate context-switching — bringing customer and competitor research into a single, AI-enhanced workflow.</p>
+      <p class="body1 prose mb-6">I redesigned SearchAgent's core architecture to eliminate context-switching — bringing customer and competitor research into a single, AI-enhanced workflow.</p>
 
       <div class="pull-quote prose mb-8">
         <p>From Black Box to Glass Box: a discovery engine users actually trust.</p>
       </div>
 
+      <!-- Workflow walkthrough -->
+      <h3 style="margin-bottom:16px;">How it Works</h3>
+      <p class="body1 prose mb-8">The redesigned workflow guides associates from AI-ranked discovery to building their expert pipeline:</p>
+      <ol style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0;margin-bottom:32px;" role="list">
+        <li style="display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid var(--g200);">
+          <div style="font-size:.75rem;font-weight:700;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;" aria-hidden="true">1</div>
+          <div><strong style="font-size:.9375rem;color:var(--g900);display:block;margin-bottom:4px;">Suggested list</strong><p style="font-size:.875rem;color:var(--g600);line-height:1.7;margin:0;">Associates land on an AI-ranked list of experts per company, ordered by relevance to the project brief. <strong>Transparency labels explain why each expert ranks where they do</strong> — recency, incentive status, screening history — giving associates confidence in the ranking without removing their control.</p></div>
+        </li>
+        <li style="display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid var(--g200);">
+          <div style="font-size:.75rem;font-weight:700;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;" aria-hidden="true">2</div>
+          <div><strong style="font-size:.9375rem;color:var(--g900);display:block;margin-bottom:4px;">Index to Leads</strong><p style="font-size:.875rem;color:var(--g600);line-height:1.7;margin:0;">Associates use the '+' action to add selected experts into the Leads tab — their working pipeline for the project. From there they track outreach and build toward the first expert list for the client.</p></div>
+        </li>
+        <li style="display:flex;align-items:flex-start;gap:16px;padding:16px 0;">
+          <div style="font-size:.75rem;font-weight:700;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;" aria-hidden="true">3</div>
+          <div><strong style="font-size:.9375rem;color:var(--g900);display:block;margin-bottom:4px;">Customer Companies</strong><p style="font-size:.875rem;color:var(--g600);line-height:1.7;margin:0;">A dedicated section surfaces non-network experts from target customer firms, enabling associates to explore a second perspective and broaden their search.</p></div>
+        </li>
+      </ol>
+
       <!-- Hero screenshot -->
       <div class="mb-10" style="border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--g200);box-shadow:0 2px 12px rgba(0,0,0,0.05);">
         <img
           src="images/search-agent/search-agent-hero.png"
-          alt="SearchAgent V2 — AI-Ranked Expert Discovery Interface"
+          alt="SearchAgent V2 final design: AI-ranked expert discovery interface showing the Suggested tab with transparency labels"
           style="width:100%;height:auto;display:block;"
         />
       </div>
 
-      <!-- Three Pillars -->
+      <!-- Key Design Decisions -->
       <h3 style="margin-bottom:12px;">Key Design Decisions</h3>
-      <p class="body2" style="margin-bottom:20px;color:var(--g600);">Five decisions shaped the V2 experience — each grounded in research findings from 15 global users.</p>
+      <p class="body2" style="margin-bottom:20px;color:var(--g600);">Five decisions shaped the V2 experience — each grounded in research findings and technical negotiation.</p>
       <ol class="decisions-list mb-10">
         <li>
-          <div class="decision-num">1</div>
+          <div class="decision-num" aria-hidden="true">1</div>
           <div class="decision-content">
             <div class="decision-title">AI-driven re-ranking <span style="font-size:.625rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:4px;padding:2px 8px;margin-left:6px;vertical-align:middle;">Core Innovation</span></div>
             <p class="decision-desc">Used LLMs to interpret briefs and re-rank expert pools by project relevance. The Suggested tab offers a curated starting point ahead of full automation in V3. Rankings incorporate signals such as seniority, tenure, recency, incentive, expert status (prior engagement and recency), and customer familiarity from expert quotes, defined with Data Science.</p>
           </div>
         </li>
         <li>
-          <div class="decision-num">2</div>
+          <div class="decision-num" aria-hidden="true">2</div>
           <div class="decision-content">
             <div class="decision-title">Integrated customer research</div>
-            <p class="decision-desc">Built a direct path to find employees at target firms, bypassing LinkedIn Sales Navigator. Descoped Confirmed Lists for now due to engineering constraints; prioritised NNSP (non-network experts) discovery for immediate competitive advantage — the research showed it served 80% of use cases.</p>
+            <p class="decision-desc">Built a direct path to find employees at target firms inside SearchAgent, bypassing LinkedIn Sales Navigator entirely. Confirmed customer experts remain accessible within each competitor view, consistent with V1 — no regression in the existing workflow.</p>
           </div>
         </li>
         <li>
-          <div class="decision-num">3</div>
+          <div class="decision-num" aria-hidden="true">3</div>
           <div class="decision-content">
-            <div class="decision-title">Explainable AI — transparency as trust <span style="font-size:.625rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#92400e;background:#fefce8;border:1px solid #fde68a;border-radius:4px;padding:2px 8px;margin-left:6px;vertical-align:middle;">−8pp Support Tickets</span></div>
-            <p class="decision-desc">Designed transparency disclaimers/tooltips explaining how experts were ranked. Ranking-related support tickets dropped from 10% to 2% post-launch.</p>
+            <div class="decision-title">NNSP-first strategy</div>
+            <p class="decision-desc">Prioritised NNSP (non-network expert) discovery for target customer companies, covering ~80% of use cases. This allowed us to deliver immediate value while deferring the more complex Confirmed Lists infrastructure.</p>
           </div>
         </li>
         <li>
-          <div class="decision-num">4</div>
+          <div class="decision-num" aria-hidden="true">4</div>
+          <div class="decision-content">
+            <div class="decision-title">Explainable AI — transparency as trust <span style="font-size:.625rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#92400e;background:#fefce8;border:1px solid #fde68a;border-radius:4px;padding:2px 8px;margin-left:6px;vertical-align:middle;">Support Tickets: 10% → 2%</span></div>
+            <p class="decision-desc">Designed transparency disclaimers and tooltips explaining how each expert was ranked — not just that AI ranked them. This was non-negotiable for adoption: associates needed to understand the logic before trusting the output. <strong>Support tickets dropped from 10% to 2%.</strong></p>
+          </div>
+        </li>
+        <li>
+          <div class="decision-num" aria-hidden="true">5</div>
           <div class="decision-content">
             <div class="decision-title">Consolidated Suggested tab</div>
-            <p class="decision-desc">Surfacing a brief-matched ranked expert list per company, allowing PMs to immediately identify the most relevant and incentivised experts for their first list to the client. This opens the road to the next automation: a shortlist of suggested experts per company, and eventually a project-wide shortlist — making the time-to-first-list even shorter.</p>
+            <p class="decision-desc">Surfacing a brief-matched ranked expert list per company, giving PMs an immediate starting point for their first client list. The full ready-to-send shortlist is planned for V3.</p>
           </div>
         </li>
       </ol>
@@ -748,56 +766,35 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
       <!-- Screenshots grid — Trust-AI and Customers images -->
       <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;background:#F9FAFB;border:1px solid var(--g200);border-radius:var(--r-lg);padding:16px;margin-bottom:32px;">
         <div>
-          <div style="font-size:.5625rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g500);margin-bottom:5px;text-align:center;">AI Transparency — Ranking Labels</div>
+          <div style="font-size:.5625rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g700);margin-bottom:5px;text-align:center;">AI Transparency — Ranking Disclaimers</div>
           <div style="border-radius:var(--r-md);overflow:hidden;border:1px solid var(--g200);">
-            <img src="images/search-agent/Trust-AI.png" alt="AI ranking transparency labels showing why experts are ranked" style="width:100%;height:auto;display:block;"/>
+            <img src="images/search-agent/Trust-AI.png" alt="SearchAgent V2 showing transparency tooltips and ranking disclaimers explaining why experts are ranked" style="width:100%;height:auto;display:block;"/>
           </div>
         </div>
         <div>
-          <div style="font-size:.5625rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g500);margin-bottom:5px;text-align:center;">Customer Companies — NNSP Focus</div>
+          <div style="font-size:.5625rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g700);margin-bottom:5px;text-align:center;">Customer Companies — NNSP Discovery</div>
           <div style="border-radius:var(--r-md);overflow:hidden;border:1px solid var(--g200);">
-            <img src="images/search-agent/Customers.png" alt="Customer companies view showing NNSP non-network experts" style="width:100%;height:auto;display:block;"/>
+            <img src="images/search-agent/Customers.png" alt="SearchAgent V2 Customer Companies view showing non-network expert profiles" style="width:100%;height:auto;display:block;"/>
           </div>
         </div>
-      </div>
-
-      <!-- Customers / NNSP tradeoff callout -->
-      <div class="callout callout-constraint mb-8">
-        <div class="callout-icon">⚠</div>
-        <div class="callout-body">
-          <div class="callout-label">Tradeoff — Customer View & NNSP Strategy</div>
-          <p class="callout-text">The Customer Companies view currently surfaces non-network experts (NNSP) — Dialectica's key competitive advantage in expert recruitment. Confirmed experts from those same companies are listed under each competitor only. Merging both under each customer would have been the ideal UX, but the technical effort wasn't justified by the business value at this stage. This is a deliberate, time-boxed tradeoff to ship V2 on schedule.</p>
-        </div>
-      </div>
-
-      <!-- Ecosystem connection back to Project Builder -->
-      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:18px 24px;border:1px solid var(--accent-border);border-radius:var(--r-lg);background:var(--accent-light);">
-        <div>
-          <div style="font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;">Ecosystem Connection</div>
-          <p style="font-size:.875rem;color:var(--g800);line-height:1.5;">SearchAgent receives project data — DNC lists, perspectives, and brief context — directly from the Project Builder</p>
-        </div>
-        <a class="next-cs-btn" href="project-builder.html" style="flex-shrink:0;">
-          View Project Builder Case Study
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
-        </a>
       </div>
     </div>
   </section>
 
   <!-- ── IMPACT ── -->
-  <section class="section-alt">
+  <section class="section-alt" aria-labelledby="impact-heading">
     <div class="container-cs">
       <div class="section-header">
         <div class="section-header-line"><span class="label-chip">Impact</span></div>
       </div>
 
-      <p class="body1 prose mb-8">V2 shifted SearchAgent from a high-effort search tool into an AI-enhanced discovery engine — changing how 700+ associates start every commercial due diligence project.</p>
+      <p class="body1 prose mb-8">V2 shifted SearchAgent from a high-effort search tool into an AI-enhanced discovery engine — changing how the client service team starts every commercial due diligence project, with adoption growing from 2% to 18%. All metrics measured via product analytics.</p>
 
       <p style="font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--g700);margin-bottom:12px;">Results at a Glance</p>
       <div class="cards-aligned cols-2 mb-8">
         <div class="card-soft">
           <div class="card-label">Adoption</div>
-          <p class="body2"><strong>2% → 18%</strong> in four months — from niche internal tool to primary discovery workflow</p>
+          <p class="body2"><strong>2% → 18%</strong> of the client service team — from niche internal tool to primary discovery workflow</p>
         </div>
         <div class="card-soft">
           <div class="card-label">Operational Capacity</div>
@@ -818,6 +815,8 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
         <span style="display:block;font-size:.8125rem;color:var(--g600);font-weight:500;margin-top:8px;font-style:normal;">— Client Service Associate, post-launch field feedback</span>
       </div>
 
+      <p class="body1 prose mb-8">Post-launch, I trained 200+ associates in Bogotá on V2 and mapped their feedback to inform ongoing improvements. The sessions surfaced priorities around filter refinements, customer list completeness, and how associates were using external tools like Gemini alongside SearchAgent — signals that are now shaping the V3 roadmap.</p>
+
       <div class="cards-aligned cols-2">
         <div class="card">
           <div class="card-label">Qualitative Signal</div>
@@ -831,7 +830,8 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
           <div class="card-label-accent">What Changed for the Business</div>
           <ul>
             <li>Expert discovery shifted from reactive filtering to proactive brief-aware ranking</li>
-            <li>Explainability patterns from SearchAgent V2 informed AI design standards across the product</li>
+            <li>Explainability patterns from SearchAgent V2 became the AI transparency standard adopted across the product</li>
+            <li>Growing team trust in AI-assisted tools — SearchAgent's adoption data built the internal case for a dedicated AI assistant project, added to the 2025 roadmap</li>
             <li>The architecture established for V2 unlocks a V3 roadmap for fully automated "First List Draft" generation</li>
           </ul>
         </div>
@@ -839,28 +839,60 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
     </div>
   </section>
 
+  <!-- ── LOOKING AHEAD ── -->
+  <section class="section-white" style="border-top:1px solid var(--g200);" aria-labelledby="ahead-heading">
+    <div class="container-cs">
+      <div class="section-header">
+        <div class="section-header-line"><span class="label-chip">Looking Ahead</span></div>
+      </div>
+
+      <h2 id="ahead-heading" style="margin-bottom:16px;">V3 Vision</h2>
+      <p class="body1 prose mb-8">V2 proved the model. V3 is about removing the remaining manual steps entirely — while staying within compliance constraints.</p>
+
+      <div class="cards-aligned cols-3 mb-8">
+        <div class="card-soft">
+          <div class="card-label">Strategy Board</div>
+          <p class="body2">A project-level view giving PMs a consolidated snapshot of highest-priority experts across competitors and customers. The command centre for first-list assembly.</p>
+        </div>
+        <div class="card-soft">
+          <div class="card-label">First List Draft</div>
+          <p class="body2">A fully automated shortlist generated from the Suggested tab — the logical next step once V2 adoption validates the ranking model.</p>
+        </div>
+        <div class="card-soft">
+          <div class="card-label">Compliance Constraints</div>
+          <p class="body2">Any automation touching expert outreach must satisfy DNC, data residency, and compliance requirements. V3 design will require close collaboration with Legal and Engineering.</p>
+        </div>
+      </div>
+
+      <div class="callout callout-insight">
+        <div class="callout-icon" aria-hidden="true">✦</div>
+        <div class="callout-body">
+          <div class="callout-label">Connection to Project Builder</div>
+          <p class="callout-text">SearchAgent's AI ranking quality depends directly on brief quality — which is where the Project Builder redesign comes in. <a href="project-builder.html" style="color:var(--accent);font-weight:500;text-decoration:underline;text-underline-offset:2px;">→ View Project Builder Case Study</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── REFLECTIONS ── -->
-  <section class="section-white" style="border-top:1px solid var(--g200);">
+  <section class="section-alt" aria-labelledby="reflections-heading">
     <div class="container-cs">
       <div class="section-header">
         <div class="section-header-line"><span class="label-chip">Reflections</span></div>
       </div>
 
-      <p class="body1 prose mb-6">The biggest design challenge wasn't the interface — it was trust. Associates had built mental models around manual LinkedIn searches because they could control every step. The Suggested tab only worked once users could see exactly why an expert was ranked. Transparency wasn't a nice-to-have; it was the product.</p>
-      <p class="body1 prose mb-8">Descoping Confirmed Customer Lists was the right call — but it required convincing stakeholders that partial delivery at Q1 was more valuable than a complete solution at Q3. The research gave me the data to make that argument. Building the evidence base early, before any design work, was what made the tradeoff defensible.</p>
+      <p class="body1 prose mb-6"><strong>Trust was the real design challenge.</strong> The hardest part wasn't the interface — it was shifting associates from manual, fully controlled workflows to AI-assisted ones. The Suggested tab only worked once users understood why experts were ranked. Transparency wasn't a feature; it was core to adoption.</p>
+      <p class="body1 prose mb-6"><strong>Research made the tradeoffs defensible.</strong> Descoping Confirmed Customer Lists required convincing stakeholders that <strong>partial delivery at Q1 was more valuable than a complete solution at Q3</strong>. The research gave me the data to make that argument — building the evidence base early, before any design work, was what made the tradeoff defensible.</p>
+      <p class="body1 prose mb-8"><strong>Impact beyond SearchAgent.</strong> The <strong>transparency patterns</strong> introduced here — ranking disclaimers, explainability tooltips, AI confidence signals — became the design language for how Dialectica's products communicate AI decisions to users. What started as a trust solution for one tool set the standard across the product.</p>
 
-      <div class="cards-aligned cols-3">
-        <div class="card-soft">
-          <div class="card-label">UX as a Revenue Driver</div>
-          <p class="body2">In PE-facing products, design success is measured in commercial velocity. My role was to find the bottleneck — manual search — and use design to break through it.</p>
-        </div>
+      <div class="cards-aligned cols-2">
         <div class="card-soft">
           <div class="card-label">Simplicity is Earned</div>
-          <p class="body2">V2 started with complex multi-perspective navigation. Through testing with 15 global users, I learned to ruthlessly simplify — one Suggested tab over six separate views.</p>
+          <p class="body2">Initial concepts explored multiple perspectives, but testing with 15 users showed the need to simplify to a single, focused entry point.</p>
         </div>
         <div class="card-soft">
-          <div class="card-label">Trust is the Foundation</div>
-          <p class="body2">Accuracy is useless inside a black box. Collaborating with Data Science on ranking labels ensured users felt in control of the AI — not replaced by it.</p>
+          <div class="card-label">Trust Drives Adoption</div>
+          <p class="body2">AI rankings are only useful when users understand them. Collaborating with Data Science on human-readable ranking labels was the decision that unlocked adoption — associates didn't need perfect accuracy, they needed to see why.</p>
         </div>
       </div>
     </div>
@@ -877,7 +909,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
         </div>
         <a class="next-cs-btn" href="project-builder.html">
           View Case Study
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4-4 4"/></svg>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 4l4 4-4 4"/></svg>
         </a>
       </div>
     </div>
@@ -891,8 +923,8 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <a class="footer-logo" href="index.html">
-        <div class="footer-mark"><span>ES</span></div>
+      <a class="footer-logo" href="index.html" aria-label="Elena Stamatopoulou — home">
+        <div class="footer-mark" aria-hidden="true"><span>ES</span></div>
         <span class="footer-name">Elena Stamatopoulou</span>
       </a>
       <div class="footer-links">
@@ -900,13 +932,13 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
           <img style="width:14px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0;" src="images/common/icon-email.svg" alt="" aria-hidden="true" onerror="this.outerHTML='✉'"/>
           elenast.ux@gmail.com
         </a>
-        <div class="footer-sep"></div>
-        <a class="btn-nav" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener" style="font-size:.8125rem;gap:7px;">
+        <div class="footer-sep" role="separator"></div>
+        <a class="btn-nav" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener noreferrer" style="font-size:.8125rem;gap:7px;">
           <img style="width:14px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0;" src="images/common/icon-linkedin.svg" alt="" aria-hidden="true" onerror="this.outerHTML='↗'"/>
-          LinkedIn
+          LinkedIn <span class="sr-only">(opens in new tab)</span>
         </a>
-        <div class="footer-sep"></div>
-        <button class="btn-nav" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="font-size:.8125rem;" aria-label="Back to top">↑ Top</button>
+        <div class="footer-sep" role="separator"></div>
+        <button class="btn-nav" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="font-size:.8125rem;" aria-label="Back to top of page">↑ Top</button>
       </div>
     </div>
   </div>
@@ -923,13 +955,12 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
     fill.style.width=pct+'%';
   },{passive:true});
 })();
-// Accordion toggle
+// Accordion toggle — arrow rotates on expand
 function toggleAcc(btn){
   const body=btn.nextElementSibling;
   const isOpen=btn.getAttribute('aria-expanded')==='true';
   btn.setAttribute('aria-expanded',String(!isOpen));
   body.classList.toggle('open',!isOpen);
-  btn.querySelector('.acc-icon').textContent=isOpen?'+':'×';
 }
 </script>
 
