@@ -44,8 +44,11 @@ h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 .prose{max-width:68ch;}
 
 /* ── PULL QUOTE ── */
-.pull-quote{border-left:3px solid var(--accent);padding:2px 0 2px 20px;margin:0;}
-.pull-quote p{font-size:1.125rem;font-weight:500;line-height:1.6;color:var(--g900);letter-spacing:-.015em;}
+/* ── PULL QUOTE (testimonial style) ── */
+.pull-quote{display:flex;align-items:flex-start;gap:20px;}
+.pull-quote-mark{font-size:2.5rem;line-height:.8;color:var(--accent);font-weight:700;flex-shrink:0;margin-top:4px;}
+.pull-quote-text{font-size:1rem;font-weight:500;line-height:1.65;color:var(--g800);letter-spacing:-.01em;}
+.pull-quote-attr{font-size:.6875rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--g500);margin-top:8px;}
 
 /* ══════════════════════════════════════════
    LAYOUT
@@ -361,11 +364,12 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
           style="width:100%;height:auto;display:block;"
           id="ba-after-img"
         />
-        <div id="ba-before-wrap" style="position:absolute;top:0;left:0;width:50%;height:100%;overflow:hidden;pointer-events:none;">
+        <!-- White bg fills any gap so After never shows through -->
+        <div id="ba-before-wrap" style="position:absolute;top:0;left:0;width:50%;height:100%;overflow:hidden;pointer-events:none;background:#fff;">
           <img
             src="images/search-agent/problem-legacy.png"
             alt="Before: SearchAgent V1 manual search interface"
-            style="width:100vw;max-width:786px;height:100%;object-fit:cover;object-position:left top;"
+            style="width:100%;height:100%;object-fit:cover;object-position:left top;"
             id="ba-before-img"
           />
         </div>
@@ -374,8 +378,9 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
             <span style="color:#fff;font-size:.75rem;font-weight:700;letter-spacing:-.02em;" aria-hidden="true">⟺</span>
           </div>
         </div>
-        <div style="position:absolute;top:12px;left:12px;font-size:.625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,0.55);border-radius:4px;padding:3px 8px;" aria-hidden="true">Before — V1</div>
-        <div style="position:absolute;top:12px;right:12px;font-size:.625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(79,95,239,0.85);border-radius:4px;padding:3px 8px;" aria-hidden="true">After — V2</div>
+        <!-- Labels — visibility toggled by JS at the edges -->
+        <div id="ba-label-before" style="position:absolute;top:12px;left:12px;font-size:.625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,0.55);border-radius:4px;padding:3px 8px;transition:opacity .2s;" aria-hidden="true">Before — V1</div>
+        <div id="ba-label-after" style="position:absolute;top:12px;right:12px;font-size:.625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(79,95,239,0.85);border-radius:4px;padding:3px 8px;transition:opacity .2s;" aria-hidden="true">After — V2</div>
       </div>
       <p class="caption" style="margin-top:10px;display:block;text-align:center;">Drag to compare — V1 search tool vs. AI-ranked V2 discovery engine</p>
     </div>
@@ -538,7 +543,10 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
           <p class="body1 prose mb-6">To validate V2 direction, I led a global research study across MBB accounts. Through technical negotiation with Engineering, we identified that Confirmed Customer Lists would delay launch by months — and research confirmed it wasn't a top user need. I steered the design toward a <strong>Suggested list</strong> within each competitor company — an AI-ranked view of the most relevant experts per brief — while keeping confirmed customers visible within each competitor view as in V1. The same pattern later extended to Customer companies.</p>
 
           <div class="pull-quote prose mb-8">
-            <p>70% of MBB account holders said a "ready-to-use shortlist" would be a game-changer for speed.</p>
+            <div class="pull-quote-mark">"</div>
+            <div>
+              <p class="pull-quote-text">70% of MBB account holders said a "ready-to-use shortlist" would be a game-changer for speed.</p>
+            </div>
           </div>
 
           <!-- Research patterns as accordions -->
@@ -692,7 +700,10 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
       <p class="body1 prose mb-6">I redesigned SearchAgent's core architecture to eliminate context-switching — bringing customer and competitor research into a single, AI-enhanced workflow.</p>
 
       <div class="pull-quote prose mb-8">
-        <p>From Black Box to Glass Box: a discovery engine users actually trust.</p>
+        <div class="pull-quote-mark">"</div>
+        <div>
+          <p class="pull-quote-text">From Black Box to Glass Box: a discovery engine users actually trust.</p>
+        </div>
       </div>
 
       <!-- Workflow walkthrough -->
@@ -811,8 +822,11 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
       </div>
 
       <div class="pull-quote prose mb-8">
-        <p>"I applied the 'Suggested' filter to index fast NSSPs. We received an email response just 15 minutes after indexation, with the exact title requested by the client. This workflow is a total game-changer for high-priority searches."</p>
-        <span style="display:block;font-size:.8125rem;color:var(--g600);font-weight:500;margin-top:8px;font-style:normal;">— Client Service Associate, post-launch field feedback</span>
+        <div class="pull-quote-mark">"</div>
+        <div>
+          <p class="pull-quote-text">I applied the 'Suggested' filter to index fast NSSPs. We received an email response just 15 minutes after indexation, with the exact title requested by the client. This workflow is a total game-changer for high-priority searches.</p>
+          <p class="pull-quote-attr">Client Service Associate — post-launch field feedback</p>
+        </div>
       </div>
 
       <p class="body1 prose mb-8">Post-launch, I trained 200+ associates in Bogotá on V2 and mapped their feedback to inform ongoing improvements. The sessions surfaced priorities around filter refinements, customer list completeness, and how associates were using external tools like Gemini alongside SearchAgent — signals that are now shaping the V3 roadmap.</p>
@@ -969,14 +983,20 @@ function toggleAcc(btn){
 (function(){
   var slider = document.getElementById('ba-slider');
   if(!slider) return;
-  var handle  = document.getElementById('ba-handle');
-  var wrap    = document.getElementById('ba-before-wrap');
-  var dragging = false;
+  var handle      = document.getElementById('ba-handle');
+  var wrap        = document.getElementById('ba-before-wrap');
+  var lblBefore   = document.getElementById('ba-label-before');
+  var lblAfter    = document.getElementById('ba-label-after');
+  var dragging    = false;
+  var EDGE        = 3; // % from edge to suppress the opposite label
   function setPos(x){
     var rect = slider.getBoundingClientRect();
     var pct  = Math.max(0, Math.min(100, ((x - rect.left) / rect.width) * 100));
-    wrap.style.width   = pct + '%';
-    handle.style.left  = pct + '%';
+    wrap.style.width  = pct + '%';
+    handle.style.left = pct + '%';
+    // At right edge → only Before is visible; at left edge → only After is visible
+    lblBefore.style.opacity = (pct < EDGE)       ? '0' : '1';
+    lblAfter.style.opacity  = (pct > 100 - EDGE) ? '0' : '1';
   }
   handle.addEventListener('mousedown', function(e){ dragging=true; e.preventDefault(); });
   window.addEventListener('mousemove', function(e){ if(dragging) setPos(e.clientX); });
