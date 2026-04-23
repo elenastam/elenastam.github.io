@@ -34,12 +34,12 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--g50);color:var(--
 /* ══════════════════════════════════════════
    TYPOGRAPHY
 ══════════════════════════════════════════ */
-.overline{font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g500);}
+.overline{font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g700);}
 h1{font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700;letter-spacing:-.04em;line-height:1.1;color:var(--g900);}
 h2{font-size:clamp(1.375rem,3vw,2rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;}
 h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 .body1{font-size:1rem;line-height:1.7;color:var(--g700);}
-.body2{font-size:.875rem;line-height:1.7;color:var(--g600);}
+.body2{font-size:.875rem;line-height:1.7;color:var(--g700);}
 .prose{max-width:68ch;}
 
 /* ══════════════════════════════════════════
@@ -62,7 +62,7 @@ h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 .logo-name{font-weight:600;font-size:.9375rem;letter-spacing:-.02em;color:var(--g900);}
 .navbar-links{display:flex;align-items:center;gap:4px;}
 .nav-divider{width:1px;height:16px;background:var(--g300);margin:0 6px;}
-.btn-nav{font-family:inherit;font-size:.875rem;font-weight:400;color:var(--g600);background:none;border:1px solid transparent;border-radius:var(--r-md);padding:6px 12px;cursor:pointer;text-decoration:none;transition:background .15s,color .15s;display:inline-flex;align-items:center;gap:6px;min-height:44px;}
+.btn-nav{font-family:inherit;font-size:.875rem;font-weight:400;color:var(--g700);background:none;border:1px solid transparent;border-radius:var(--r-md);padding:6px 12px;cursor:pointer;text-decoration:none;transition:background .15s,color .15s;display:inline-flex;align-items:center;gap:6px;min-height:44px;}
 .btn-nav:hover{background:var(--g100);color:var(--g900);}
 .btn-nav.active{color:var(--g900);font-weight:600;}
 .btn{display:inline-flex;align-items:center;justify-content:center;font-family:inherit;font-size:.875rem;font-weight:500;border-radius:var(--r-md);padding:8px 18px;cursor:pointer;text-decoration:none;transition:all .15s ease;white-space:nowrap;min-height:44px;}
@@ -77,8 +77,8 @@ h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 ══════════════════════════════════════════ */
 .chip-row{display:flex;flex-wrap:wrap;gap:8px;}
 .chip{font-size:.6875rem;font-weight:500;color:var(--g700);border:1px solid var(--g300);border-radius:var(--r-sm);padding:4px 10px;display:inline-block;}
-.chip-accent{background:var(--accent-light);border-color:var(--accent-border);color:var(--accent);}
-.label-chip{display:inline-flex;align-items:center;font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:20px;padding:3px 12px;}
+.chip-accent{background:var(--accent-light);border-color:var(--accent-border);color:#3344cc;}
+.label-chip{display:inline-flex;align-items:center;font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#3344cc;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:20px;padding:3px 12px;}
 
 /* ══════════════════════════════════════════
    SECTION HEADER
@@ -90,7 +90,7 @@ h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 /* ══════════════════════════════════════════
    CARDS
 ══════════════════════════════════════════ */
-.card-label{font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g500);margin-bottom:12px;}
+.card-label{font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g700);margin-bottom:12px;}
 .side-by-side{display:grid;gap:16px;}
 .sbs-2{grid-template-columns:1fr;}
 @media(min-width:640px){.sbs-2{grid-template-columns:1fr 1fr;}}
@@ -117,7 +117,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
    CASE STUDY HERO (back link + hero bg)
 ══════════════════════════════════════════ */
 .cs-hero{padding:72px 0 80px;background:#fff;border-bottom:1px solid var(--g200);}
-.back-link{display:inline-flex;align-items:center;gap:6px;font-size:.8125rem;font-weight:500;color:var(--g500);text-decoration:none;margin-bottom:40px;transition:color .15s;letter-spacing:.01em;min-height:44px;}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:.8125rem;font-weight:500;color:var(--g700);text-decoration:none;margin-bottom:40px;transition:color .15s;letter-spacing:.01em;min-height:44px;}
 .back-link:hover{color:var(--g900);}
 .back-link svg{width:14px;height:14px;}
 
@@ -129,14 +129,14 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 .about-photo-wrap{display:flex;flex-direction:column;}
 .about-photo{aspect-ratio:3/4;border:1px solid var(--g200);border-radius:12px;background:var(--g100);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;max-width:280px;width:100%;}
 .about-photo-icon{font-size:2.5rem;}
-.about-photo-label{font-size:.75rem;color:var(--g500);font-weight:500;}
+.about-photo-label{font-size:.75rem;color:var(--g700);font-weight:500;}
 .about-contact-pill{display:inline-flex;align-items:center;gap:8px;font-size:.8125rem;font-weight:500;color:var(--g700);text-decoration:none;padding:8px 14px;border:1px solid var(--g200);border-radius:var(--r-md);background:#fff;transition:border-color .15s,color .15s;min-height:44px;}
 .about-contact-pill:hover{border-color:var(--g400);color:var(--g900);}
 .about-contact-icon{font-size:.875rem;}
 .about-stats{display:flex;align-items:center;flex-wrap:wrap;gap:0;border:1px solid var(--g200);border-radius:var(--r-lg);background:#fff;overflow:hidden;margin-top:4px;}
 .about-stat{padding:16px 20px;flex:1;min-width:80px;text-align:center;display:flex;flex-direction:column;align-items:center;}
 .about-stat-val{font-size:1.375rem;font-weight:700;letter-spacing:-.03em;color:var(--accent);line-height:1;}
-.about-stat-label{font-size:.625rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--g500);margin-top:4px;line-height:1.3;text-align:center;}
+.about-stat-label{font-size:.625rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--g700);margin-top:4px;line-height:1.3;text-align:center;}
 .about-stat-div{width:1px;background:var(--g200);align-self:stretch;}
 .about-narrative{max-width:68ch;}
 .about-narrative .body1{margin-bottom:20px;}
@@ -158,7 +158,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 .testimonial-quote{font-size:.9375rem;line-height:1.7;color:var(--g800);font-style:italic;text-align:center;}
 .testimonial-quote::before{content:'\201C';font-size:1.5rem;line-height:0;vertical-align:-.35em;color:var(--accent);margin-right:3px;font-style:normal;}
 .testimonial-attr{border-top:1px solid var(--g200);padding-top:12px;width:100%;text-align:center;}
-.testimonial-name{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--g500);text-align:center;}
+.testimonial-name{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--g700);text-align:center;}
 
 /* Experience timeline */
 .exp-timeline{display:flex;flex-direction:column;gap:0;}
@@ -166,19 +166,19 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 @media(min-width:640px){.exp-item{grid-template-columns:120px 1fr;gap:24px;}}
 .exp-item:last-child{border-bottom:none;}
 .exp-meta{padding-top:3px;}
-.exp-year{font-size:.75rem;font-weight:600;letter-spacing:.04em;color:var(--g500);white-space:nowrap;}
+.exp-year{font-size:.75rem;font-weight:600;letter-spacing:.04em;color:var(--g700);white-space:nowrap;}
 .exp-title{font-size:1rem;font-weight:600;color:var(--g900);letter-spacing:-.01em;margin-bottom:3px;}
-.exp-company{font-size:.875rem;font-weight:500;color:var(--g600);margin-bottom:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-.exp-badge{font-size:.5625rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:4px;padding:2px 7px;}
-.exp-desc{font-size:.875rem;line-height:1.65;color:var(--g600);margin-bottom:12px;}
+.exp-company{font-size:.875rem;font-weight:500;color:var(--g700);margin-bottom:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.exp-badge{font-size:.5625rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#3344cc;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:4px;padding:2px 7px;}
+.exp-desc{font-size:.875rem;line-height:1.65;color:var(--g700);margin-bottom:12px;}
 .exp-bullets{display:flex;flex-direction:column;gap:6px;}
 .exp-bullet{font-size:.8125rem;line-height:1.6;color:var(--g700);padding-left:16px;position:relative;}
 .exp-bullet::before{content:'—';position:absolute;left:0;color:var(--g400);font-size:.75rem;top:3px;}
 
 /* Education */
 .edu-degree{font-size:.9375rem;font-weight:600;color:var(--g900);letter-spacing:-.01em;}
-.edu-school{font-size:.875rem;color:var(--g600);margin-top:2px;}
-.edu-year{font-size:.75rem;font-weight:600;letter-spacing:.04em;color:var(--g500);margin-top:4px;}
+.edu-school{font-size:.875rem;color:var(--g700);margin-top:2px;}
+.edu-year{font-size:.75rem;font-weight:600;letter-spacing:.04em;color:var(--g700);margin-top:4px;}
 
 /* ══════════════════════════════════════════
    MOBILE
@@ -205,6 +205,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   .sbs-2{grid-template-columns:1fr!important;}
 }
 </style>
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}</style>
   <script src="content.js"></script>
 </head>
 <body>
@@ -227,7 +228,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
         <a class="btn-nav active" href="about.html">About</a>
         <div class="nav-divider"></div>
         <a class="btn-nav" href="mailto:elenast.ux@gmail.com">Email</a>
-        <a class="btn btn-outlined" style="padding:6px 14px;font-size:.8125rem;" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn btn-outlined" style="padding:6px 14px;font-size:.8125rem;" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only">(opens in new tab)</span></a>
       </div>
     </div>
   </div>
@@ -262,9 +263,9 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
               <img src="images/common/icon-email.svg" alt="" aria-hidden="true" style="width:14px;height:14px;flex-shrink:0;" onerror="this.outerHTML='✉'"/>
               elenast.ux@gmail.com
             </a>
-            <a href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener" class="about-contact-pill">
+            <a href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener noreferrer" class="about-contact-pill">
               <img src="images/common/icon-linkedin.svg" alt="" aria-hidden="true" style="width:14px;height:14px;flex-shrink:0;" onerror="this.outerHTML='↗'"/>
-              LinkedIn Profile
+              LinkedIn Profile<span class="sr-only"> (opens in new tab)</span>
             </a>
           </div>
         </div>
@@ -318,11 +319,12 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   </section>
 
   <!-- ── TESTIMONIALS ── -->
-  <section class="section-white">
+  <section class="section-white" aria-label="Testimonials">
     <div class="container-cs">
       <div class="section-header">
         <div class="section-header-line"><span class="label-chip">Testimonials</span></div>
       </div>
+      <h2 class="sr-only">Testimonials</h2>
 
       <div class="about-testimonials">
         <div class="testimonial-card">
@@ -354,11 +356,12 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   </section>
 
   <!-- ── EXPERIENCE TIMELINE ── -->
-  <section class="section-alt">
+  <section class="section-alt" aria-label="Experience">
     <div class="container-cs">
       <div class="section-header">
         <div class="section-header-line"><span class="label-chip">Experience</span></div>
       </div>
+      <h2 class="sr-only">Experience</h2>
 
       <!-- 7-Year arc callout -->
       <div style="display:flex;align-items:flex-start;gap:16px;padding:18px 20px;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:var(--r-lg);margin-bottom:28px;">
@@ -428,11 +431,12 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   </section>
 
   <!-- ── EDUCATION & SKILLS ── -->
-  <section class="section-white">
+  <section class="section-white" aria-label="Education and Skills">
     <div class="container-cs">
       <div class="section-header">
         <div class="section-header-line"><span class="label-chip">Education &amp; Skills</span></div>
       </div>
+      <h2 class="sr-only">Education and Skills</h2>
 
       <div class="side-by-side sbs-2 mb-8">
         <div>
@@ -462,6 +466,12 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
           <h3 style="margin-bottom:20px;">Core Skills</h3>
           <div style="display:flex;flex-direction:column;gap:14px;">
             <div>
+              <div class="card-label" style="margin-bottom:8px;">Domains</div>
+              <div class="chip-row">
+                <span class="chip">B2B SaaS</span><span class="chip">Agentic AI</span><span class="chip">Workflow Automation</span><span class="chip">Workflow Design</span><span class="chip">AI Interaction Design</span>
+              </div>
+            </div>
+            <div>
               <div class="card-label" style="margin-bottom:8px;">Design</div>
               <div class="chip-row">
                 <span class="chip">Product Design</span><span class="chip">UX Strategy</span><span class="chip">Interaction Design</span><span class="chip">AI/ML Design</span><span class="chip">Design Systems</span><span class="chip">Service Design</span>
@@ -480,15 +490,9 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
               </div>
             </div>
             <div>
-              <div class="card-label" style="margin-bottom:8px;">Domains</div>
-              <div class="chip-row">
-                <span class="chip">B2B SaaS</span><span class="chip">Agentic AI</span><span class="chip">Workflow Automation</span><span class="chip">Workflow Design</span><span class="chip">AI Interaction Design</span>
-              </div>
-            </div>
-            <div>
               <div class="card-label" style="margin-bottom:8px;">Languages</div>
               <div class="chip-row">
-                <span class="chip">Greek — Native</span><span class="chip">English — Full Professional</span><span class="chip">French — Limited working proficiency</span><span class="chip">Spanish — Limited working proficiency</span>
+                <span class="chip">Greek — Native</span><span class="chip">English — Full Professional</span><span class="chip">French — Limited</span><span class="chip">Spanish — Limited</span>
               </div>
             </div>
           </div>
@@ -503,8 +507,8 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
         <a class="btn btn-outlined btn-lg" href="mailto:elenast.ux@gmail.com">
           ✉ Email Me
         </a>
-        <a class="btn btn-outlined btn-lg" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener">
-          LinkedIn ↗
+        <a class="btn btn-outlined btn-lg" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener noreferrer">
+          LinkedIn <span aria-hidden="true">↗</span><span class="sr-only">(opens in new tab)</span>
         </a>
       </div>
 
@@ -529,9 +533,9 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
           elenast.ux@gmail.com
         </a>
         <div class="footer-sep"></div>
-        <a class="btn-nav" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener" style="font-size:.8125rem;gap:7px;">
+        <a class="btn-nav" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener noreferrer" style="font-size:.8125rem;gap:7px;">
           <img style="width:14px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0;" src="images/common/icon-linkedin.svg" alt="" aria-hidden="true" onerror="this.outerHTML='↗'"/>
-          LinkedIn
+          LinkedIn<span class="sr-only"> (opens in new tab)</span>
         </a>
         <div class="footer-sep"></div>
         <button class="btn-nav" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="font-size:.8125rem;" aria-label="Back to top">↑ Top</button>

@@ -34,13 +34,13 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--g50);color:var(--
 /* ══════════════════════════════════════════
    TYPOGRAPHY
 ══════════════════════════════════════════ */
-.overline{font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g500);}
+.overline{font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g700);}
 h1{font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700;letter-spacing:-.04em;line-height:1.1;color:var(--g900);}
 h2{font-size:clamp(1.375rem,3vw,2rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;}
 h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 .body1{font-size:1rem;line-height:1.7;color:var(--g700);}
-.body2{font-size:.875rem;line-height:1.7;color:var(--g600);}
-.caption{font-size:.6875rem;letter-spacing:.08em;text-transform:uppercase;color:var(--g500);font-weight:600;}
+.body2{font-size:.875rem;line-height:1.7;color:var(--g700);}
+.caption{font-size:.6875rem;letter-spacing:.08em;text-transform:uppercase;color:var(--g700);font-weight:600;}
 .prose{max-width:68ch;}
 
 /* ══════════════════════════════════════════
@@ -66,7 +66,7 @@ h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 .logo-name{font-weight:600;font-size:.9375rem;letter-spacing:-.02em;color:var(--g900);}
 .navbar-links{display:flex;align-items:center;gap:4px;}
 .nav-divider{width:1px;height:16px;background:var(--g300);margin:0 6px;}
-.btn-nav{font-family:inherit;font-size:.875rem;font-weight:400;color:var(--g600);background:none;border:1px solid transparent;border-radius:var(--r-md);padding:6px 12px;cursor:pointer;text-decoration:none;transition:background .15s,color .15s;display:inline-flex;align-items:center;gap:6px;min-height:44px;}
+.btn-nav{font-family:inherit;font-size:.875rem;font-weight:400;color:var(--g700);background:none;border:1px solid transparent;border-radius:var(--r-md);padding:6px 12px;cursor:pointer;text-decoration:none;transition:background .15s,color .15s;display:inline-flex;align-items:center;gap:6px;min-height:44px;}
 .btn-nav:hover{background:var(--g100);color:var(--g900);}
 .btn-nav.active{color:var(--g900);font-weight:600;}
 .btn{display:inline-flex;align-items:center;justify-content:center;font-family:inherit;font-size:.875rem;font-weight:500;border-radius:var(--r-md);padding:8px 18px;cursor:pointer;text-decoration:none;transition:all .15s ease;white-space:nowrap;min-height:44px;}
@@ -81,7 +81,7 @@ h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 ══════════════════════════════════════════ */
 .chip-row{display:flex;flex-wrap:wrap;gap:8px;}
 .chip{font-size:.6875rem;font-weight:500;color:var(--g700);border:1px solid var(--g300);border-radius:var(--r-sm);padding:4px 10px;display:inline-block;}
-.label-chip{display:inline-flex;align-items:center;font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:20px;padding:3px 12px;}
+.label-chip{display:inline-flex;align-items:center;font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#3344cc;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:20px;padding:3px 12px;}
 
 /* ══════════════════════════════════════════
    SECTION HEADER
@@ -136,7 +136,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 .hero-headshot img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;}
 
 .hero-left h1{margin-bottom:16px;max-width:20ch;}
-.hero-sub{color:var(--g600);font-size:1rem;line-height:1.75;max-width:52ch;margin-bottom:12px;}
+.hero-sub{color:var(--g700);font-size:1rem;line-height:1.75;max-width:52ch;margin-bottom:12px;}
 /* CTA row: side-by-side, equal width, perfectly symmetric */
 .hero-ctas{display:flex;gap:12px;flex-wrap:nowrap;align-items:center;margin-top:28px;}
 .hero-ctas .btn{width:180px;justify-content:center;}
@@ -155,6 +155,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   display:grid;
   /* Single col on small phones */
   grid-template-columns:1fr;
+  grid-auto-rows:1fr;
   gap:12px;
   width:100%;
 }
@@ -167,13 +168,15 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   display:flex;
   flex-direction:column;
   align-items:flex-start;
-  justify-content:flex-start; /* top-align — numbers share same Y start */
+  justify-content:flex-start;
   text-align:left;
   background:var(--g50);
   border:1px solid var(--g200);
   border-radius:var(--r-lg);
   padding:20px 16px;
-  gap:0; /* use explicit margin-top on each child instead */
+  gap:0;
+  min-width:0;
+  overflow:hidden;
 }
 .vd-num{
   font-size:1.625rem;
@@ -181,7 +184,8 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   letter-spacing:-.04em;
   color:var(--accent);
   line-height:1;
-  /* No margin-top — this is always the topmost element in the card */
+  white-space:normal;
+  word-break:break-word;
 }
 .vd-label{
   font-size:.6875rem;
@@ -195,13 +199,13 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   font-weight:600;
   letter-spacing:.06em;
   text-transform:uppercase;
-  color:var(--g500);
+  color:var(--g700);
   margin-top:2px;
   white-space:nowrap;
 }
 .vd-desc{
   font-size:.6875rem;
-  color:var(--g600);
+  color:var(--g700);
   line-height:1.4;
   margin-top:8px;
 }
@@ -213,7 +217,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 .home-quote-inner{display:flex;align-items:flex-start;gap:20px;max-width:680px;}
 .home-quote-mark{font-size:2.5rem;line-height:.8;color:var(--accent);font-weight:700;flex-shrink:0;margin-top:4px;}
 .home-quote-text{font-size:1rem;font-weight:500;line-height:1.65;color:var(--g800);letter-spacing:-.01em;}
-.home-quote-attr{font-size:.6875rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--g500);margin-top:8px;}
+.home-quote-attr{font-size:.6875rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--g700);margin-top:8px;}
 
 /* ══════════════════════════════════════════
    WORK SECTION
@@ -225,7 +229,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 /* Ecosystem group */
 .ecosystem-group{margin-bottom:40px;}
 .ecosystem-group-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding:14px 18px;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:var(--r-lg);}
-.ecosystem-group-label{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);}
+.ecosystem-group-label{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#3344cc;}
 .ecosystem-group-title{font-size:.9375rem;font-weight:600;color:var(--g900);letter-spacing:-.01em;}
 
 /* Ecosystem connector 2-col grid with → arrow between cards */
@@ -233,28 +237,38 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 @media(max-width:640px){.ecosystem-connector{grid-template-columns:1fr;}}
 .ecosystem-connector-item{position:relative;display:flex;flex-direction:column;}
 .ecosystem-connector-item .cs-card{flex:1;}
-.eco-step-label{display:inline-flex;align-items:center;gap:6px;font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:var(--r-sm);padding:2px 8px;margin-bottom:8px;}
+.eco-step-label{display:inline-flex;align-items:center;gap:6px;font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#3344cc;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:var(--r-sm);padding:2px 8px;margin-bottom:8px;}
 @media(min-width:641px){
   .ecosystem-connector{position:relative;}
   .ecosystem-connector::after{content:'→';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:.875rem;color:var(--accent);background:#fff;border:1px solid var(--accent-border);border-radius:50%;width:28px;height:28px;text-align:center;line-height:28px;z-index:2;}
 }
 
-/* Case study cards */
-.case-grid{display:grid;grid-template-columns:1fr;gap:16px;}
-@media(min-width:640px){.case-grid{grid-template-columns:1fr 1fr;}}
-.cs-card{border:1px solid var(--g200);border-radius:var(--r-lg);background:#fff;overflow:hidden;cursor:pointer;transition:border-color .2s ease,transform .2s ease;text-decoration:none;display:flex;flex-direction:column;color:inherit;}
-.cs-card:hover{border-color:var(--g400);transform:translateY(-2px);}
-.cs-card-band{height:4px;flex-shrink:0;background:var(--accent);}
-.cs-card-body{padding:22px;flex:1;display:flex;flex-direction:column;}
+/* Base card */
+.cs-card{border:1px solid var(--g200);border-radius:var(--r-lg);background:#fff;display:flex;flex-direction:column;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;}
+.cs-card:hover{border-color:var(--accent-border);transform:translateY(-3px);box-shadow:0 8px 24px rgba(79,95,239,.10),0 2px 8px rgba(0,0,0,.06);}
+
+/* Thumbnail */
+.cs-card-img{width:100%;aspect-ratio:16/9;overflow:hidden;flex-shrink:0;border-radius:var(--r-lg) var(--r-lg) 0 0;border-bottom:1px solid var(--g200);background:var(--g100);}
+.cs-card-img img,.cs-card-img video{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;transition:transform .3s ease;}
+.cs-card:hover .cs-card-img img,.cs-card:hover .cs-card-img video{transform:scale(1.02);}
+.cs-card:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+/* Featured top border */
+.cs-card.cs-card--featured{border-top:3px solid var(--accent);}
+
+/* Card body */
+.cs-card-body{padding:20px 22px 18px;flex:1;display:flex;flex-direction:column;}
 .cs-card-eyebrow{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
-.cs-card-title{font-size:1rem;font-weight:600;letter-spacing:-.01em;color:var(--g900);margin-bottom:4px;}
-.cs-card-subtitle{font-size:.8125rem;font-weight:500;color:var(--g700);line-height:1.45;margin-bottom:10px;}
-.cs-card-desc{font-size:.8125rem;color:var(--g600);line-height:1.65;margin-bottom:14px;flex:1;}
-.tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px;}
-.tag{font-size:.6875rem;font-weight:500;color:var(--g700);border:1px solid var(--g300);border-radius:var(--r-sm);padding:2px 8px;}
-.cs-card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--g200);margin-top:auto;}
-.cs-card-cta{font-size:.8125rem;font-weight:600;color:var(--accent);}
-.cs-card-metric{font-size:.6875rem;font-weight:700;letter-spacing:.04em;color:var(--g700);background:var(--g100);border:1px solid var(--g300);border-radius:var(--r-sm);padding:2px 8px;}
+.cs-card-title{font-size:1rem;font-weight:600;letter-spacing:-.01em;color:var(--g900);margin-bottom:3px;}
+.cs-card-desc{font-size:.8125rem;color:var(--g700);line-height:1.65;margin-bottom:12px;flex:1;}
+.cs-card-desc strong{color:var(--g800);font-weight:600;}
+.cs-card-role{font-size:.75rem;color:var(--g700);font-weight:500;padding-left:10px;border-left:2px solid var(--g300);margin-bottom:14px;}
+
+/* Footer */
+.cs-card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--g200);margin-top:auto;gap:8px;}
+.cs-card-cta{display:inline-flex;align-items:center;gap:5px;font-size:.8125rem;font-weight:600;color:#fff;background:var(--accent);border-radius:var(--r-md);padding:7px 14px;text-decoration:none;}
+.cs-card:hover .cs-card-cta{background:#3d4fd6;}
+.cs-card-metric{font-size:.6875rem;font-weight:700;letter-spacing:.04em;color:var(--g800);background:var(--g100);border:1px solid var(--g300);border-radius:var(--r-sm);padding:4px 10px;white-space:nowrap;}
 
 /* Coming Soon card placeholder image area */
 .cs-card-thumb{
@@ -292,6 +306,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   .footer-links{flex-wrap:wrap;}
 }
 </style>
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}</style>
   <script src="content.js"></script>
 </head>
 <body>
@@ -314,7 +329,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
         <a class="btn-nav" href="about.html">About</a>
         <div class="nav-divider"></div>
         <a class="btn-nav" href="mailto:elenast.ux@gmail.com">Email</a>
-        <a class="btn btn-outlined" style="padding:6px 14px;font-size:.8125rem;" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn btn-outlined" style="padding:6px 14px;font-size:.8125rem;" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only">(opens in new tab)</span></a>
       </div>
     </div>
   </div>
@@ -363,12 +378,14 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
         -->
         <div class="hero-value-dashboard">
 
-          <!-- Row 1, Col 1: 7+ Years -->
+          <!-- Row 1, Col 1: 7+ Years at Dialectica -->
           <div class="vd-card">
             <div id="home-stat-0-num" class="vd-num">7+</div>
-            <div id="home-stat-0-label" class="vd-label">Years</div>
-            <div class="vd-sub">At Dialectica (Ops + UX)</div>
-            <div class="vd-desc">Deep domain expertise in enterprise research workflows.</div>
+            <div id="home-stat-0-label" class="vd-label">Years at Dialectica</div>
+            <div class="vd-sub">3.5 in Ops → 3.5 in UX
+            </div>
+            <div class="vd-desc">Deep domain expertise from both sides of the workflow.
+            </div>
           </div>
 
           <!-- Row 1, Col 2: 2 Promotions -->
@@ -382,7 +399,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
           <!-- Row 2, Col 1: +40% Conversion -->
           <div class="vd-card">
             <div id="home-stat-2-num" class="vd-num">+40%</div>
-            <div id="home-stat-2-label" class="vd-label">Conversion</div>
+            <div id="home-stat-2-label" class="vd-label">Expert conversion</div>
             <div class="vd-sub">SearchAgent redesign</div>
             <div class="vd-desc">Improved expert conversion rates.</div>
           </div>
@@ -391,7 +408,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
           <div class="vd-card">
             <div id="home-stat-3-num" class="vd-num">2.5×</div>
             <div id="home-stat-3-label" class="vd-label">AI Adoption</div>
-            <div class="vd-sub">Through product design</div>
+            <div class="vd-sub">With product design</div>
             <div class="vd-desc">Proven track record of driving high-impact product outcomes.</div>
           </div>
 
@@ -458,52 +475,52 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
         <!-- Two connected case study cards with → arrow -->
         <div class="ecosystem-connector">
 
-          <!-- Card 01: Project Builder → project-builder.html -->
+          <!-- Card 01: Project Builder -->
           <div class="ecosystem-connector-item">
             <div class="eco-step-label">01 · Setup</div>
-            <a class="cs-card" href="project-builder.html">
-              <div class="cs-card-body">
-                <div class="cs-card-eyebrow">
-                  <span class="label-chip">Workflow Automation</span>
+            <article>
+              <a class="cs-card" href="project-builder.html" aria-label="Project Builder case study — AI-Assisted Project Setup">
+                <div class="cs-card-img">
+                  <video src="images/project-builder/Thumbnail video.mp4" poster="images/project-builder/hero-split-screen.png" autoplay loop muted playsinline preload="metadata" aria-hidden="true"></video>
                 </div>
-                <div id="cs-pb-title" class="cs-card-title" style="margin-top:10px;">AI Project Builder</div>
-                <div id="cs-pb-subtitle" class="cs-card-subtitle">Faster Brief Setup with AI</div>
-                <p class="cs-card-desc">Redesigned how 700+ team members kick off client projects — replacing a manual ~7mins form with an AI-assisted system that pre-fills data from client briefs.</p>
-                <div class="tags">
-                  <span class="tag">Workflow Design</span>
-                  <span class="tag">AI Automation</span>
-                  <span class="tag">B2B SaaS</span>
+                <div class="cs-card-body">
+                  <div class="cs-card-eyebrow">
+                    <span class="label-chip">Workflow automation</span>
+                  </div>
+                  <div class="cs-card-title">AI Project Builder</div>
+                  <p class="cs-card-desc">Redesigned how 700+ team members kick off client projects — replacing a <strong>manual ~7min form</strong> with an AI-assisted system that pre-fills data from client briefs.</p>
+                  <p class="cs-card-role">Sole Designer · Oct '25 – Now</p>
+                  <div class="cs-card-footer">
+                    <span class="cs-card-cta">View Case Study →</span>
+                    <span class="cs-card-metric">↓ 20% Setup Time</span>
+                  </div>
                 </div>
-                <div class="cs-card-footer">
-                  <span class="cs-card-cta">View Case Study →</span>
-                  <span id="cs-pb-metric" class="cs-card-metric">↓ 20% Setup Time</span>
-                </div>
-              </div>
-            </a>
+              </a>
+            </article>
           </div>
 
-          <!-- Card 02: SearchAgent → search-agent.html -->
+          <!-- Card 02: SearchAgent -->
           <div class="ecosystem-connector-item">
             <div class="eco-step-label">02 · Discovery</div>
-            <a class="cs-card" href="search-agent.html">
-              <div class="cs-card-body">
-                <div class="cs-card-eyebrow">
-                  <span class="label-chip">Intelligent Search</span>
+            <article>
+              <a class="cs-card" href="search-agent.html" aria-label="SearchAgent case study — AI-Powered Expert Search">
+                <div class="cs-card-img">
+                  <img src="images/search-agent/Thumbnail.png" alt="SearchAgent V2: AI-ranked expert discovery interface showing suggested experts with relevance ranking and status badges" loading="lazy"/>
                 </div>
-                <div id="cs-sa-title" class="cs-card-title" style="margin-top:10px;">AI SearchAgent</div>
-                <div id="cs-sa-subtitle" class="cs-card-subtitle">AI-Powered Expert Search</div>
-                <p class="cs-card-desc">Redesigned how Associates find industry experts — from scrolling hundreds of raw results to an AI-ranked discovery engine that surfaces the most relevant matches first.</p>
-                <div class="tags">
-                  <span class="tag">AI / ML</span>
-                  <span class="tag">Enterprise SaaS</span>
-                  <span class="tag">Research Workflows</span>
+                <div class="cs-card-body">
+                  <div class="cs-card-eyebrow">
+                    <span class="label-chip">Intelligent search</span>
+                  </div>
+                  <div class="cs-card-title">AI SearchAgent</div>
+                  <p class="cs-card-desc">Redesigned how Associates find industry experts — from scrolling <strong>hundreds of raw results</strong> to an AI-ranked discovery engine that surfaces the most relevant matches first.</p>
+                  <p class="cs-card-role">Sole Designer · May '25 – Now</p>
+                  <div class="cs-card-footer">
+                    <span class="cs-card-cta">View Case Study →</span>
+                    <span class="cs-card-metric">2% → 18% Adoption</span>
+                  </div>
                 </div>
-                <div class="cs-card-footer">
-                  <span class="cs-card-cta">View Case Study →</span>
-                  <span id="cs-sa-metric" class="cs-card-metric">+40% Adoption</span>
-                </div>
-              </div>
-            </a>
+              </a>
+            </article>
           </div>
 
         </div><!-- /ecosystem-connector -->
