@@ -39,16 +39,15 @@ h1{font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700;letter-spacing:-.04em;lin
 h2{font-size:clamp(1.375rem,3vw,2rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;}
 h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 .body1{font-size:1rem;line-height:1.7;color:var(--g700);}
-.body2{font-size:.875rem;line-height:1.7;color:var(--g700);}
-.caption{font-size:.6875rem;letter-spacing:.08em;text-transform:uppercase;color:var(--g700);font-weight:600;}
+.body2{font-size:.875rem;line-height:1.7;color:var(--g600);}
+.caption{font-size:.6875rem;letter-spacing:.08em;text-transform:uppercase;color:var(--g500);font-weight:600;}
 .prose{max-width:68ch;}
 
 /* ── PULL QUOTE ── */
-/* ── PULL QUOTE (testimonial style) ── */
-.pull-quote{display:flex;align-items:flex-start;gap:20px;}
-.pull-quote-mark{font-size:2.5rem;line-height:.8;color:var(--accent);font-weight:700;flex-shrink:0;margin-top:4px;}
-.pull-quote-text{font-size:1rem;font-weight:500;line-height:1.65;color:var(--g800);letter-spacing:-.01em;}
-.pull-quote-attr{font-size:.6875rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--g700);margin-top:8px;}
+.pull-quote{padding:4px 0 4px 0;margin:0;position:relative;}
+.pull-quote p{font-size:1rem;font-weight:500;line-height:1.7;color:var(--g800);font-style:normal;letter-spacing:-.01em;}
+.pull-quote p::before{content:'\201C';font-size:2rem;line-height:0;vertical-align:-.45em;color:var(--accent);margin-right:4px;font-style:normal;font-weight:700;}
+.pull-quote-attr{display:block;font-size:.8125rem;color:var(--g600);font-weight:500;margin-top:10px;font-style:normal;padding-left:2px;}
 
 /* ══════════════════════════════════════════
    LAYOUT
@@ -69,23 +68,27 @@ h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 .logo-mark{width:30px;height:30px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;}
 .logo-mark span{color:#fff;font-weight:700;font-size:.7rem;}
 .logo-name{font-weight:600;font-size:.9375rem;letter-spacing:-.02em;color:var(--g900);}
-.navbar-links{display:flex;align-items:center;gap:4px;}
+.navbar-links{display:flex;align-items:center;gap:8px;}
 .nav-divider{width:1px;height:16px;background:var(--g300);margin:0 6px;}
-.btn-nav{font-family:inherit;font-size:.875rem;font-weight:400;color:var(--g700);background:none;border:1px solid transparent;border-radius:var(--r-md);padding:6px 12px;cursor:pointer;text-decoration:none;transition:background .15s,color .15s;display:inline-flex;align-items:center;gap:6px;min-height:44px;}
-.btn-nav:hover{background:var(--g100);color:var(--g900);}
-.btn-nav.active{color:var(--g900);font-weight:600;}
-.btn{display:inline-flex;align-items:center;justify-content:center;font-family:inherit;font-size:.875rem;font-weight:500;border-radius:var(--r-md);padding:8px 18px;cursor:pointer;text-decoration:none;transition:all .15s ease;white-space:nowrap;min-height:44px;}
-.btn-outlined{background:transparent;color:var(--g900);border:1px solid var(--g300);}
-.btn-outlined:hover{border-color:var(--g500);background:var(--g100);}
-.btn-lg{padding:14px 28px;font-size:.9375rem;min-height:48px;}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:inherit;font-size:.875rem;font-weight:500;border-radius:var(--r-md);padding:10px 20px;cursor:pointer;text-decoration:none;transition:all .15s ease;white-space:nowrap;min-height:44px;border:1px solid transparent;gap:8px;}
+.btn--sm{font-size:.8125rem;padding:6px 14px;min-height:36px;gap:6px;}
+.btn--primary{background:var(--accent);color:#fff;border-color:var(--accent);}
+.btn--primary:hover{background:#3344cc;border-color:#3344cc;}
+.btn--secondary{background:transparent;color:var(--g900);border-color:var(--g300);}
+.btn--secondary:hover{border-color:var(--g500);background:var(--g100);}
+.btn--text{background:transparent;color:var(--g600);border-color:transparent;font-size:.875rem;font-weight:500;padding:6px 12px;min-height:44px;gap:6px;}
+.btn--text:hover{background:var(--g100);color:var(--g900);}
+.btn--text.active{color:var(--g900);font-weight:600;}
+.btn--tinted{background:var(--accent-light);color:var(--accent);border-color:var(--accent-border);}
+.btn--tinted:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
 
 /* ══════════════════════════════════════════
    CHIPS & TAGS
 ══════════════════════════════════════════ */
 .chip-row{display:flex;flex-wrap:wrap;gap:8px;}
 .chip{font-size:.6875rem;font-weight:500;color:var(--g700);border:1px solid var(--g300);border-radius:var(--r-sm);padding:4px 10px;display:inline-block;}
-.chip-accent{background:var(--accent-light);border-color:var(--accent-border);color:#3344cc;}
-.label-chip{display:inline-flex;align-items:center;font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#3344cc;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:20px;padding:3px 12px;}
+.chip-accent{background:var(--accent-light);border-color:var(--accent-border);color:var(--accent);}
+.label-chip{display:inline-flex;align-items:center;font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:20px;padding:3px 12px;}
 .phase-label{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g700);}
 
 /* ══════════════════════════════════════════
@@ -103,7 +106,7 @@ h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 .metric-paper .metric-num{font-size:clamp(1.5rem,2.8vw,2.125rem);font-weight:700;letter-spacing:-.04em;color:var(--g900);line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap;}
 .metric-paper .metric-num .hi{color:var(--accent);font-weight:700;font-size:inherit;}
 .metric-paper .metric-cap{font-size:.625rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--g700);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.metric-paper .metric-sub{font-size:.8125rem;color:var(--g700);line-height:1.5;margin-top:2px;}
+.metric-paper .metric-sub{font-size:.8125rem;color:var(--g600);line-height:1.5;margin-top:2px;}
 @media(max-width:640px){.metric-dashboard{grid-template-columns:1fr 1fr!important;}}
 @media(max-width:400px){.metric-dashboard{grid-template-columns:1fr!important;}}
 
@@ -138,7 +141,7 @@ h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 .callout-icon{font-size:1rem;flex-shrink:0;margin-top:1px;}
 .callout-label{font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
 .callout-constraint .callout-label{color:#92400e;}
-.callout-insight .callout-label{color:#3344cc;}
+.callout-insight .callout-label{color:var(--accent);}
 .callout-text{font-size:.875rem;line-height:1.7;}
 .callout-constraint .callout-text{color:#78350f;}
 .callout-insight .callout-text{color:var(--g800);}
@@ -152,8 +155,8 @@ h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 .acc-header:hover{background:var(--g50);}
 .acc-header-text{display:flex;flex-direction:column;gap:4px;}
 .acc-title{font-size:.9375rem;font-weight:600;color:var(--g900);letter-spacing:-.01em;}
-.acc-preview{font-size:.8125rem;color:var(--g700);line-height:1.5;}
-.acc-icon{width:20px;height:20px;border-radius:50%;border:1px solid var(--g300);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--g700);margin-top:2px;transition:transform .2s,background .15s;}
+.acc-preview{font-size:.8125rem;color:var(--g600);line-height:1.5;}
+.acc-icon{width:20px;height:20px;border-radius:50%;border:1px solid var(--g300);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--g500);margin-top:2px;transition:transform .2s,background .15s;}
 .acc-header[aria-expanded="true"] .acc-icon{transform:rotate(180deg);background:var(--g100);}
 .acc-body{display:none;padding:0 20px 20px;border-top:1px solid var(--g200);}
 .acc-body.open{display:block;}
@@ -166,12 +169,12 @@ h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 ══════════════════════════════════════════ */
 .compare-table{width:100%;border-collapse:collapse;font-size:.875rem;}
 .compare-table th{font-size:.6875rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g700);padding:10px 16px;text-align:left;border-bottom:1px solid var(--g200);background:var(--g50);}
-.compare-table th:first-child{color:var(--g700);}
-.compare-table th.col-v2{color:#3344cc;}
+.compare-table th:first-child{color:var(--g400);}
+.compare-table th.col-v2{color:var(--accent);}
 .compare-table td{padding:12px 16px;border-bottom:1px solid var(--g200);color:var(--g700);line-height:1.6;vertical-align:top;}
-.compare-table td:first-child{font-weight:600;color:var(--g700);font-size:.8125rem;white-space:nowrap;}
+.compare-table td:first-child{font-weight:600;color:var(--g600);font-size:.8125rem;white-space:nowrap;}
 .compare-table tr:last-child td{border-bottom:none;}
-.compare-table td.col-v2{color:#3344cc;font-weight:500;}
+.compare-table td.col-v2{color:var(--accent);font-weight:500;}
 
 /* ══════════════════════════════════════════
    PHASE TIMELINE
@@ -192,7 +195,7 @@ h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 .decisions-list li:last-child{border-bottom:none;}
 .decision-num{font-size:.75rem;font-weight:700;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
 .decision-title{font-size:.9375rem;font-weight:600;color:var(--g900);letter-spacing:-.01em;margin-bottom:4px;}
-.decision-desc{font-size:.875rem;color:var(--g700);line-height:1.7;}
+.decision-desc{font-size:.875rem;color:var(--g600);line-height:1.7;}
 
 /* ══════════════════════════════════════════
    ALIGNED CARD GRIDS
@@ -213,11 +216,9 @@ h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 ══════════════════════════════════════════ */
 .next-cs{background:#fff;border-top:1px solid var(--g200);padding:64px 0;}
 .next-cs-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
-.next-cs-label{font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g700);margin-bottom:8px;}
+.next-cs-label{font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g500);margin-bottom:8px;}
 .next-cs-title{font-size:1.0625rem;font-weight:600;color:var(--g900);letter-spacing:-.01em;}
-.next-cs-subtitle{font-size:.875rem;color:var(--g700);margin-top:4px;}
-.next-cs-btn{display:inline-flex;align-items:center;gap:8px;font-size:.875rem;font-weight:500;color:#3344cc;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:var(--r-md);padding:10px 20px;text-decoration:none;white-space:nowrap;transition:background .15s,border-color .15s;min-height:44px;}
-.next-cs-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+.next-cs-subtitle{font-size:.875rem;color:var(--g600);margin-top:4px;}
 
 /* ══════════════════════════════════════════
    SCROLL PROGRESS BAR
@@ -234,7 +235,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 .footer-mark{width:22px;height:22px;border-radius:6px;background:var(--accent);display:flex;align-items:center;justify-content:center;}
 .footer-mark span{color:#fff;font-weight:700;font-size:.6rem;}
 .footer-name{font-weight:600;font-size:.875rem;color:var(--g900);}
-.footer-links{display:flex;align-items:center;gap:4px;}
+.footer-links{display:flex;align-items:center;gap:8px;}
 .footer-sep{width:1px;height:14px;background:var(--g300);margin:0 4px;}
 
 /* ══════════════════════════════════════════
@@ -244,7 +245,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   .logo-name{display:none;}
   .navbar-links{gap:2px;}
   .nav-divider{display:none;}
-  .btn-nav{padding:8px 10px;font-size:.8rem;}
+  .btn--text{padding:8px 10px;font-size:.8rem;}
   .container,.container-cs{padding:0 16px;}
 }
 @media(max-width:640px){
@@ -256,7 +257,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 }
 @media(max-width:560px){
   .next-cs-inner{flex-direction:column;gap:20px;}
-  .next-cs-btn{width:100%;justify-content:center;}
+  .btn--tinted{width:100%;justify-content:center;}
   .footer-inner{flex-direction:column;align-items:flex-start;gap:12px;}
   .footer-links{flex-wrap:wrap;}
 }
@@ -265,9 +266,14 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
    CASE STUDY HERO
 ══════════════════════════════════════════ */
 .cs-hero{padding:48px 0 64px;background:#fff;border-bottom:1px solid var(--g200);}
-.back-link{display:inline-flex;align-items:center;gap:6px;font-size:.8125rem;font-weight:500;color:var(--g700);text-decoration:none;margin-bottom:24px;transition:color .15s;letter-spacing:.01em;min-height:44px;}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:.8125rem;font-weight:500;color:var(--g500);text-decoration:none;margin-bottom:24px;transition:color .15s;letter-spacing:.01em;min-height:44px;}
 .back-link:hover{color:var(--g900);}
 .back-link svg{width:14px;height:14px;}
+.email-copy-btn{cursor:pointer;position:relative;}
+.btn-copy-tooltip{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--g900);color:#fff;font-size:.6875rem;font-weight:600;letter-spacing:.02em;padding:3px 8px;border-radius:4px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .15s ease;z-index:200;}
+.btn-copy-tooltip.visible{opacity:1;}
+.acc-icon svg { transition: transform 0.2s ease; }
+.acc-header[aria-expanded="true"] .acc-icon svg { transform: rotate(180deg); }
 
 </style>
 </head>
@@ -287,17 +293,40 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
         <span class="logo-name">Elena Stamatopoulou</span>
       </a>
       <div class="navbar-links">
-        <a class="btn-nav active" href="index.html#home-work" aria-current="page">Work</a>
-        <a class="btn-nav" href="about.html">About</a>
+        <a class="btn btn--text active" href="index.html#home-work" aria-current="page">Work</a>
+        <a class="btn btn--text" href="about.html">About</a>
         <div class="nav-divider" role="separator"></div>
-        <a class="btn-nav" href="mailto:elenast.ux@gmail.com">Email</a>
-        <a class="btn btn-outlined" style="padding:6px 14px;font-size:.8125rem;" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only">(opens in new tab)</span></a>
+        <button class="btn btn--text email-copy-btn" onclick="copyEmail(this)">Email<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></button>
+        <a class="btn btn--secondary btn--sm" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener noreferrer">LinkedIn <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg><span class="sr-only">(opens in new tab)</span></a>
       </div>
     </div>
   </div>
 </nav>
 
-<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}</style>
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+/* ══════════════════════════════════════════
+   BEFORE/AFTER STACKED LAYOUT (SearchAgent)
+══════════════════════════════════════════ */
+.sa-ba-stack{display:flex;flex-direction:column;gap:0;}
+.sa-ba-before-wrap{display:flex;flex-direction:column;align-items:center;}
+.sa-ba-before-inner{width:85%;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--g200);opacity:.9;}
+.sa-ba-before-inner img{width:100%;height:auto;display:block;}
+.sa-ba-label-before{font-size:.625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--g200);color:var(--g700);border-radius:4px;padding:3px 9px;margin-bottom:8px;align-self:flex-start;}
+.sa-ba-label-after{font-size:.625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--accent-light);color:var(--accent);border:1px solid var(--accent-border);border-radius:4px;padding:3px 9px;margin-bottom:8px;align-self:flex-start;}
+.sa-ba-caption{font-size:.6875rem;color:var(--g500);font-weight:500;margin-top:8px;text-align:center;max-width:56ch;}
+.sa-ba-divider{display:flex;flex-direction:column;align-items:center;padding:12px 0;gap:4px;}
+.sa-ba-divider-label{font-size:.75rem;color:var(--g500);font-weight:500;}
+.sa-ba-after-wrap{display:flex;flex-direction:column;align-items:center;}
+.sa-ba-after-inner{width:100%;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--g200);box-shadow:0 4px 20px rgba(79,95,239,.08),0 1px 6px rgba(0,0,0,.06);}
+.sa-ba-after-inner img{width:100%;height:auto;display:block;}
+
+/* Annotation callouts */
+.anno-callout{position:absolute;}
+.anno-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+.anno-label{position:absolute;background:#fff;border:1px solid var(--g200);border-radius:6px;padding:6px 10px;font-size:.6875rem;font-weight:500;color:var(--g800);box-shadow:0 2px 8px rgba(0,0,0,.08);max-width:180px;line-height:1.4;white-space:normal;}
+@media(max-width:768px){.anno-callout{display:none;}}
+</style>
 
 <main id="main-content">
 
@@ -307,16 +336,16 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 
       <div style="display:flex;flex-direction:column;align-items:flex-start;margin-bottom:24px;">
         <a class="back-link" href="index.html" style="margin-bottom:8px;">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 12L6 8l4-4"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
           Back to Work
         </a>
         <p style="margin:0;display:inline-block;font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g700);background:var(--g100);border:1px solid var(--g300);border-radius:4px;padding:3px 10px;">Case Study 02</p>
       </div>
       <h1 style="margin-bottom:16px;max-width:32ch;">SearchAgent: Optimizing Commercial Due Diligence through Brief-Aware AI</h1>
 
-      <p class="body1 prose" style="margin-bottom:28px;font-size:1.0625rem;color:var(--g700);">700+ associates were spending hours scrolling raw search results to find the right experts for every commercial due diligence project. I redesigned SearchAgent — the internal tool that powers expert discovery — evolving it from a manual database filter into a brief-aware, AI-ranked discovery engine.</p>
+      <p class="body1 prose" style="margin-bottom:28px;font-size:1.0625rem;color:var(--g600);">700+ associates were spending hours scrolling raw search results to find the right experts for every commercial due diligence project. I redesigned SearchAgent — the internal tool that powers expert discovery — evolving it from a manual database filter into a brief-aware, AI-ranked discovery engine.</p>
 
-      <p class="body2" style="margin-bottom:20px;color:var(--g700);font-weight:500;">V1 established the infrastructure. V2 made it intelligent.</p>
+      <p class="body1 prose" style="margin-bottom:20px;color:var(--g700);">V1 established the infrastructure. V2 made it intelligent.</p>
       <div class="chip-row mb-8">
         <span class="chip chip-accent">AI / ML</span>
         <span class="chip chip-accent">B2B SaaS</span>
@@ -349,50 +378,58 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
       <h2 id="context-heading" style="margin-bottom:16px;">The Race to the "First List"</h2>
       <p class="body1 prose mb-6">In Commercial Due Diligence (CDD), Private Equity clients measure Dialectica by one thing: <strong>how fast the team delivers a relevant expert list</strong> after a project launches.</p>
       <div class="callout callout-insight mb-8">
-        <div class="callout-icon" aria-hidden="true">✦</div>
+        <div class="callout-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex-shrink:0;"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></div>
         <div class="callout-body">
           <div class="callout-label">Trust Problem</div>
           <p class="callout-text">Associates had built deep trust in manual LinkedIn workflows — any AI replacement would need to earn that trust through transparency, not just accuracy.</p>
         </div>
       </div>
 
-      <!-- Before / After comparison slider -->
-      <div style="position:relative;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--g200);box-shadow:0 2px 12px rgba(0,0,0,0.06);user-select:none;" id="ba-slider" aria-label="Before and after comparison: V1 vs V2 SearchAgent interface. Drag the handle to reveal each version.">
-        <img
-          src="images/search-agent/search-agent-hero.png"
-          alt="After: SearchAgent V2 AI-ranked expert discovery interface"
-          style="width:100%;height:auto;display:block;"
-          id="ba-after-img"
-        />
-        <!-- Before image: full-size, clipped via clip-path so it never crops -->
-        <img
-          src="images/search-agent/problem-legacy.png"
-          alt="Before: SearchAgent V1 manual search interface"
-          style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;object-position:left top;background:#fff;clip-path:polygon(0 0,50% 0,50% 100%,0 100%);"
-          id="ba-before-img"
-        />
-        <!-- ba-before-wrap kept for JS label-opacity compat -->
-        <div id="ba-before-wrap" style="position:absolute;top:0;left:0;width:50%;height:100%;pointer-events:none;"></div>
-        <div id="ba-handle" style="position:absolute;top:0;left:50%;width:3px;height:100%;background:var(--accent);cursor:ew-resize;transform:translateX(-50%);" aria-hidden="true">
-          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:32px;height:32px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
-            <span style="color:#fff;font-size:.75rem;font-weight:700;letter-spacing:-.02em;" aria-hidden="true">⟺</span>
+      <!-- Before / After stacked layout -->
+      <div class="sa-ba-stack">
+
+        <!-- BEFORE -->
+        <div class="sa-ba-before-wrap">
+          <span class="sa-ba-label-before">Before — V1</span>
+          <div class="sa-ba-before-inner">
+            <img
+              src="images/search-agent/problem-legacy.png"
+              alt="SearchAgent V1: manual search interface showing unranked results requiring Associates to manually evaluate each expert"
+              loading="lazy"
+            />
           </div>
+          <span class="sa-ba-caption">Associates scrolled hundreds of unranked results, manually evaluating relevance for each expert</span>
         </div>
-        <!-- Labels — visibility toggled by JS at the edges -->
-        <div id="ba-label-before" style="position:absolute;top:12px;left:12px;font-size:.625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,0.55);border-radius:4px;padding:3px 8px;transition:opacity .2s;" aria-hidden="true">Before — V1</div>
-        <div id="ba-label-after" style="position:absolute;top:12px;right:12px;font-size:.625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(79,95,239,0.85);border-radius:4px;padding:3px 8px;transition:opacity .2s;" aria-hidden="true">After — V2</div>
+
+        <!-- Divider -->
+        <div class="sa-ba-divider">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" stroke="var(--g400)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="sa-ba-divider-label">V1 → V2</span>
+        </div>
+
+        <!-- AFTER -->
+        <div class="sa-ba-after-wrap">
+          <span class="sa-ba-label-after">After — V2</span>
+          <div class="sa-ba-after-inner">
+            <img
+              src="images/search-agent/search-agent-hero.png"
+              alt="SearchAgent V2: AI-ranked expert discovery interface showing the Suggested tab with transparency labels and expert status badges"
+              loading="lazy"
+            />
+          </div>
+          <span class="sa-ba-caption">AI ranks experts by brief relevance — transparency labels explain each ranking decision</span>
+        </div>
+
       </div>
-      <p class="caption" style="margin-top:10px;display:block;text-align:center;">Drag to compare — V1 search tool vs. AI-ranked V2 discovery engine</p>
     </div>
   </section>
 
   <!-- ── OVERVIEW ── -->
-  <section class="section-white" aria-label="Overview">
+  <section class="section-white" aria-labelledby="overview-heading">
     <div class="container-cs">
       <div class="section-header">
         <div class="section-header-line"><span class="label-chip">Overview</span></div>
       </div>
-      <h2 class="sr-only">Overview</h2>
 
       <div class="side-by-side sbs-2 mb-6">
         <div class="card-soft">
@@ -444,7 +481,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
       <p class="body1 prose mb-8">SearchAgent V2 was a planned evolution, not a failure-driven redesign. V1 centralised fragmented discovery into a single database — but it remained a high-effort search tool requiring associates to manually scan hundreds of raw results. V2 introduced a semantic layer that interprets the project brief, moving users from manual retrieval to predictive discovery.</p>
 
       <div class="callout callout-constraint mb-8">
-        <div class="callout-icon" aria-hidden="true">⚠</div>
+        <div class="callout-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex-shrink:0;"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></div>
         <div class="callout-body">
           <div class="callout-label">The Core Problem</div>
           <p class="callout-text">The bottleneck wasn't scope — it was signal. Associates were drowning in unranked results.</p>
@@ -495,12 +532,11 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   </section>
 
   <!-- ── PROCESS ── -->
-  <section class="section-white" aria-label="The Process">
+  <section class="section-white" aria-labelledby="process-heading">
     <div class="container-cs">
       <div class="section-header">
         <div class="section-header-line"><span class="label-chip">The Process</span></div>
       </div>
-      <h2 class="sr-only">The Process</h2>
 
       <p class="body1 prose mb-10" style="color:var(--g700);">V2 didn't start with a blank page. I ran V1 stabilisation and V2 exploration in parallel.</p>
 
@@ -509,27 +545,34 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
         <div class="iteration-dot active"><div class="iteration-dot-inner"></div></div>
         <div>
           <h3 style="margin-bottom:6px;">Phase 1 — Stabilise &amp; Explore</h3>
-          <p class="body2" style="color:var(--g700);margin-bottom:16px;font-style:italic;">Months 1–6: Stabilise V1 while defining SearchAgent's future</p>
+          <p class="body2" style="color:var(--g600);margin-bottom:16px;font-style:normal;">Months 1–6: Stabilise V1 while defining SearchAgent's future</p>
           <p class="body1 prose mb-6">I stabilized V1 through quick wins — heuristic improvements, better filtering — while building the evidence base for a V2 redesign. In parallel, I worked with Product, Data Science, and Engineering to define the future direction, ultimately focusing on <strong>Competitors and Customers</strong> to cover the highest-impact use cases.</p>
-          <div style="display:grid;grid-template-columns:2fr 1fr;gap:12px;background:#F9FAFB;border:1px solid var(--g200);border-radius:var(--r-lg);padding:16px;margin-bottom:16px;align-items:stretch;">
-            <div style="display:flex;flex-direction:column;">
-              <div style="border-radius:var(--r-md);overflow:hidden;border:1px solid var(--g200);height:179px;">
-                <img src="images/search-agent/quick-wins.png" alt="SearchAgent V1 with quick-win improvements shipped during Phase 1 stabilisation" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;"/>
+
+          <!-- Phase 1 Before/After: V1 baseline → quick-wins improvements -->
+          <div class="sa-ba-stack mb-6">
+            <div class="sa-ba-before-wrap">
+              <span class="sa-ba-label-before">Before — V1 Baseline</span>
+              <div class="sa-ba-before-inner">
+                <img src="images/search-agent/problem-legacy.png" alt="SearchAgent V1 baseline: original manual search interface before any improvements" loading="lazy"/>
               </div>
-              <p class="caption" style="margin-top:8px;display:block;text-align:center;">V1 quick-wins shipped while V2 was being explored in parallel</p>
             </div>
-            <div style="display:flex;flex-direction:column;">
-              <div style="border-radius:var(--r-md);overflow:hidden;border:1px solid var(--g200);height:179px;background:#fff;">
-                <img src="images/search-agent/Exploration1.png" alt="Early V2 exploration showing multi-perspective views and bulk actions" style="width:100%;height:100%;object-fit:contain;object-position:top center;display:block;"/>
+            <div class="sa-ba-divider">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" stroke="var(--g400)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="sa-ba-divider-label">Quick wins shipped</span>
+            </div>
+            <div class="sa-ba-after-wrap">
+              <span class="sa-ba-label-after">After — V1 Quick Wins</span>
+              <div class="sa-ba-after-inner">
+                <img src="images/search-agent/quick-wins.png" alt="SearchAgent V1 with quick-win improvements: better filtering and heuristic enhancements shipped during Phase 1" loading="lazy"/>
               </div>
-              <p class="caption" style="margin-top:8px;display:block;text-align:center;">Early Exploration Navigation: Multi-Perspective Views & Bulk Actions</p>
             </div>
           </div>
+
           <div class="callout callout-insight">
-            <div class="callout-icon" aria-hidden="true">✦</div>
+            <div class="callout-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex-shrink:0;"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></div>
             <div class="callout-body">
               <div class="callout-label">Insight</div>
-              <p class="callout-text">Early exploration revealed that ranking — not scope — was the core friction. Associates didn't need more data; they needed better signal.</p>
+              <p class="callout-text">Early exploration revealed that <strong>ranking — not scope — was the core friction</strong>. Associates didn't need more data; they needed better signal.</p>
             </div>
           </div>
         </div>
@@ -540,10 +583,21 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
         <div class="iteration-dot active"><div class="iteration-dot-inner"></div></div>
         <div>
           <h3 style="margin-bottom:6px;">Phase 2 — Evidence-Led Convergence</h3>
-          <p class="body2" style="color:var(--g700);margin-bottom:16px;font-style:italic;">Research study with 15 global users — MBB account holders and project managers</p>
-          <p class="body1 prose mb-6">To validate the information architecture, I led a global study with 15 users, testing a single concept: a consolidated Confirmed Customer Experts view. Users accessed it from each competitor, pre-filtered by default, with the ability to expand to a cross-competitor view. This validated a competitor-led structure with a centralized customer layer.</p>
-          <p class="body1 prose mb-6">Confirmed Customers remain available as a filterable, cross-competitor list, enabling access to all customer experts without navigating individual competitors.</p>
-          <p class="body1 prose mb-6">70% of users indicated that a ready-to-use shortlist would significantly improve speed.</p>
+          <p class="body2" style="color:var(--g600);margin-bottom:16px;font-style:normal;">Research study with 15 global users — MBB account holders and project managers</p>
+          <p class="body1 prose mb-6">To validate V2 direction, I led a global research study across MBB accounts. Through technical negotiation with Engineering, we identified that Confirmed Customer Lists would <strong>delay launch by months</strong> — and research confirmed it wasn't a top user need. I steered the design toward a <strong>Suggested list</strong> within each competitor company — an AI-ranked view of the most relevant experts per brief — while keeping confirmed customers visible within each competitor view as in V1. The same pattern later extended to Customer companies.</p>
+
+          <p class="body1 prose mb-6">To validate V2 direction, I led a global research study across MBB accounts. Through technical negotiation with Engineering, we identified that Confirmed Customer Lists would <strong>delay launch by months</strong> — and research confirmed it wasn't a top user need. I steered the design toward a <strong>Suggested list</strong> within each competitor company — an AI-ranked view of the most relevant experts per brief — while keeping confirmed customers visible within each competitor view as in V1. The same pattern later extended to Customer companies.</p>
+
+          <p class="body1 prose mb-8"><strong>70% of MBB account holders confirmed that a ready-to-use shortlist would be a game-changer for speed</strong>, and IA testing with 15 users — using a competitor-anchored entry point leading to a consolidated customer view — confirmed the structural direction for V2.</p>
+
+          <!-- IA exploration concept — Confirmed Customer view -->
+          <div style="margin-bottom:20px;">
+            <div style="border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--g200);box-shadow:0 2px 12px rgba(0,0,0,.05);">
+              <img src="images/search-agent/Exploration2.png" alt="Early IA concept: Confirmed Customer Experts view showing consolidated customer list accessible from each competitor, filterable by competitor" style="width:100%;height:auto;display:block;" loading="lazy"/>
+            </div>
+            <p class="caption" style="margin-top:8px;display:block;text-align:center;">Early concept: a consolidated Confirmed Customer list — all customers across competitors, filterable by a specific competitor — accessible from each competitor's entry point</p>
+            <p class="body2 prose" style="color:var(--g600);margin-top:12px;">Confirmed Customers are a consolidated list of all customer experts that sit under each competitor company. Associates can access the full list and filter it by a specific competitor — giving them a cross-competitor customer view in one place, rather than navigating each competitor separately.</p>
+          </div>
 
           <!-- Research patterns as accordions -->
           <div class="accordion">
@@ -553,7 +607,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
                 <span class="acc-preview">Trust is built on recency, screening, and customer familiarity with the product/service</span>
               </div>
               <div class="acc-icon" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><path d="m6 9 6 6 6-6"/></svg>
               </div>
             </button>
             <div class="acc-body" id="acc-body-1" role="region">
@@ -578,20 +632,12 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
                 <span class="acc-preview">80% need any customer of a competitor; 20% need targeted entity research</span>
               </div>
               <div class="acc-icon" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><path d="m6 9 6 6 6-6"/></svg>
               </div>
             </button>
             <div class="acc-body" id="acc-body-2" role="region">
               <div class="acc-body-inner">
-                <div>
-                  <div class="acc-insight-label">Finding</div>
-                  <p class="acc-insight">80% of users are company-agnostic — they need any customer of a competitor. Only 20% require deep dives into specific entities.</p>
-                  <p class="acc-insight" style="font-style:italic;margin-top:8px;">"In 80% of cases, the client doesn't care for the specific customer companies, they just need customer profiles of X competitors."</p>
-                </div>
-                <div>
-                  <div class="acc-insight-label">Design Decision</div>
-                  <p class="acc-insight"><strong>Maintained a consolidated Customer View under each competitor</strong> while enabling drill-downs for targeted recruitment.</p>
-                </div>
+                <p class="acc-insight">80% of users are company-agnostic — they need any customer of a competitor. Only 20% need targeted entity research. This validated maintaining a consolidated Customer View under each competitor.</p>
               </div>
             </div>
           </div>
@@ -603,7 +649,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
                 <span class="acc-preview">PMs need a consolidated list; associates need company-specific lists for delegation</span>
               </div>
               <div class="acc-icon" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><path d="m6 9 6 6 6-6"/></svg>
               </div>
             </button>
             <div class="acc-body" id="acc-body-3" role="region">
@@ -628,42 +674,18 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
                 <span class="acc-preview">Associates leave the platform for Gemini or Google — creating workflow fragmentation</span>
               </div>
               <div class="acc-icon" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><path d="m6 9 6 6 6-6"/></svg>
               </div>
             </button>
             <div class="acc-body" id="acc-body-4" role="region">
               <div class="acc-body-inner">
-                <div>
-                  <div class="acc-insight-label">Finding</div>
-                  <p class="acc-insight">Associates leave the platform to use Gemini or Google for company discovery, fragmenting the workflow and losing context.</p>
-                  <p class="acc-insight" style="font-style:italic;margin-top:8px;">"I use Gemini to ask for a common ground... and then ask for an expanded list..."</p>
-                </div>
-                <div>
-                  <div class="acc-insight-label">Design Decision</div>
-                  <p class="acc-insight"><strong>Descoped 'Expand your research' from V2 and flagged it for dedicated research</strong> — rather than shipping an untested feature, a deliberate decision to treat scoping discipline as a design outcome.</p>
-                </div>
+                <p class="acc-insight">Associates were leaving the platform for Gemini or Google, fragmenting the workflow. Descoped from V2 and flagged for dedicated research — a deliberate decision to treat scoping discipline as a design outcome.</p>
               </div>
             </div>
           </div>
 
-          <!-- IA concept tested with 15 users -->
-          <div style="margin-top:24px;">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;background:#F9FAFB;border:1px solid var(--g200);border-radius:var(--r-lg);padding:16px;">
-              <div>
-                <div style="font-size:.5625rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g700);margin-bottom:5px;text-align:center;">Entry point: competitor view</div>
-                <div style="border-radius:var(--r-md);overflow:hidden;border:1px solid var(--g200);">
-                  <img src="images/search-agent/Exploration2.png" alt="Competitor company list view with View confirmed customer experts button next to each company" style="width:100%;height:auto;display:block;"/>
-                </div>
-              </div>
-              <div>
-                <div style="font-size:.5625rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g700);margin-bottom:5px;text-align:center;">Consolidated customer view</div>
-                <div style="border-radius:var(--r-md);overflow:hidden;border:1px solid var(--g200);">
-                  <img src="images/search-agent/Exploration2.2.png" alt="Consolidated confirmed customer experts view filterable by specific competitor" style="width:100%;height:auto;display:block;"/>
-                </div>
-              </div>
-            </div>
-            <p class="caption" style="margin-top:10px;display:block;text-align:center;">Validated Concept: Competitor-Anchored Entry to a Filterable Customer View (15 Users Tested)</p>
-          </div>
+          <!-- IA validation summary -->
+          <p class="body2 prose" style="color:var(--g600);margin-top:24px;">I validated the information architecture with 15 users through a competitor-anchored entry point leading to a consolidated customer view — which confirmed the structural direction for V2.</p>
         </div>
       </div>
 
@@ -672,11 +694,13 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
         <div class="iteration-dot active"><div class="iteration-dot-inner"></div></div>
         <div>
           <h3 style="margin-bottom:6px;">Phase 3 — Operational Migration &amp; V2 Launch</h3>
-          <p class="body2" style="color:var(--g700);margin-bottom:24px;font-style:italic;">Zero-downtime transition for 700+ associates across four progressive releases</p>
+          <p class="body2" style="color:var(--g600);margin-bottom:24px;font-style:normal;">Zero-downtime transition for 700+ associates across four progressive releases</p>
 
-          <p class="body1 prose mb-6">Building on V2, we evolved the system toward a more scalable and intelligent architecture. Earlier alignment with Engineering had shown that fully implementing Confirmed Customer Lists would significantly delay delivery, while research indicated limited user demand. Instead, we prioritized AI-ranked Suggested lists within each competitor — surfacing the most relevant experts per brief — while keeping confirmed customers accessible within each view. This pattern scaled effectively and extended to Customer companies.</p>
+          <p class="body1 prose mb-6">Shipping V2 as a single release would have disrupted 700+ active users. I designed a <strong>phased rollout</strong> — structural changes first, then AI features, then scope expansion to Customers. Each release was independently stable, giving associates time to build trust in new patterns before the next layer arrived, and creating feedback loops to catch issues early.</p>
 
-          <p class="body1 prose mb-6">To avoid disrupting 700+ active users, I structured the rollout in phases: structural changes first, AI capabilities next, and scope expansion last. Each phase was independently stable, allowing associates to build trust in new patterns while generating continuous feedback loops.</p>
+          <p class="body1 prose mb-6">To protect the timeline, we scoped strategically: <strong>kept the existing modal-based filters</strong> instead of migrating to a new drawer pattern, and <strong>launched Customer Companies with non-network experts only</strong> — covering ~80% of use cases — deferring full integration to V3.</p>
+
+          <p class="body1 prose" style="color:var(--g700);font-style:italic;border-left:3px solid var(--g300);padding-left:16px;">This phased structure also laid the architectural foundation for V3 — evolving SearchAgent from a discovery tool into a project strategist.</p>
         </div>
       </div>
 
@@ -684,14 +708,15 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   </section>
 
   <!-- ── FINAL SOLUTION ── -->
-  <section class="section-white" style="border-top:1px solid var(--g200);" aria-label="Final Solution">
+  <section class="section-white" style="border-top:1px solid var(--g200);" aria-labelledby="solution-heading">
     <div class="container-cs">
       <div class="section-header">
         <div class="section-header-line"><span class="label-chip">Final Solution</span></div>
       </div>
-      <h2 class="sr-only">Final Solution</h2>
 
       <p class="body1 prose mb-6">I redesigned SearchAgent's core architecture to eliminate context-switching — bringing customer and competitor research into a single, AI-enhanced workflow.</p>
+
+      <p style="font-size:1.0625rem;font-weight:600;color:var(--g800);margin-bottom:16px;letter-spacing:-.01em;">From Black Box to Glass Box — a discovery engine users actually trust.</p>
 
       <!-- Workflow walkthrough -->
       <h3 style="margin-bottom:16px;">How it Works</h3>
@@ -699,36 +724,22 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
       <ol style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0;margin-bottom:32px;" role="list">
         <li style="display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid var(--g200);">
           <div style="font-size:.75rem;font-weight:700;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;" aria-hidden="true">1</div>
-          <div><strong style="font-size:.9375rem;color:var(--g900);display:block;margin-bottom:4px;">Suggested list</strong><p style="font-size:.875rem;color:var(--g700);line-height:1.7;margin:0;">Associates land on an AI-ranked list of experts per company, ordered by relevance to the project brief. <strong>Transparency labels explain why each expert ranks where they do</strong> — recency, incentive status, screening history — giving associates confidence in the ranking without removing their control.</p></div>
+          <div><strong style="font-size:.9375rem;color:var(--g900);display:block;margin-bottom:4px;">Suggested list</strong><p style="font-size:.875rem;color:var(--g600);line-height:1.7;margin:0;">Associates land on an AI-ranked list of experts per company, ordered by relevance to the project brief. <strong>Transparency labels explain why each expert ranks where they do</strong> — recency, incentive status, screening history — giving associates confidence in the ranking without removing their control.</p></div>
         </li>
         <li style="display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid var(--g200);">
           <div style="font-size:.75rem;font-weight:700;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;" aria-hidden="true">2</div>
-          <div><strong style="font-size:.9375rem;color:var(--g900);display:block;margin-bottom:4px;">Index to Leads</strong><p style="font-size:.875rem;color:var(--g700);line-height:1.7;margin:0;">Associates use the '+' action to add selected experts into the Leads tab — their working pipeline for the project. From there they track outreach and build toward the first expert list for the client.</p></div>
+          <div><strong style="font-size:.9375rem;color:var(--g900);display:block;margin-bottom:4px;">Index to Leads</strong><p style="font-size:.875rem;color:var(--g600);line-height:1.7;margin:0;">Associates use the '+' action to add selected experts into the Leads tab — their working pipeline for the project. From there they track outreach and build toward the first expert list for the client.</p></div>
         </li>
         <li style="display:flex;align-items:flex-start;gap:16px;padding:16px 0;">
           <div style="font-size:.75rem;font-weight:700;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;" aria-hidden="true">3</div>
-          <div><strong style="font-size:.9375rem;color:var(--g900);display:block;margin-bottom:4px;">Customer Companies</strong><p style="font-size:.875rem;color:var(--g700);line-height:1.7;margin:0;">A dedicated section surfaces non-network experts from target customer firms, enabling associates to explore a second perspective and broaden their search.</p></div>
+          <div><strong style="font-size:.9375rem;color:var(--g900);display:block;margin-bottom:4px;">Customer Companies</strong><p style="font-size:.875rem;color:var(--g600);line-height:1.7;margin:0;">A dedicated section surfaces non-network experts from target customer firms, enabling associates to focus on custom recruitment — Dialectica's competitive advantage and strategic goal.</p></div>
         </li>
       </ol>
 
-      <!-- Screenshots grid — Trust-AI and Customers images -->
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;background:#F9FAFB;border:1px solid var(--g200);border-radius:var(--r-lg);padding:16px;margin-bottom:32px;">
-        <div>
-          <div style="font-size:.5625rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g700);margin-bottom:5px;text-align:center;">AI Transparency — Ranking Disclaimers</div>
-          <div style="border-radius:var(--r-md);overflow:hidden;border:1px solid var(--g200);">
-            <img src="images/search-agent/Trust-AI.png" alt="SearchAgent V2 showing transparency tooltips and ranking disclaimers explaining why experts are ranked" style="width:100%;height:auto;display:block;"/>
-          </div>
-        </div>
-        <div>
-          <div style="font-size:.5625rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g700);margin-bottom:5px;text-align:center;">Customer Companies — NNSP Discovery</div>
-          <div style="border-radius:var(--r-md);overflow:hidden;border:1px solid var(--g200);">
-            <img src="images/search-agent/Customers.png" alt="SearchAgent V2 Customer Companies view showing non-network expert profiles" style="width:100%;height:auto;display:block;"/>
-          </div>
-        </div>
-      </div>
+
       <!-- Key Design Decisions -->
       <h3 style="margin-bottom:12px;">Key Design Decisions</h3>
-      <p class="body2" style="margin-bottom:20px;color:var(--g700);">Five decisions shaped the V2 experience — each grounded in research findings and technical negotiation.</p>
+      <p class="body2" style="margin-bottom:20px;color:var(--g600);">Five decisions shaped the V2 experience — each grounded in research findings and technical negotiation.</p>
       <ol class="decisions-list mb-10">
         <li>
           <div class="decision-num" aria-hidden="true">1</div>
@@ -741,7 +752,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
           <div class="decision-num" aria-hidden="true">2</div>
           <div class="decision-content">
             <div class="decision-title">Integrated customer research</div>
-            <p class="decision-desc">Built a direct path to find employees at target firms inside SearchAgent, bypassing LinkedIn Sales Navigator entirely. Confirmed customer experts remain accessible within each competitor view, consistent with V1 — no regression in the existing workflow.</p>
+            <p class="decision-desc">Built a direct path to find employees at target firms inside SearchAgent, bypassing LinkedIn Sales Navigator entirely. Confirmed customer experts remain accessible within each competitor view, consistent with V1 — no regression in the existing workflow. This allows us to <strong>re-rank expert pools by project relevance</strong>, giving PMs a curated starting point.</p>
           </div>
         </li>
         <li>
@@ -766,18 +777,18 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
           </div>
         </li>
       </ol>
+
     </div>
   </section>
 
   <!-- ── IMPACT ── -->
-  <section class="section-alt" aria-label="Impact">
+  <section class="section-alt" aria-labelledby="impact-heading">
     <div class="container-cs">
       <div class="section-header">
         <div class="section-header-line"><span class="label-chip">Impact</span></div>
       </div>
-      <h2 class="sr-only">Impact</h2>
 
-      <p class="body1 prose mb-8">V2 shifted SearchAgent from a high-effort search tool into an AI-enhanced discovery engine — changing how the client service team starts every commercial due diligence project, with adoption growing from 2% to 18%. All metrics measured via product analytics.</p>
+      <p class="body1 prose mb-8">V2 shifted SearchAgent from a high-effort search tool into an AI-enhanced discovery engine — changing how the client service team starts <strong>every commercial due diligence project</strong>, with adoption growing from 2% to 18%. All metrics measured via product analytics.</p>
 
       <p style="font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--g700);margin-bottom:12px;">Results at a Glance</p>
       <div class="cards-aligned cols-2 mb-8">
@@ -800,11 +811,8 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
       </div>
 
       <div class="pull-quote prose mb-8">
-        <div class="pull-quote-mark">"</div>
-        <div>
-          <p class="pull-quote-text">I applied the 'Suggested' filter to index fast NSSPs. We received an email response just 15 minutes after indexation, with the exact title requested by the client. This workflow is a total game-changer for high-priority searches.</p>
-          <p class="pull-quote-attr">Client Service Associate — post-launch field feedback</p>
-        </div>
+        <p>I applied the 'Suggested' filter to index fast NSSPs. We received an email response just 15 minutes after indexation, with the exact title requested by the client. This workflow is a total game-changer for high-priority searches.</p>
+        <span class="pull-quote-attr">— Client Service Associate, post-launch field feedback</span>
       </div>
 
       <p class="body1 prose mb-8">Post-launch, I trained 200+ associates in Bogotá on V2 and mapped their feedback to inform ongoing improvements. The sessions surfaced priorities around filter refinements, customer list completeness, and how associates were using external tools like Gemini alongside SearchAgent — signals that are now shaping the V3 roadmap.</p>
@@ -844,15 +852,15 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
       <div class="cards-aligned cols-3 mb-8">
         <div class="card-soft">
           <div class="card-label">Strategy Board</div>
-          <p class="body2">A project-level view giving PMs a consolidated snapshot of highest-priority experts across competitors and customers. The command centre for first-list assembly.</p>
+          <p class="body2">A project-level view giving PMs a consolidated snapshot of highest-priority experts across competitors and customers. The command centre for first-list assembly. Reducing time-to-first-list from hours to minutes.</p>
         </div>
         <div class="card-soft">
           <div class="card-label">First List Draft</div>
-          <p class="body2">A fully automated shortlist generated from the Suggested tab — the logical next step once V2 adoption validates the ranking model.</p>
+          <p class="body2">A fully automated shortlist generated from the Suggested tab — the logical next step once V2 adoption validates the ranking model. Enabling faster client delivery and increasing competitive win rates.</p>
         </div>
         <div class="card-soft">
           <div class="card-label">Compliance Constraints</div>
-          <p class="body2">Any automation touching expert outreach must satisfy DNC, data residency, and compliance requirements. V3 design will require close collaboration with Legal and Engineering.</p>
+          <p class="body2">Any automation touching expert outreach must satisfy DNC, data residency, and compliance requirements. V3 design will require close collaboration with Legal and Engineering. Reducing legal risk while preserving automation speed.</p>
         </div>
       </div>
 
@@ -860,12 +868,11 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   </section>
 
   <!-- ── REFLECTIONS ── -->
-  <section class="section-alt" aria-label="Reflections">
+  <section class="section-alt" aria-labelledby="reflections-heading">
     <div class="container-cs">
       <div class="section-header">
         <div class="section-header-line"><span class="label-chip">Reflections</span></div>
       </div>
-      <h2 class="sr-only">Reflections</h2>
 
       <p class="body1 prose mb-6"><strong>Trust was the real design challenge.</strong> The hardest part wasn't the interface — it was shifting associates from manual, fully controlled workflows to AI-assisted ones. The Suggested tab only worked once users understood why experts were ranked. Transparency wasn't a feature; it was core to adoption.</p>
       <p class="body1 prose mb-6"><strong>Research made the tradeoffs defensible.</strong> Descoping Confirmed Customer Lists required convincing stakeholders that <strong>partial delivery at Q1 was more valuable than a complete solution at Q3</strong>. The research gave me the data to make that argument — building the evidence base early, before any design work, was what made the tradeoff defensible.</p>
@@ -893,9 +900,9 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
           <div class="next-cs-title">Project Builder: Reducing Setup Time by 20% with AI-Assisted Project Setup</div>
           <div class="next-cs-subtitle">AI / ML · B2B SaaS · Workflow Design</div>
         </div>
-        <a class="next-cs-btn" href="project-builder.html">
+        <a class="btn btn--tinted" href="project-builder.html">
           View Case Study
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 4l4 4-4 4"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
       </div>
     </div>
@@ -914,17 +921,20 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
         <span class="footer-name">Elena Stamatopoulou</span>
       </a>
       <div class="footer-links">
-        <a class="btn-nav" href="mailto:elenast.ux@gmail.com" style="font-size:.8125rem;gap:7px;">
-          <img style="width:14px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0;" src="images/common/icon-email.svg" alt="" aria-hidden="true" onerror="this.outerHTML='✉'"/>
+        <button class="btn btn--text email-copy-btn" onclick="copyEmail(this)">
           elenast.ux@gmail.com
-        </a>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+        </button>
         <div class="footer-sep" role="separator"></div>
-        <a class="btn-nav" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener noreferrer" style="font-size:.8125rem;gap:7px;">
-          <img style="width:14px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0;" src="images/common/icon-linkedin.svg" alt="" aria-hidden="true" onerror="this.outerHTML='↗'"/>
+        <a class="btn btn--text" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener noreferrer">
           LinkedIn <span class="sr-only">(opens in new tab)</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
         </a>
         <div class="footer-sep" role="separator"></div>
-        <button class="btn-nav" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="font-size:.8125rem;" aria-label="Back to top of page">↑ Top</button>
+        <button class="btn btn--text" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top of page">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+          Top
+        </button>
       </div>
     </div>
   </div>
@@ -941,6 +951,20 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
     fill.style.width=pct+'%';
   },{passive:true});
 })();
+function copyEmail(btn) {
+  navigator.clipboard.writeText('elenast.ux@gmail.com').then(function() {
+    var tip = document.createElement('span');
+    tip.className = 'btn-copy-tooltip';
+    tip.textContent = 'Copied';
+    btn.appendChild(tip);
+    tip.getBoundingClientRect(); // force reflow
+    tip.classList.add('visible');
+    setTimeout(function() {
+      tip.classList.remove('visible');
+      setTimeout(function() { if (tip.parentNode) tip.parentNode.removeChild(tip); }, 200);
+    }, 1200);
+  });
+}
 // Accordion toggle — arrow rotates on expand
 function toggleAcc(btn){
   const body=btn.nextElementSibling;
@@ -950,37 +974,6 @@ function toggleAcc(btn){
 }
 </script>
 
-<script>
-// Before/After drag slider
-(function(){
-  var slider = document.getElementById('ba-slider');
-  if(!slider) return;
-  var handle      = document.getElementById('ba-handle');
-  var wrap        = document.getElementById('ba-before-wrap');
-  var beforeImg   = document.getElementById('ba-before-img');
-  var lblBefore   = document.getElementById('ba-label-before');
-  var lblAfter    = document.getElementById('ba-label-after');
-  var dragging    = false;
-  var EDGE        = 3; // % from edge to suppress the opposite label
-  function setPos(x){
-    var rect = slider.getBoundingClientRect();
-    var pct  = Math.max(0, Math.min(100, ((x - rect.left) / rect.width) * 100));
-    // Clip the full-size before image at the drag position
-    beforeImg.style.clipPath = 'polygon(0 0,' + pct + '% 0,' + pct + '% 100%,0 100%)';
-    wrap.style.width  = pct + '%';
-    handle.style.left = pct + '%';
-    // At right edge → only Before is visible; at left edge → only After is visible
-    lblBefore.style.opacity = (pct < EDGE)       ? '0' : '1';
-    lblAfter.style.opacity  = (pct > 100 - EDGE) ? '0' : '1';
-  }
-  handle.addEventListener('mousedown', function(e){ dragging=true; e.preventDefault(); });
-  window.addEventListener('mousemove', function(e){ if(dragging) setPos(e.clientX); });
-  window.addEventListener('mouseup',   function(){ dragging=false; });
-  handle.addEventListener('touchstart', function(e){ dragging=true; e.preventDefault(); },{passive:false});
-  window.addEventListener('touchmove',  function(e){ if(dragging) setPos(e.touches[0].clientX); },{passive:true});
-  window.addEventListener('touchend',   function(){ dragging=false; });
-})();
-</script>
 
 </body>
 </html>

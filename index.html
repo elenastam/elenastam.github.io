@@ -34,13 +34,13 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--g50);color:var(--
 /* ══════════════════════════════════════════
    TYPOGRAPHY
 ══════════════════════════════════════════ */
-.overline{font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g700);}
+.overline{font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g500);}
 h1{font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700;letter-spacing:-.04em;line-height:1.1;color:var(--g900);}
 h2{font-size:clamp(1.375rem,3vw,2rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;}
 h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 .body1{font-size:1rem;line-height:1.7;color:var(--g700);}
-.body2{font-size:.875rem;line-height:1.7;color:var(--g700);}
-.caption{font-size:.6875rem;letter-spacing:.08em;text-transform:uppercase;color:var(--g700);font-weight:600;}
+.body2{font-size:.875rem;line-height:1.7;color:var(--g600);}
+.caption{font-size:.6875rem;letter-spacing:.08em;text-transform:uppercase;color:var(--g500);font-weight:600;}
 .prose{max-width:68ch;}
 
 /* ══════════════════════════════════════════
@@ -64,24 +64,26 @@ h3{font-size:1.1875rem;font-weight:600;letter-spacing:-.02em;line-height:1.3;}
 .logo-mark{width:30px;height:30px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;}
 .logo-mark span{color:#fff;font-weight:700;font-size:.7rem;}
 .logo-name{font-weight:600;font-size:.9375rem;letter-spacing:-.02em;color:var(--g900);}
-.navbar-links{display:flex;align-items:center;gap:4px;}
+.navbar-links{display:flex;align-items:center;gap:8px;}
 .nav-divider{width:1px;height:16px;background:var(--g300);margin:0 6px;}
-.btn-nav{font-family:inherit;font-size:.875rem;font-weight:400;color:var(--g700);background:none;border:1px solid transparent;border-radius:var(--r-md);padding:6px 12px;cursor:pointer;text-decoration:none;transition:background .15s,color .15s;display:inline-flex;align-items:center;gap:6px;min-height:44px;}
-.btn-nav:hover{background:var(--g100);color:var(--g900);}
-.btn-nav.active{color:var(--g900);font-weight:600;}
-.btn{display:inline-flex;align-items:center;justify-content:center;font-family:inherit;font-size:.875rem;font-weight:500;border-radius:var(--r-md);padding:8px 18px;cursor:pointer;text-decoration:none;transition:all .15s ease;white-space:nowrap;min-height:44px;}
-.btn-contained{background:var(--accent);color:#fff;border:1px solid var(--accent);}
-.btn-contained:hover{background:#3344cc;border-color:#3344cc;}
-.btn-outlined{background:transparent;color:var(--g900);border:1px solid var(--g300);}
-.btn-outlined:hover{border-color:var(--g500);background:var(--g100);}
-.btn-lg{padding:14px 28px;font-size:.9375rem;min-height:48px;}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:inherit;font-size:.875rem;font-weight:500;border-radius:var(--r-md);padding:10px 20px;cursor:pointer;text-decoration:none;transition:all .15s ease;white-space:nowrap;min-height:44px;border:1px solid transparent;gap:8px;}
+.btn--sm{font-size:.8125rem;padding:6px 14px;min-height:36px;gap:6px;}
+.btn--primary{background:var(--accent);color:#fff;border-color:var(--accent);}
+.btn--primary:hover{background:#3344cc;border-color:#3344cc;}
+.btn--secondary{background:transparent;color:var(--g900);border-color:var(--g300);}
+.btn--secondary:hover{border-color:var(--g500);background:var(--g100);}
+.btn--text{background:transparent;color:var(--g600);border-color:transparent;font-size:.875rem;font-weight:500;padding:6px 12px;min-height:44px;gap:6px;}
+.btn--text:hover{background:var(--g100);color:var(--g900);}
+.btn--text.active{color:var(--g900);font-weight:600;}
+.btn--tinted{background:var(--accent-light);color:var(--accent);border-color:var(--accent-border);}
+.btn--tinted:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
 
 /* ══════════════════════════════════════════
    CHIPS & TAGS
 ══════════════════════════════════════════ */
 .chip-row{display:flex;flex-wrap:wrap;gap:8px;}
 .chip{font-size:.6875rem;font-weight:500;color:var(--g700);border:1px solid var(--g300);border-radius:var(--r-sm);padding:4px 10px;display:inline-block;}
-.label-chip{display:inline-flex;align-items:center;font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#3344cc;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:20px;padding:3px 12px;}
+.label-chip{display:inline-flex;align-items:center;font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:20px;padding:3px 12px;}
 
 /* ══════════════════════════════════════════
    SECTION HEADER
@@ -105,10 +107,16 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 .footer-mark{width:22px;height:22px;border-radius:6px;background:var(--accent);display:flex;align-items:center;justify-content:center;}
 .footer-mark span{color:#fff;font-weight:700;font-size:.6rem;}
 .footer-name{font-weight:600;font-size:.875rem;color:var(--g900);}
-.footer-links{display:flex;align-items:center;gap:4px;}
+.footer-links{display:flex;align-items:center;gap:8px;}
 .footer-sep{width:1px;height:14px;background:var(--g300);margin:0 4px;}
 /* Footer icon sizing */
 .footer-icon{width:14px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0;}
+.email-copy-btn{cursor:pointer;position:relative;}
+.btn-copy-tooltip{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--g900);color:#fff;font-size:.6875rem;font-weight:600;letter-spacing:.02em;padding:3px 8px;border-radius:4px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .15s ease;z-index:200;}
+.btn-copy-tooltip.visible{opacity:1;}
+.acc-icon svg { transition: transform 0.2s ease; }
+.acc-header[aria-expanded="true"] .acc-icon svg { transform: rotate(180deg); }
+.cs-card-metric{display:inline-flex;align-items:center;gap:4px;}
 
 /* ══════════════════════════════════════════
    HOME PAGE — HERO
@@ -136,7 +144,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 .hero-headshot img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;}
 
 .hero-left h1{margin-bottom:16px;max-width:20ch;}
-.hero-sub{color:var(--g700);font-size:1rem;line-height:1.75;max-width:52ch;margin-bottom:12px;}
+.hero-sub{color:var(--g600);font-size:1rem;line-height:1.75;max-width:52ch;margin-bottom:12px;}
 /* CTA row: side-by-side, equal width, perfectly symmetric */
 .hero-ctas{display:flex;gap:12px;flex-wrap:nowrap;align-items:center;margin-top:28px;}
 .hero-ctas .btn{width:180px;justify-content:center;}
@@ -155,7 +163,6 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   display:grid;
   /* Single col on small phones */
   grid-template-columns:1fr;
-  grid-auto-rows:1fr;
   gap:12px;
   width:100%;
 }
@@ -168,15 +175,13 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   display:flex;
   flex-direction:column;
   align-items:flex-start;
-  justify-content:flex-start;
+  justify-content:flex-start; /* top-align — numbers share same Y start */
   text-align:left;
   background:var(--g50);
   border:1px solid var(--g200);
   border-radius:var(--r-lg);
   padding:20px 16px;
-  gap:0;
-  min-width:0;
-  overflow:hidden;
+  gap:0; /* use explicit margin-top on each child instead */
 }
 .vd-num{
   font-size:1.625rem;
@@ -184,8 +189,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   letter-spacing:-.04em;
   color:var(--accent);
   line-height:1;
-  white-space:normal;
-  word-break:break-word;
+  /* No margin-top — this is always the topmost element in the card */
 }
 .vd-label{
   font-size:.6875rem;
@@ -199,13 +203,13 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   font-weight:600;
   letter-spacing:.06em;
   text-transform:uppercase;
-  color:var(--g700);
+  color:var(--g500);
   margin-top:2px;
   white-space:nowrap;
 }
 .vd-desc{
   font-size:.6875rem;
-  color:var(--g700);
+  color:var(--g600);
   line-height:1.4;
   margin-top:8px;
 }
@@ -217,7 +221,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 .home-quote-inner{display:flex;align-items:flex-start;gap:20px;max-width:680px;}
 .home-quote-mark{font-size:2.5rem;line-height:.8;color:var(--accent);font-weight:700;flex-shrink:0;margin-top:4px;}
 .home-quote-text{font-size:1rem;font-weight:500;line-height:1.65;color:var(--g800);letter-spacing:-.01em;}
-.home-quote-attr{font-size:.6875rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--g700);margin-top:8px;}
+.home-quote-attr{font-size:.6875rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--g500);margin-top:8px;}
 
 /* ══════════════════════════════════════════
    WORK SECTION
@@ -229,7 +233,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 /* Ecosystem group */
 .ecosystem-group{margin-bottom:40px;}
 .ecosystem-group-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding:14px 18px;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:var(--r-lg);}
-.ecosystem-group-label{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#3344cc;}
+.ecosystem-group-label{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);}
 .ecosystem-group-title{font-size:.9375rem;font-weight:600;color:var(--g900);letter-spacing:-.01em;}
 
 /* Ecosystem connector 2-col grid with → arrow between cards */
@@ -237,53 +241,126 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 @media(max-width:640px){.ecosystem-connector{grid-template-columns:1fr;}}
 .ecosystem-connector-item{position:relative;display:flex;flex-direction:column;}
 .ecosystem-connector-item .cs-card{flex:1;}
-.eco-step-label{display:inline-flex;align-items:center;gap:6px;font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#3344cc;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:var(--r-sm);padding:2px 8px;margin-bottom:8px;}
+.eco-step-label{display:inline-flex;align-items:center;gap:6px;font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);border-radius:var(--r-sm);padding:2px 8px;margin-bottom:8px;}
 @media(min-width:641px){
   .ecosystem-connector{position:relative;}
-  .ecosystem-connector::after{content:'→';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:.875rem;color:var(--accent);background:#fff;border:1px solid var(--accent-border);border-radius:50%;width:28px;height:28px;text-align:center;line-height:28px;z-index:2;}
+}
+.eco-arrow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border:1px solid var(--accent-border);border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;z-index:2;color:var(--accent);}
+@media(max-width:640px){.eco-arrow{display:none;}}
+
+/* ── CASE STUDY CARDS ── */
+.case-grid{display:grid;grid-template-columns:1fr;gap:16px;}
+@media(min-width:640px){.case-grid{grid-template-columns:1fr 1fr;}}
+
+/* Base card — full card is the <a>, overflow:hidden keeps image scale contained */
+.cs-card{
+  border:1px solid var(--g200);
+  border-radius:var(--r-lg);
+  background:#fff;
+  overflow:hidden;
+  text-decoration:none;
+  display:flex;
+  flex-direction:column;
+  color:inherit;
+  box-shadow:0 1px 4px rgba(0,0,0,.04);
+  transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.cs-card:hover{
+  border-color:var(--accent-border);
+  transform:translateY(-3px);
+  box-shadow:0 8px 24px rgba(79,95,239,.10), 0 2px 8px rgba(0,0,0,.06);
 }
 
-/* Base card */
-.cs-card{border:1px solid var(--g200);border-radius:var(--r-lg);background:#fff;display:flex;flex-direction:column;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;}
-.cs-card:hover{border-color:var(--accent-border);transform:translateY(-3px);box-shadow:0 8px 24px rgba(79,95,239,.10),0 2px 8px rgba(0,0,0,.06);}
+/* Hero thumbnail — 16:9, clips on hover scale */
+.cs-card-img{
+  width:100%;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  flex-shrink:0;
+  /* Top corners only — bottom corners are straight where card body begins */
+  border-radius:var(--r-lg) var(--r-lg) 0 0;
+  border-bottom:1px solid var(--g200);
+  background:var(--g100);
+}
+.cs-card-img img,
+.cs-card-img video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top left;
+  display:block;
+  transition:transform .3s ease;
+}
+.cs-card:hover .cs-card-img img,
+.cs-card:hover .cs-card-img video{transform:scale(1.02);}
 
-/* Thumbnail */
-.cs-card-img{width:100%;aspect-ratio:16/9;overflow:hidden;flex-shrink:0;border-radius:var(--r-lg) var(--r-lg) 0 0;border-bottom:1px solid var(--g200);background:var(--g100);}
-.cs-card-img img,.cs-card-img video{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;transition:transform .3s ease;}
-.cs-card:hover .cs-card-img img,.cs-card:hover .cs-card-img video{transform:scale(1.02);}
-.cs-card:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+/* Focus ring for keyboard navigation */
+.cs-card:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:2px;
+}
 
-/* Featured top border */
+/* Featured card — slightly thicker accent top band */
 .cs-card.cs-card--featured{border-top:3px solid var(--accent);}
 
 /* Card body */
 .cs-card-body{padding:20px 22px 18px;flex:1;display:flex;flex-direction:column;}
 .cs-card-eyebrow{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
-.cs-card-title{font-size:1rem;font-weight:600;letter-spacing:-.01em;color:var(--g900);margin-bottom:3px;}
-.cs-card-desc{font-size:.8125rem;color:var(--g700);line-height:1.65;margin-bottom:12px;flex:1;}
-.cs-card-desc strong{color:var(--g800);font-weight:600;}
-.cs-card-role{font-size:.75rem;color:var(--g700);font-weight:500;padding-left:10px;border-left:2px solid var(--g300);margin-bottom:14px;}
 
-/* Footer */
-.cs-card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--g200);margin-top:auto;gap:8px;}
-.cs-card-cta{display:inline-flex;align-items:center;gap:5px;font-size:.8125rem;font-weight:600;color:#fff;background:var(--accent);border-radius:var(--r-md);padding:7px 14px;text-decoration:none;}
-.cs-card:hover .cs-card-cta{background:#3d4fd6;}
-.cs-card-metric{font-size:.6875rem;font-weight:700;letter-spacing:.04em;color:var(--g800);background:var(--g100);border:1px solid var(--g300);border-radius:var(--r-sm);padding:4px 10px;white-space:nowrap;}
-
-/* Coming Soon card placeholder image area */
-.cs-card-thumb{
-  width:100%;
-  height:120px;
-  overflow:hidden;
-  background:var(--g100);
-  border-bottom:1px solid var(--g200);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-shrink:0;
+/* Featured badge */
+.cs-card-featured-badge{
+  font-size:.5625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);background:var(--accent-light);border:1px solid var(--accent-border);
+  border-radius:4px;padding:2px 7px;
 }
+.cs-card-title{font-size:1rem;font-weight:600;letter-spacing:-.01em;color:var(--g900);margin-bottom:3px;}
+.cs-card-subtitle{font-size:.8125rem;font-weight:500;color:var(--g700);line-height:1.45;margin-bottom:10px;}
+.cs-card-desc{font-size:.8125rem;color:var(--g600);line-height:1.65;margin-bottom:12px;flex:1;}
+.cs-card-desc strong{color:var(--g800);font-weight:600;}
+
+/* Role tag */
+.cs-card-role{
+  font-size:.75rem;color:var(--g500);font-weight:500;
+  padding-left:10px;border-left:2px solid var(--g300);
+  margin-bottom:12px;line-height:1.4;
+}
+
+/* Skill tags */
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;}
+.tag{font-size:.6875rem;font-weight:500;color:var(--g700);border:1px solid var(--g300);border-radius:var(--r-sm);padding:2px 8px;}
+
+/* Footer row */
+.cs-card-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:12px;border-top:1px solid var(--g200);margin-top:auto;gap:8px;
+}
+
+/* CTA — tinted button (accent-light bg so it doesn't compete with page primary) */
+.cs-card-cta{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:.8125rem;font-weight:600;
+  background:var(--accent-light);color:var(--accent);
+  border:1px solid var(--accent-border);
+  border-radius:6px;padding:7px 14px;
+  white-space:nowrap;transition:background .15s,color .15s,border-color .15s;
+  text-decoration:none;
+}
+.cs-card:hover .cs-card-cta{background:var(--accent);color:#fff;border-color:var(--accent);}
+
+/* Metric badge */
+.cs-card-metric{
+  font-size:.6875rem;font-weight:700;letter-spacing:.04em;
+  color:var(--g800);background:var(--g100);
+  border:1px solid var(--g300);border-radius:var(--r-sm);padding:3px 9px;
+  white-space:nowrap;
+}
+
+/* Legacy placeholder (keep for any remaining coming-soon cards) */
+.cs-card-thumb{width:100%;height:120px;overflow:hidden;background:var(--g100);border-bottom:1px solid var(--g200);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .cs-card-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
 .cs-card-thumb-placeholder{font-size:.75rem;font-weight:500;color:var(--g400);letter-spacing:.04em;}
+/* Legacy band (keep for backwards compat) */
+.cs-card-band{height:4px;flex-shrink:0;background:var(--accent);}
 
 /* ══════════════════════════════════════════
    MOBILE RESPONSIVENESS
@@ -292,7 +369,7 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   .logo-name{display:none;}
   .navbar-links{gap:2px;}
   .nav-divider{display:none;}
-  .btn-nav{padding:8px 10px;font-size:.8rem;}
+  .btn--text{padding:8px 10px;font-size:.8rem;}
   .container,.container-cs{padding:0 16px;}
 }
 @media(max-width:640px){
@@ -306,7 +383,6 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   .footer-links{flex-wrap:wrap;}
 }
 </style>
-<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}</style>
   <script src="content.js"></script>
 </head>
 <body>
@@ -325,11 +401,11 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
         <span class="logo-name">Elena Stamatopoulou</span>
       </a>
       <div class="navbar-links">
-        <a class="btn-nav active" href="#home-work">Work</a>
-        <a class="btn-nav" href="about.html">About</a>
+        <a class="btn btn--text active" href="#home-work">Work</a>
+        <a class="btn btn--text" href="about.html">About</a>
         <div class="nav-divider"></div>
-        <a class="btn-nav" href="mailto:elenast.ux@gmail.com">Email</a>
-        <a class="btn btn-outlined" style="padding:6px 14px;font-size:.8125rem;" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only">(opens in new tab)</span></a>
+        <button class="btn btn--text email-copy-btn" onclick="copyEmail(this)">Email<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></button>
+        <a class="btn btn--secondary btn--sm" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener">LinkedIn <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
       </div>
     </div>
   </div>
@@ -364,8 +440,8 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
           <p id="home-sub" class="hero-sub">After 7 years at Dialectica—starting in operations and moving into product design—I bring a commercial lens to every design decision.</p>
 
           <div class="hero-ctas">
-            <a class="btn btn-contained btn-lg" href="#home-work">Explore My Work</a>
-            <a class="btn btn-outlined btn-lg" href="about.html">My Strategic Story</a>
+            <a class="btn btn--primary" href="#home-work">Explore My Work</a>
+            <a class="btn btn--secondary" href="about.html">My Strategic Story</a>
           </div>
         </div>
 
@@ -378,37 +454,35 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
         -->
         <div class="hero-value-dashboard">
 
-          <!-- Row 1, Col 1: 7+ Years at Dialectica -->
+          <!-- Row 1, Col 1: 7+ Years -->
           <div class="vd-card">
             <div id="home-stat-0-num" class="vd-num">7+</div>
             <div id="home-stat-0-label" class="vd-label">Years at Dialectica</div>
-            <div class="vd-sub">3.5 in Ops → 3.5 in UX
-            </div>
-            <div class="vd-desc">Deep domain expertise from both sides of the workflow.
-            </div>
+            <div class="vd-sub">3.5 in Operations → 3.5 in Design</div>
+            <div class="vd-desc">Deep domain expertise from both sides of the workflow.</div>
           </div>
 
-          <!-- Row 1, Col 2: 2 Promotions -->
+          <!-- Row 1, Col 2: 3 Promotions -->
           <div class="vd-card">
-            <div id="home-stat-1-num" class="vd-num">2</div>
-            <div id="home-stat-1-label" class="vd-label">Promotions</div>
-            <div class="vd-sub">In 3.5 Years</div>
-            <div class="vd-desc">Recognized for impact across product design initiatives.</div>
-          </div>
-
-          <!-- Row 2, Col 1: +40% Conversion -->
-          <div class="vd-card">
-            <div id="home-stat-2-num" class="vd-num">+40%</div>
-            <div id="home-stat-2-label" class="vd-label">Expert conversion</div>
+            <div id="home-stat-1-num" class="vd-num">+40%</div>
+            <div id="home-stat-1-label" class="vd-label">Conversion</div>
             <div class="vd-sub">SearchAgent redesign</div>
             <div class="vd-desc">Improved expert conversion rates.</div>
+          </div>
+
+          <!-- Row 2, Col 1: 15 People -->
+          <div class="vd-card">
+            <div id="home-stat-2-num" class="vd-num">2</div>
+            <div id="home-stat-2-label" class="vd-label">Promotions</div>
+            <div class="vd-sub">In 3.5 Years</div>
+            <div class="vd-desc">Recognized for impact across product design initiatives.</div>
           </div>
 
           <!-- Row 2, Col 2: 2.5× Growth -->
           <div class="vd-card">
             <div id="home-stat-3-num" class="vd-num">2.5×</div>
             <div id="home-stat-3-label" class="vd-label">AI Adoption</div>
-            <div class="vd-sub">With product design</div>
+            <div class="vd-sub">Through product design</div>
             <div class="vd-desc">Proven track record of driving high-impact product outcomes.</div>
           </div>
 
@@ -447,79 +521,81 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
 
         <!-- Header with Sparkles icon -->
         <div class="ecosystem-group-header">
-          <svg
-            width="18" height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#4f5fef"
-            stroke-width="1.75"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-            style="flex-shrink:0;opacity:.9;"
-          >
-            <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
-            <path d="M20 3v4"/>
-            <path d="M22 5h-4"/>
-            <path d="M4 17v2"/>
-            <path d="M5 18H3"/>
-          </svg>
+          <!-- Sparkles SVG (Lucide style) — signals AI/magic -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
           <div>
-            <div id="home-eco-label" class="ecosystem-group-label">The Dialectica AI Suite</div>
-            <div id="home-eco-title" class="ecosystem-group-title">The Workflow Automation Ecosystem</div>
+            <div id="home-eco-label" class="ecosystem-group-label">End-to-End AI Design</div>
+            <div id="home-eco-title" class="ecosystem-group-title">Two connected tools — one workflow</div>
           </div>
         </div>
 
-        <p style="font-size:.8125rem;color:var(--g800);line-height:1.65;margin-bottom:16px;">Dialectica connects consulting and private equity clients with industry experts. These tools power project setup and expert discovery for 700+ Associates.</p>
+        <!-- Ecosystem intro -->
+        <p style="font-size:.8125rem;color:var(--g600);line-height:1.65;margin-bottom:20px;max-width:60ch;">Two connected tools powering project setup and expert discovery for 700+ Associates at Dialectica, a B2B information services firm.</p>
 
         <!-- Two connected case study cards with → arrow -->
         <div class="ecosystem-connector">
 
-          <!-- Card 01: Project Builder -->
+          <!-- Card 01: Project Builder → project-builder.html -->
           <div class="ecosystem-connector-item">
             <div class="eco-step-label">01 · Setup</div>
             <article>
-              <a class="cs-card" href="project-builder.html" aria-label="Project Builder case study — AI-Assisted Project Setup">
-                <div class="cs-card-img">
-                  <video src="images/project-builder/Thumbnail-video.mp4" poster="images/project-builder/hero-split-screen.png" autoplay loop muted playsinline preload="metadata" aria-hidden="true"></video>
+            <a class="cs-card cs-card--featured" href="project-builder.html" aria-label="Project Builder case study — AI-Assisted Project Setup">
+              <!-- Video thumbnail — looping MP4, plays like a GIF -->
+              <div class="cs-card-img">
+                <video
+                  src="images/project-builder/Thumbnail video.mp4"
+                  poster="images/project-builder/hero-split-screen.png"
+                  autoplay loop muted playsinline
+                  preload="metadata"
+                  aria-label="Animated walkthrough of AI-assisted project setup showing brief analysis and automatic field population"
+                ></video>
+              </div>
+              <div class="cs-card-body">
+                <div class="cs-card-eyebrow">
+                  <span class="label-chip">Project Builder</span>
                 </div>
-                <div class="cs-card-body">
-                  <div class="cs-card-eyebrow">
-                    <span class="label-chip">Workflow automation</span>
-                  </div>
-                  <div class="cs-card-title">AI Project Builder</div>
-                  <p class="cs-card-desc">Redesigned how 700+ team members kick off client projects — replacing a <strong>manual ~7min form</strong> with an AI-assisted system that pre-fills data from client briefs.</p>
-                  <p class="cs-card-role">Sole Designer · Oct '25 – Now</p>
-                  <div class="cs-card-footer">
-                    <span class="cs-card-cta">View Case Study →</span>
-                    <span class="cs-card-metric">↓ 20% Setup Time</span>
-                  </div>
+                <div id="cs-pb-title" class="cs-card-title">AI Project Builder</div>
+                <p class="cs-card-desc">Redesigned how 700+ team members kick off client projects — replacing a <strong>manual ~7min form</strong> with an AI-assisted system that pre-fills data from client briefs.</p>
+                <p class="cs-card-role">Sole Designer · 2024–2025</p>
+                <div class="cs-card-footer">
+                  <span class="cs-card-cta">View Case Study <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                  <span id="cs-pb-metric" class="cs-card-metric"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg> 20% Setup Time</span>
                 </div>
-              </a>
+              </div>
+            </a>
             </article>
           </div>
 
-          <!-- Card 02: SearchAgent -->
+          <div class="eco-arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex-shrink:0;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </div>
+
+          <!-- Card 02: SearchAgent → search-agent.html -->
           <div class="ecosystem-connector-item">
             <div class="eco-step-label">02 · Discovery</div>
             <article>
-              <a class="cs-card" href="search-agent.html" aria-label="SearchAgent case study — AI-Powered Expert Search">
-                <div class="cs-card-img">
-                  <img src="images/search-agent/Thumbnail.png" alt="SearchAgent V2: AI-ranked expert discovery interface showing suggested experts with relevance ranking and status badges" loading="lazy"/>
+            <a class="cs-card" href="search-agent.html" aria-label="SearchAgent case study — AI-Powered Expert Search">
+              <!-- Static thumbnail — pre-cropped Suggested tab view -->
+              <div class="cs-card-img">
+                <img
+                  src="images/search-agent/Thumbnail.png"
+                  alt="SearchAgent V2: AI-ranked expert discovery interface showing suggested experts with relevance ranking and status badges"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cs-card-body">
+                <div class="cs-card-eyebrow">
+                  <span class="label-chip">SearchAgent</span>
                 </div>
-                <div class="cs-card-body">
-                  <div class="cs-card-eyebrow">
-                    <span class="label-chip">Intelligent search</span>
-                  </div>
-                  <div class="cs-card-title">AI SearchAgent</div>
-                  <p class="cs-card-desc">Redesigned how Associates find industry experts — from scrolling <strong>hundreds of raw results</strong> to an AI-ranked discovery engine that surfaces the most relevant matches first.</p>
-                  <p class="cs-card-role">Sole Designer · May '25 – Now</p>
-                  <div class="cs-card-footer">
-                    <span class="cs-card-cta">View Case Study →</span>
-                    <span class="cs-card-metric">2% → 18% Adoption</span>
-                  </div>
+                <div id="cs-sa-title" class="cs-card-title">AI SearchAgent</div>
+                <p class="cs-card-desc">Redesigned how Associates find industry experts — from scrolling <strong>hundreds of raw results</strong> to an AI-ranked discovery engine that surfaces the most relevant matches first.</p>
+                <p class="cs-card-role">Sole Designer · 2024–2025</p>
+                <div class="cs-card-footer">
+                  <span class="cs-card-cta">View Case Study <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                  <span id="cs-sa-metric" class="cs-card-metric">2% → 18% Adoption</span>
                 </div>
-              </a>
+              </div>
+            </a>
             </article>
           </div>
 
@@ -530,3 +606,60 @@ footer{border-top:1px solid var(--g200);background:var(--g50);padding:32px 0;mar
   </section>
 
 </main>
+
+<!-- ══════════════════════════════════════
+     GLOBAL FOOTER
+══════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a class="footer-logo" href="index.html">
+        <div class="footer-mark"><span>ES</span></div>
+        <span class="footer-name">Elena Stamatopoulou</span>
+      </a>
+      <div class="footer-links">
+        <button class="btn btn--text email-copy-btn" onclick="copyEmail(this)">
+          elenast.ux@gmail.com
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+        </button>
+        <div class="footer-sep"></div>
+        <a class="btn btn--text" href="https://linkedin.com/in/elena-stamatopoulou" target="_blank" rel="noopener">
+          LinkedIn
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+        </a>
+        <div class="footer-sep"></div>
+        <button class="btn btn--text" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex-shrink:0;"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+          Top
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll progress bar
+(function(){
+  const fill=document.getElementById('scroll-progress-fill');
+  window.addEventListener('scroll',function(){
+    const scrollTop=window.scrollY||document.documentElement.scrollTop;
+    const docH=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    const pct=docH>0?Math.min(100,Math.round((scrollTop/docH)*100)):0;
+    fill.style.width=pct+'%';
+  },{passive:true});
+})();
+function copyEmail(btn) {
+  navigator.clipboard.writeText('elenast.ux@gmail.com').then(function() {
+    var tip = document.createElement('span');
+    tip.className = 'btn-copy-tooltip';
+    tip.textContent = 'Copied';
+    btn.appendChild(tip);
+    tip.getBoundingClientRect(); // force reflow
+    tip.classList.add('visible');
+    setTimeout(function() {
+      tip.classList.remove('visible');
+      setTimeout(function() { if (tip.parentNode) tip.parentNode.removeChild(tip); }, 200);
+    }, 1200);
+  });
+}
+</script>
